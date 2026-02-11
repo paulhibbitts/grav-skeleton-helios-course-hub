@@ -1,0 +1,67 @@
+{% extends 'partials/base-simple.html.twig' %}
+
+{% block content %}
+    {# Page title #}
+    <header class="mb-12 text-center">
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {{ page.title }}
+        </h1>
+        {% if page.header.description %}
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            {{ page.header.description }}
+        </p>
+        {% endif %}
+    </header>
+
+    {# Contact wrapper #}
+    {% set contact = page.header.contact|default({}) %}
+    <div class="contact-wrapper">
+        <div class="contact-intro">
+            <div class="intro-content">
+                <h2>{{ contact.heading|default('THEME_HELIOS.CONTACT_HEADING'|t) }}</h2>
+                <p>{{ contact.description|default('THEME_HELIOS.CONTACT_DESCRIPTION'|t) }}</p>
+            </div>
+            <div class="contact-info">
+                {% if contact.info %}
+                    {% for item in contact.info %}
+                    <div class="info-card">
+                        {% if item.icon %}
+                        <div class="info-icon">
+                            {{ svg_icon(item.icon, 'w-6 h-6')|raw }}
+                        </div>
+                        {% endif %}
+                        <div class="info-text">
+                            <span class="info-label">{{ item.label }}</span>
+                            <span class="info-value">{{ item.value }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    {# Default info cards #}
+                    <div class="info-card">
+                        <div class="info-icon">
+                            {{ svg_icon('tabler/mail.svg', 'w-6 h-6')|raw }}
+                        </div>
+                        <div class="info-text">
+                            <span class="info-label">{{ 'THEME_HELIOS.CONTACT_EMAIL_LABEL'|t }}</span>
+                            <span class="info-value">{{ 'THEME_HELIOS.CONTACT_EMAIL_VALUE'|t }}</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            {{ svg_icon('tabler/clock.svg', 'w-6 h-6')|raw }}
+                        </div>
+                        <div class="info-text">
+                            <span class="info-label">{{ 'THEME_HELIOS.CONTACT_RESPONSE_LABEL'|t }}</span>
+                            <span class="info-value">{{ 'THEME_HELIOS.CONTACT_RESPONSE_VALUE'|t }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            {% include "forms/form.html.twig" %}
+        </div>
+    </div>
+{% endblock %}

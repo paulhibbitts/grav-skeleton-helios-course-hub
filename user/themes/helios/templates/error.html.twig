@@ -1,0 +1,59 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set error_code = page.header.http_response_code|default('404') %}
+{% set hide_toc = true %}
+
+{% block content %}
+<div class="not-prose">
+
+<div class="flex flex-col items-center justify-center min-h-[60vh] text-center -mt-8">
+
+    {# Large gradient error code (primary to accent) #}
+    <div class="error-code-gradient">
+        {{ error_code }}
+    </div>
+
+    {# Error title #}
+    <h1 class="-mt-6 text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+        {{ page.title }}
+    </h1>
+
+    {# Error message #}
+    {% if page.content|striptags|trim %}
+    <p class="mt-6 text-xl text-gray-600 dark:text-gray-400 max-w-lg">
+        {{ page.content|striptags }}
+    </p>
+    {% endif %}
+
+    {# Actions #}
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <button onclick="history.back()"
+                class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border-2 border-gray-300 dark:border-gray-600 text-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            {{ 'THEME_HELIOS.GO_BACK'|t }}
+        </button>
+
+        <a href="{{ base_url ?: '/' }}"
+           class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-primary !text-white text-lg font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            {{ 'THEME_HELIOS.BACK_TO_HOME'|t }}
+        </a>
+    </div>
+
+    {# Search hint #}
+    {% if config.themes.helios.search.enabled %}
+    <div class="mt-12 px-5 py-3.5 rounded-xl bg-primary/10 dark:bg-primary/15 text-base text-primary dark:text-primary-dark font-medium">
+        {{ 'THEME_HELIOS.TRY_SEARCHING'|t }}
+        <kbd class="mx-1.5 px-2 py-1 rounded-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold shadow-sm">{{ browser.platform == 'macintosh' ? '⌘' : 'Ctrl' }}</kbd>
+        +
+        <kbd class="mx-1.5 px-2 py-1 rounded-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold shadow-sm">K</kbd>
+    </div>
+    {% endif %}
+
+</div>
+</div>
+{% endblock %}

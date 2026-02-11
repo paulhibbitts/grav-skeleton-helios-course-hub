@@ -1,0 +1,46 @@
+{
+  "name": "editor-pro",
+  "version": "1.0.0",
+  "description": "A modern block-based content editor for Grav built on TipTap with content preservation for HTML, Shortcodes, and Twig.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:tiptap && npm run build:editor",
+    "build:tiptap": "esbuild src/tiptap-bundle.js --bundle --outfile=admin/assets/vendor/tiptap-bundle.js --format=iife --global-name=TipTap --minify --target=es2018 --tree-shaking=true --sourcemap",
+    "build:editor": "esbuild admin/assets/editor-pro.js --outfile=admin/assets/editor-pro.min.js --minify --target=es2018 --sourcemap",
+    "watch": "npm run watch:tiptap & npm run watch:editor",
+    "watch:tiptap": "esbuild src/tiptap-bundle.js --bundle --outfile=admin/assets/vendor/tiptap-bundle.js --format=iife --global-name=TipTap --watch --sourcemap",
+    "watch:editor": "esbuild admin/assets/editor-pro.js --outfile=admin/assets/editor-pro.min.js --watch --sourcemap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@codemirror/lang-html": "^6.4.9",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/lang-markdown": "^6.3.1",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@codemirror/view": "^6.34.3",
+    "@tiptap/core": "^2.22.3",
+    "@tiptap/extension-bubble-menu": "^2.22.3",
+    "@tiptap/extension-character-count": "^2.23.0",
+    "@tiptap/extension-drag-handle": "^2.23.0",
+    "@tiptap/extension-gapcursor": "^2.23.1",
+    "@tiptap/extension-image": "^2.26.1",
+    "@tiptap/extension-link": "^2.26.1",
+    "@tiptap/extension-table": "^2.22.3",
+    "@tiptap/extension-table-cell": "^2.22.3",
+    "@tiptap/extension-table-header": "^2.22.3",
+    "@tiptap/extension-table-row": "^2.22.3",
+    "@tiptap/extension-typography": "^2.23.0",
+    "@tiptap/extension-underline": "^2.22.3",
+    "@tiptap/pm": "^2.23.0",
+    "@tiptap/starter-kit": "^2.22.3",
+    "marked": "^15.0.12"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5"
+  }
+}

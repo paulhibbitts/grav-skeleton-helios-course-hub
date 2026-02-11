@@ -1,0 +1,83 @@
+name: Editor Pro
+type: plugin
+premium: true
+slug: editor-pro
+version: 1.3.1
+description: Modern block-based content editor for Grav built on TipTap with markdown preservation.
+icon: edit
+author:
+  name: Trilby Media, LLC
+  email: hello@trilby.media
+homepage: https://getgrav.org/premium/editor-pro
+keywords: grav, editor, wysiwyg, blocks, modern, markdown, tiptap
+docs: https://getgrav.org/premium/editor-pro/docs
+license: https://getgrav.org/premium/license
+
+dependencies:
+  - { name: grav, version: '>=1.7.49' }
+  - { name: admin, version: '>=1.10.49' }
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    
+    default_for_all:
+      type: toggle
+      label: Default for All Users
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    editor_section:
+      type: section
+      title: Editor Configuration
+      underline: true
+
+    toolbar:
+      type: selectize
+      size: x-large
+      label: Toolbar Items
+      help: Configure which tools appear in the toolbar
+      classes: fancy
+      default: 'undo,redo,|,removeformat,|,heading,bold,italic,underline,strikethrough,|,link,image,|,blockquote,bulletList,orderedList,|,codeBlock,table,|,htmlBlock,shortcodeBlock'
+      validate:
+        type: commalist
+    
+    extra_typography_section:
+      type: section
+      title: Extra Typography
+      underline: true
+    
+    extra_typography.enabled:
+      type: toggle
+      label: Enable Typography Enhancements
+      help: Automatically convert text patterns like arrows, fractions, and custom replacements
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    
+    extra_typography.custom:
+      type: array
+      label: Custom Replacements
+      help: Add your own text replacements (e.g., :) becomes 😊)
+      placeholder_key: Pattern
+      placeholder_value: Replacement
+      value_only: false

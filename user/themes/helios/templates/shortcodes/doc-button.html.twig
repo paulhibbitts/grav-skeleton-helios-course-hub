@@ -1,0 +1,15 @@
+{# doc-button shortcode template #}
+{% set tag = link ? 'a' : 'button' %}
+{% set style_class = style != 'default' ? 'doc-button-' ~ style : '' %}
+{% set color_class = color != 'default' ? 'doc-button-' ~ color : '' %}
+{% set size_class = size != 'default' ? 'doc-button-' ~ size : '' %}
+{% set all_classes = ['doc-button', style_class, color_class, size_class, classes]|filter(v => v)|join(' ') %}
+{% if center %}<div class="doc-button-center">{% endif %}
+<{{ tag }} {% if link %}href="{{ url(link) }}"{% endif %} class="{{ all_classes }}"
+    {%- if new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}
+    {%- if data_attr %} data-{{ data_attr }}="{{ data_val }}"{% endif %}>
+    {%- if icon_left %}{{ svg_icon(icon_left, 'doc-button-icon')|raw }}{% endif -%}
+    <span>{{ label }}</span>
+    {%- if icon_right %}{{ svg_icon(icon_right, 'doc-button-icon')|raw }}{% endif -%}
+</{{ tag }}>
+{% if center %}</div>{% endif %}

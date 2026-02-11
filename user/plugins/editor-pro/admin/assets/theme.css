@@ -1,0 +1,670 @@
+/* TipTap/ProseMirror Editor Theme CSS
+ * Extracted from template.tiptap.dev
+ * Consolidated for use as a clean editor theme with light/dark mode support
+ */
+
+/* CSS Variables for theming */
+:root {
+    /* Editor colors */
+    --editor-bg: #ffffff;
+    --editor-text: #374151;
+    --toolbar-bg: #f9fafb;
+    --toolbar-border: #e5e7eb;
+    --button-hover: #e5e7eb;
+    --button-active: #3b82f6;
+    --button-text: #374151;
+    --separator-color: #d1d5db;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --link-text-color: #3b82f6;
+
+    /* TipTap specific colors */
+    --tt-cursor-color: #000;
+    --tt-selection-color: rgba(59, 130, 246, 0.2);
+    --white: #ffffff;
+    --black: #000000;
+
+    /* Gray scale - Light mode */
+    --tt-gray-light-a-50: #fafafa;
+    --tt-gray-light-a-100: #f5f5f5;
+    --tt-gray-light-a-200: #e5e5e5;
+    --tt-gray-light-a-400: #a3a3a3;
+    --tt-gray-light-a-500: #737373;
+    --tt-gray-light-a-600: #525252;
+    --tt-gray-light-a-700: #404040;
+    --tt-gray-light-a-800: #262626;
+    --tt-gray-light-a-900: #171717;
+
+    /* UI Components */
+    --tt-brand-color-500: #3b82f6;
+    --tt-radius-xs: .25rem;
+    --tt-radius-md: .375rem;
+    --tt-radius-lg: .75rem;
+    --tt-radius-xl: 1rem;
+    --tt-toolbar-height: 3rem;
+    --tt-toolbar-padding: .188rem;
+    --tt-toolbar-border-width: 1px;
+    --tt-toolbar-bg-color: #f9fafb;
+    --tt-toolbar-border-color: #e5e7eb;
+    --tt-shadow-elevated-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --tt-transition-duration-default: 150ms;
+    --tt-transition-easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --tt-tooltip-bg: #1f2937;
+    --tt-tooltip-text: #f3f4f6;
+    --tt-kbd: #d1d5db;
+}
+
+.dark-theme {
+    /* Editor colors */
+    --editor-bg: #1f2937;
+    --editor-text: #f3f4f6;
+    --toolbar-bg: #111827;
+    --toolbar-border: #374151;
+    --button-hover: #374151;
+    --button-active: #3b82f6;
+    --button-text: #d1d5db;
+    --separator-color: #4b5563;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --link-text-color: #60a5fa;
+
+    /* TipTap specific colors */
+    --tt-cursor-color: #fff;
+    --tt-selection-color: rgba(59, 130, 246, 0.3);
+
+    /* Gray scale - Dark mode */
+    --tt-gray-dark-50: #1a1a1a;
+    --tt-gray-dark-a-50: #262626;
+    --tt-gray-dark-a-100: #2e2e2e;
+    --tt-gray-dark-a-200: #404040;
+    --tt-gray-dark-a-500: #8c8c8c;
+    --tt-gray-dark-a-600: #a3a3a3;
+    --tt-gray-dark-a-700: #d4d4d4;
+    --tt-gray-dark-a-800: #e5e5e5;
+    --tt-gray-dark-a-900: #fafafa;
+
+    /* UI Components */
+    --tt-toolbar-bg-color: #111827;
+    --tt-toolbar-border-color: #374151;
+    --tt-tooltip-bg: #f3f4f6;
+    --tt-tooltip-text: #1f2937;
+    --tt-kbd: #374151;
+}
+
+#editor-pro .epc {
+
+    /* ===== Core Editor Styles ===== */
+
+    .ProseMirror {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'DM Sans', sans-serif;
+        white-space: pre-wrap;
+        outline: none;
+        caret-color: var(--tt-cursor-color);
+        padding: 1rem 3rem;
+        min-height: 150px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--editor-text);
+        background: var(--editor-bg);
+    }
+
+    /* Editor Variables - Light Mode */
+
+    .ProseMirror {
+        /* Checklist */
+        --tt-checklist-bg-color: var(--tt-gray-light-a-100);
+        --tt-checklist-bg-active-color: var(--tt-gray-light-a-900);
+        --tt-checklist-border-color: var(--tt-gray-light-a-200);
+        --tt-checklist-border-active-color: var(--tt-gray-light-a-900);
+        --tt-checklist-check-icon-color: var(--white);
+        --tt-checklist-text-active: var(--tt-gray-light-a-500);
+
+        /* Code */
+        --tt-inline-code-bg-color: var(--tt-gray-light-a-100);
+        --tt-inline-code-text-color: var(--tt-gray-light-a-700);
+        --tt-inline-code-border-color: var(--tt-gray-light-a-200);
+        --tt-codeblock-bg: var(--tt-gray-light-a-50);
+        --tt-codeblock-text: var(--tt-gray-light-a-800);
+        --tt-codeblock-border: var(--tt-gray-light-a-200);
+    }
+
+    /* Editor Variables - Dark Mode */
+
+    .dark-theme .ProseMirror {
+        /* Checklist */
+        --tt-checklist-bg-color: var(--tt-gray-dark-a-100);
+        --tt-checklist-bg-active-color: var(--tt-gray-dark-a-900);
+        --tt-checklist-border-color: var(--tt-gray-dark-a-200);
+        --tt-checklist-border-active-color: var(--tt-gray-dark-a-900);
+        --tt-checklist-check-icon-color: var(--black);
+        --tt-checklist-text-active: var(--tt-gray-dark-a-500);
+
+        /* Code */
+        --tt-inline-code-bg-color: var(--tt-gray-dark-a-100);
+        --tt-inline-code-text-color: var(--tt-gray-dark-a-700);
+        --tt-inline-code-border-color: var(--tt-gray-dark-a-200);
+        --tt-codeblock-bg: var(--tt-gray-dark-a-50);
+        --tt-codeblock-text: var(--tt-gray-dark-a-800);
+        --tt-codeblock-border: var(--tt-gray-dark-a-200);
+    }
+
+    /* Selection */
+
+    .ProseMirror:not(.readonly):not(.ProseMirror-hideselection) ::selection {
+        background-color: var(--tt-selection-color);
+    }
+
+    .ProseMirror .selection {
+        display: inline;
+        background-color: var(--tt-selection-color);
+    }
+
+    /* Mobile Editor Padding */
+    @media screen and (max-width: 480px) {
+        .ProseMirror {
+            padding: 1rem 1.5rem;
+        }
+    }
+
+    /* ===== Typography ===== */
+
+    /* Paragraphs */
+
+    .ProseMirror p {
+        font-size: 1rem;
+        line-height: 1.6;
+        font-weight: 400;
+        margin: 0 0 1em 0;
+        padding: 0;
+    }
+
+    /* Headings */
+
+    .ProseMirror h1,
+    .ProseMirror h2,
+    .ProseMirror h3,
+    .ProseMirror h4,
+    .ProseMirror h5,
+    .ProseMirror h6 {
+        position: relative;
+        font-style: inherit;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--editor-text);
+        border: 0;
+        padding: 0;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .ProseMirror h1 {
+        font-size: 2em;
+        font-weight: 900;
+    }
+
+    .ProseMirror h2 {
+        font-size: 1.5em;
+    }
+
+    .ProseMirror h3 {
+        font-size: 1.25em;
+    }
+
+    .ProseMirror h4 {
+        font-size: 1.1em;
+    }
+
+    .ProseMirror h5 {
+        font-size: 1em;
+    }
+
+    .ProseMirror h6 {
+        font-size: 0.9em;
+    }
+
+    /* Links */
+
+    .ProseMirror a {
+        color: var(--link-text-color);
+        text-decoration: underline;
+        text-decoration-color: rgba(59, 130, 246, 0.4);
+        text-underline-offset: 2px;
+        transition: all 0.15s ease;
+    }
+
+    .ProseMirror a:hover {
+        color: #1d4ed8;
+        text-decoration-color: #1d4ed8;
+    }
+
+    /* Blockquotes */
+
+    .ProseMirror blockquote {
+        position: relative;
+        border-left: 4px solid #ddd;
+        padding-left: 1em;
+        padding-top: .375em;
+        padding-bottom: .375em;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #666;
+    }
+
+    .dark-theme .ProseMirror blockquote {
+        border-left-color: #4b5563;
+        color: #9ca3af;
+    }
+
+    /* Horizontal Rules */
+
+    .ProseMirror hr {
+        margin-top: 3em;
+        margin-bottom: 3em;
+        border: none;
+        height: 1px;
+        background-color: var(--separator-color);
+    }
+
+    /* ===== Lists ===== */
+
+    .ProseMirror ol,
+    .ProseMirror ul {
+        margin-top: 0.75em;
+        margin-bottom: 1em;
+        padding-left: 2em;
+        list-style: revert !important;
+    }
+
+    .ProseMirror ul {
+        list-style-type: disc !important;
+
+        & > li > p {
+            margin-bottom: 0.25em;
+        }
+    }
+
+    .ProseMirror ol {
+        list-style-type: decimal !important;
+
+        & > li > p {
+            margin-bottom: 0.25em;
+        }
+    }
+
+    /* ===== Code ===== */
+
+    .ProseMirror code {
+        background-color: var(--tt-inline-code-bg-color);
+        color: var(--tt-inline-code-text-color);
+        border: 1px solid var(--tt-inline-code-border-color);
+        font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        font-size: .875em;
+        line-height: 1.4;
+        border-radius: .375rem;
+        padding: .1em .2em;
+    }
+
+    .ProseMirror pre {
+        background-color: var(--tt-codeblock-bg);
+        color: var(--tt-codeblock-text);
+        border: 1px solid var(--tt-codeblock-border);
+        font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        padding: 1rem;
+        border-radius: .5rem;
+        overflow-x: auto;
+        margin: 1em 0;
+    }
+
+    .ProseMirror pre code {
+        background: none;
+        padding: 0;
+        font-size: inherit;
+        border: none;
+    }
+
+    /* ===== Images ===== */
+
+    .ProseMirror img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .ProseMirror > img:not([data-type=emoji] img) {
+        margin: 2rem 0;
+        outline: .125rem solid rgba(0, 0, 0, 0);
+        border-radius: var(--tt-radius-xs, .25rem);
+    }
+
+    .ProseMirror.ProseMirror-focused img:not([data-type=emoji] img).ProseMirror-selectednode {
+        outline-color: var(--tt-brand-color-500);
+    }
+
+    /* ===== Tables ===== */
+
+    .ProseMirror table {
+        border-collapse: collapse;
+        margin: 1em 0;
+        width: 100%;
+    }
+
+    .ProseMirror td, .ProseMirror th {
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+        vertical-align: top;
+    }
+
+    .ProseMirror th {
+        background: #f5f5f5;
+        font-weight: 600;
+    }
+
+    .dark-theme .ProseMirror td, .dark-theme .ProseMirror th {
+        border-color: #4b5563;
+    }
+
+    .dark-theme .ProseMirror th {
+        background: #374151;
+    }
+
+    /* ===== UI Components ===== */
+
+    /* Toolbar */
+
+    .tiptap-toolbar {
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+    }
+
+    .tiptap-toolbar-group {
+        display: flex;
+        align-items: center;
+        gap: .125rem;
+    }
+
+    .tiptap-separator + .tiptap-toolbar-group:empty,
+    .tiptap-toolbar-group:empty,
+    .tiptap-toolbar-group:empty + .tiptap-separator {
+        display: none;
+    }
+
+    .tiptap-toolbar[data-variant=fixed] {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        min-height: var(--tt-toolbar-height);
+        background: var(--tt-toolbar-bg-color);
+        border-bottom: 1px solid var(--tt-toolbar-border-color);
+        padding: 0 .5rem;
+        overflow-x: auto;
+    }
+
+    .tiptap-toolbar[data-variant=floating] {
+        padding: .188rem;
+        border-radius: calc(var(--tt-toolbar-padding) + var(--tt-radius-lg) + var(--tt-toolbar-border-width));
+        border: var(--tt-toolbar-border-width) solid var(--tt-toolbar-border-color);
+        background-color: var(--tt-toolbar-bg-color);
+        box-shadow: var(--tt-shadow-elevated-md);
+    }
+
+    /* Buttons */
+
+    .tiptap-button {
+        font-size: .875rem;
+        font-weight: 500;
+        line-height: 1.15;
+        height: 2rem;
+        min-width: 2rem;
+        border: none;
+        padding: .5rem;
+        gap: .25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--tt-radius-lg, .75rem);
+        transition-property: background, color, opacity;
+        transition-duration: var(--tt-transition-duration-default);
+        transition-timing-function: var(--tt-transition-easing-default);
+    }
+
+    /* Button Highlight */
+
+    .tiptap-button-highlight {
+        position: relative;
+        width: 1.25rem;
+        height: 1.25rem;
+        margin: 0 -.175rem;
+        border-radius: var(--tt-radius-xl);
+        background-color: var(--highlight-color);
+        transition: transform .2s ease;
+    }
+
+    .tiptap-button-highlight:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: inherit;
+        box-sizing: border-box;
+        border: 1px solid var(--highlight-color);
+        filter: brightness(95%);
+        mix-blend-mode: multiply;
+    }
+
+    .dark .tiptap-button-highlight:after {
+        filter: brightness(140%);
+        mix-blend-mode: lighten;
+    }
+
+    .tiptap-button[data-active-state=on] .tiptap-button-highlight:after {
+        filter: brightness(80%);
+    }
+
+    .dark .tiptap-button[data-active-state=on] .tiptap-button-highlight:after {
+        filter: brightness(180%);
+    }
+
+    /* Popover */
+
+    .tiptap-popover {
+        --tt-popover-bg-color: var(--white);
+        --tt-popover-border-color: var(--tt-gray-light-a-100);
+        --tt-popover-text-color: var(--tt-gray-light-a-600);
+        --padding: 0.25rem;
+        --border-width: 1px;
+        z-index: 50;
+        border-radius: calc(var(--padding) + var(--tt-radius-lg) + var(--border-width));
+        border: var(--border-width) solid var(--tt-popover-border-color);
+        background-color: var(--tt-popover-bg-color);
+        padding: var(--padding);
+        color: var(--tt-popover-text-color);
+        box-shadow: var(--tt-shadow-elevated-md);
+        outline: none;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+    }
+
+    .dark .tiptap-popover {
+        --tt-popover-border-color: var(--tt-gray-dark-a-50);
+        --tt-popover-bg-color: var(--tt-gray-dark-50);
+        --tt-popover-text-color: var(--tt-gray-dark-a-600);
+    }
+
+    .tiptap-popover button {
+        width: 100%;
+    }
+
+    .tiptap-popover[data-orientation=horizontal] {
+        --padding: 0.125rem;
+    }
+
+    .tiptap-popover[data-state=open] {
+        animation: fadeIn .15s cubic-bezier(.16, 1, .3, 1), zoomIn .15s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .tiptap-popover[data-state=closed] {
+        animation: fadeOut .15s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    /* Dropdown Menu */
+
+    .tiptap-dropdown-menu {
+        --tt-popover-bg-color: var(--white);
+        --tt-popover-border-color: var(--tt-gray-light-a-100);
+        --tt-popover-text-color: var(--tt-gray-light-a-600);
+        --tt-popover-label: var(--tt-gray-light-a-400);
+        --padding: 0.25rem;
+        --border-width: 1px;
+        z-index: 200;
+        border-radius: calc(var(--padding) + var(--tt-radius-lg) + var(--border-width));
+        border: var(--border-width) solid var(--tt-popover-border-color);
+        background-color: var(--tt-popover-bg-color);
+        padding: var(--padding);
+        color: var(--tt-popover-text-color);
+        box-shadow: var(--tt-shadow-elevated-md);
+        outline: none;
+        overflow: auto;
+        gap: .25rem;
+    }
+
+    .dark .tiptap-dropdown-menu {
+        --tt-popover-border-color: var(--tt-gray-dark-a-50);
+        --tt-popover-bg-color: var(--tt-gray-dark-50);
+        --tt-popover-text-color: var(--tt-gray-dark-a-600);
+    }
+
+    .tiptap-dropdown-menu button {
+        width: 100%;
+    }
+
+    .tiptap-dropdown-menu .tiptap-dropdown-menu-separator {
+        margin: .25rem 0;
+    }
+
+    .tiptap-dropdown-menu .tiptap-dropdown-menu-label {
+        margin-left: .5rem;
+        font-size: .75rem;
+        font-weight: 600;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        color: var(--tt-popover-label);
+    }
+
+    /* Tooltip */
+
+    .tiptap-tooltip {
+        z-index: 200;
+        overflow: hidden;
+        border-radius: var(--tt-radius-md, .375rem);
+        background-color: var(--tt-tooltip-bg);
+        padding: .375rem .5rem;
+        font-size: .75rem;
+        font-weight: 500;
+        color: var(--tt-tooltip-text);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1);
+        text-align: center;
+    }
+
+    .tiptap-tooltip kbd {
+        display: inline-block;
+        text-align: center;
+        vertical-align: baseline;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+        text-transform: capitalize;
+        color: var(--tt-kbd);
+    }
+
+    /* Separator */
+
+    .tiptap-separator {
+        --tt-link-border-color: var(--tt-gray-light-a-200);
+        flex-shrink: 0;
+        background-color: var(--tt-link-border-color);
+    }
+
+    .dark .tiptap-separator {
+        --tt-link-border-color: var(--tt-gray-dark-a-200);
+    }
+
+    .tiptap-separator[data-orientation=horizontal] {
+        height: 1px;
+        width: 100%;
+    }
+
+    .tiptap-separator[data-orientation=vertical] {
+        height: 1.5rem;
+        width: 1px;
+    }
+
+    /* Input */
+
+    .tiptap-input {
+        display: block;
+        width: 100%;
+        height: 2rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding: .375rem .75rem;
+        border-radius: .375rem;
+        background: none;
+    }
+
+    .tiptap-input:focus {
+        outline: none;
+    }
+
+    .tiptap-input-clamp {
+        min-width: 12rem;
+        padding-right: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .tiptap-input-clamp:focus {
+        text-overflow: clip;
+        overflow: visible;
+    }
+
+    /* ===== Special Components ===== */
+
+    /* Color Highlight */
+
+    .tiptap-color-highlight-content {
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+        outline: none;
+    }
+
+    /* Image Upload */
+
+    .tiptap-image-upload {
+        margin: 2rem 0;
+    }
+
+    .tiptap-image-upload input[type=file] {
+        display: none;
+    }
+
+    .tiptap-image-upload .tiptap-image-upload-dropzone {
+        position: relative;
+        width: 3.125rem;
+        height: 3.75rem;
+        display: inline-flex;
+        align-items: flex-start;
+        justify-content: center;
+        user-select: none;
+    }
+
+    .tiptap.ProseMirror.ProseMirror-focused .ProseMirror-selectednode .tiptap-image-upload-dragger {
+        border-color: var(--tiptap-image-upload-active);
+    }
+}
+

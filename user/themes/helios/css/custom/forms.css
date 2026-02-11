@@ -1,0 +1,367 @@
+/* Contact Page & Form Styling */
+
+/* Contact page layout */
+.contact-wrapper {
+    @apply grid gap-12 lg:gap-16;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr 1.2fr;
+        align-items: start;
+    }
+}
+
+/* Intro section */
+.contact-intro {
+    @apply space-y-8;
+}
+
+.intro-content h2 {
+    @apply text-2xl sm:text-3xl font-bold tracking-tight;
+    @apply text-gray-900 dark:text-white;
+    @apply mb-4 !border-none !pb-0;
+}
+
+.intro-content p {
+    @apply text-gray-600 dark:text-gray-400 text-lg leading-relaxed;
+}
+
+/* Contact info cards */
+.contact-info {
+    @apply flex flex-col gap-4;
+}
+
+.info-card {
+    @apply flex items-center gap-4 p-4;
+    @apply bg-gray-50 dark:bg-gray-800/50;
+    @apply rounded-xl border border-gray-200 dark:border-gray-700/50;
+    @apply transition-all duration-300;
+}
+
+.info-card:hover {
+    @apply border-primary/30 dark:border-primary/30;
+    @apply shadow-sm;
+}
+
+.info-icon {
+    @apply flex items-center justify-center;
+    @apply w-12 h-12 rounded-lg;
+    @apply bg-primary/10 dark:bg-primary/20;
+    @apply text-primary dark:text-primary-dark;
+}
+
+.info-icon svg {
+    @apply w-6 h-6;
+}
+
+.info-text {
+    @apply flex flex-col;
+}
+
+.info-label {
+    @apply text-xs uppercase tracking-wider font-medium;
+    @apply text-gray-500 dark:text-gray-400;
+}
+
+.info-value {
+    @apply text-gray-900 dark:text-white font-medium;
+}
+
+/* Form container */
+.contact-form-container {
+    @apply relative;
+}
+
+/* Glass morphism card effect for form */
+.contact-form {
+    @apply relative p-6 sm:p-8;
+    @apply bg-white dark:bg-gray-900/80;
+    @apply rounded-2xl;
+    @apply border border-gray-200 dark:border-gray-700/50;
+    @apply shadow-xl shadow-gray-900/5 dark:shadow-black/20;
+    backdrop-filter: blur(20px);
+}
+
+/* Subtle gradient accent at top */
+.contact-form::before {
+    content: '';
+    @apply absolute inset-x-0 top-0 h-1 rounded-t-2xl;
+    background: linear-gradient(90deg, var(--helios-color-primary), var(--helios-color-accent, var(--helios-color-primary)));
+}
+
+/* Form field wrapper */
+.contact-form .form-field {
+    @apply mb-6;
+}
+
+.contact-form .form-field:last-of-type {
+    @apply mb-8;
+}
+
+/* Labels */
+.contact-form .form-label {
+    @apply block mb-2;
+    @apply text-sm font-medium;
+    @apply text-gray-700 dark:text-gray-300;
+}
+
+.contact-form .form-label.required::after {
+    content: ' *';
+    @apply text-red-500 dark:text-red-400;
+}
+
+/* Base input styling */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="url"],
+.contact-form select,
+.contact-form textarea {
+    @apply w-full px-4 py-3;
+    @apply bg-gray-50 dark:bg-gray-800;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply rounded-xl;
+    @apply text-gray-900 dark:text-white;
+    @apply placeholder-gray-400 dark:placeholder-gray-500;
+    @apply transition-all duration-200;
+    @apply text-base;
+}
+
+/* Focus states with primary color ring */
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form input[type="url"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    @apply outline-none;
+    @apply bg-white dark:bg-gray-800/80;
+    @apply border-primary dark:border-primary;
+    box-shadow: 0 0 0 3px rgba(var(--tw-ring-color), 0.1),
+                0 0 20px -5px rgba(var(--tw-ring-color), 0.15);
+    --tw-ring-color: var(--helios-color-primary);
+}
+
+/* Hover states */
+.contact-form input[type="text"]:hover:not(:focus),
+.contact-form input[type="email"]:hover:not(:focus),
+.contact-form input[type="tel"]:hover:not(:focus),
+.contact-form input[type="url"]:hover:not(:focus),
+.contact-form select:hover:not(:focus),
+.contact-form textarea:hover:not(:focus) {
+    @apply border-gray-300 dark:border-gray-600;
+}
+
+/* Select dropdown styling */
+.contact-form select {
+    @apply appearance-none cursor-pointer pr-10;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem 1.25rem;
+}
+
+.dark .contact-form select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* Textarea */
+.contact-form textarea {
+    @apply resize-y min-h-[140px];
+}
+
+/* Checkbox styling */
+.contact-form .form-field.checkboxes {
+    @apply flex items-start gap-3;
+}
+
+.contact-form input[type="checkbox"] {
+    @apply w-5 h-5 mt-0.5;
+    @apply rounded-md;
+    @apply border-2 border-gray-300 dark:border-gray-600;
+    @apply bg-gray-50 dark:bg-gray-800;
+    @apply text-primary;
+    @apply cursor-pointer;
+    @apply transition-all duration-200;
+}
+
+.contact-form input[type="checkbox"]:checked {
+    @apply bg-primary border-primary;
+}
+
+.contact-form input[type="checkbox"]:focus {
+    @apply ring-2 ring-primary/20 ring-offset-0;
+    @apply outline-none;
+}
+
+.contact-form .checkboxes label {
+    @apply text-sm text-gray-600 dark:text-gray-400 cursor-pointer leading-relaxed;
+}
+
+/* Submit button */
+.contact-form .buttons {
+    @apply mt-8;
+}
+
+.contact-form .submit-btn,
+.contact-form button[type="submit"] {
+    @apply w-full sm:w-auto;
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-8 py-3.5;
+    @apply bg-primary hover:bg-primary-hover dark:bg-primary-dark dark:hover:bg-primary-dark-hover;
+    @apply text-white font-semibold;
+    @apply rounded-xl;
+    @apply border-0;
+    @apply cursor-pointer;
+    @apply transition-all duration-300;
+    @apply shadow-lg shadow-primary/25;
+}
+
+.contact-form .submit-btn:hover,
+.contact-form button[type="submit"]:hover {
+    @apply transform -translate-y-0.5;
+    @apply shadow-xl shadow-primary/30;
+}
+
+.contact-form .submit-btn:active,
+.contact-form button[type="submit"]:active {
+    @apply transform translate-y-0;
+    @apply shadow-md shadow-primary/20;
+}
+
+.contact-form .submit-btn:focus,
+.contact-form button[type="submit"]:focus {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+}
+
+/* Form notices (success/error) */
+.notices {
+    @apply mb-6 p-4 rounded-xl;
+    @apply text-sm font-medium;
+}
+
+.notices.success.green,
+.notices.green {
+    @apply bg-green-50 dark:bg-green-900/30;
+    @apply text-green-800 dark:text-green-300;
+    @apply border border-green-200 dark:border-green-700/50;
+}
+
+.notices.success.green p,
+.notices.green p {
+    @apply m-0;
+}
+
+.notices.error.red,
+.notices.red {
+    @apply bg-red-50 dark:bg-red-900/30;
+    @apply text-red-800 dark:text-red-300;
+    @apply border border-red-200 dark:border-red-700/50;
+}
+
+.notices.error.red p,
+.notices.red p {
+    @apply m-0;
+}
+
+/* Field validation errors */
+.contact-form .form-field.has-error input,
+.contact-form .form-field.has-error select,
+.contact-form .form-field.has-error textarea {
+    @apply border-red-500 dark:border-red-400;
+}
+
+.contact-form .form-field .text-danger,
+.contact-form .form-field .error {
+    @apply mt-2 text-sm text-red-600 dark:text-red-400;
+}
+
+/* Loading state for submit button */
+.contact-form .submit-btn.loading,
+.contact-form button[type="submit"].loading {
+    @apply opacity-75 pointer-events-none;
+}
+
+.contact-form .submit-btn.loading::after,
+.contact-form button[type="submit"].loading::after {
+    content: '';
+    @apply ml-2 w-4 h-4 border-2 border-white/30 border-t-white rounded-full;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form input groups with icons (optional enhancement) */
+.contact-form .input-group {
+    @apply relative;
+}
+
+.contact-form .input-group .input-icon {
+    @apply absolute left-4 top-1/2 -translate-y-1/2;
+    @apply w-5 h-5 text-gray-400 dark:text-gray-500;
+    @apply pointer-events-none;
+}
+
+.contact-form .input-group input {
+    @apply pl-12;
+}
+
+/* Honeypot field (spam protection) */
+.contact-form .form-field[data-grav-field="honeypot"] {
+    @apply absolute -left-[9999px] opacity-0 h-0 overflow-hidden;
+}
+
+/* Animation for form appearance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-form {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.contact-form .form-field {
+    animation: fadeInUp 0.4s ease-out;
+    animation-fill-mode: both;
+}
+
+.contact-form .form-field:nth-child(1) { animation-delay: 0.1s; }
+.contact-form .form-field:nth-child(2) { animation-delay: 0.15s; }
+.contact-form .form-field:nth-child(3) { animation-delay: 0.2s; }
+.contact-form .form-field:nth-child(4) { animation-delay: 0.25s; }
+.contact-form .form-field:nth-child(5) { animation-delay: 0.3s; }
+.contact-form .buttons { animation: fadeInUp 0.4s ease-out 0.35s both; }
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .contact-form {
+        @apply p-5;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form input[type="url"],
+    .contact-form select,
+    .contact-form textarea {
+        @apply py-3 text-base;
+    }
+
+    .contact-form .submit-btn,
+    .contact-form button[type="submit"] {
+        @apply w-full py-4;
+    }
+}

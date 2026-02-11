@@ -1,0 +1,234 @@
+/* Keyboard shortcut styling */
+kbd {
+    @apply font-sans;
+}
+
+/* Search Modal Styles */
+.search-modal {
+    @apply fixed inset-0 z-50 flex items-start justify-center pt-[10vh] sm:pt-[15vh];
+    @apply bg-black/50 backdrop-blur-sm;
+}
+
+.search-dialog {
+    @apply w-full max-w-2xl mx-4;
+    @apply bg-white dark:bg-gray-900 rounded-xl shadow-2xl;
+    @apply border border-gray-200 dark:border-gray-700;
+    @apply flex flex-col max-h-[80vh];
+}
+
+.search-input-wrapper {
+    @apply flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-gray-700;
+    @apply flex-shrink-0;
+
+    .search-icon {
+        @apply w-5 h-5 text-gray-400 flex-shrink-0;
+    }
+
+    input {
+        @apply flex-1 bg-transparent border-0 text-lg;
+        @apply text-gray-900 dark:text-white;
+        @apply placeholder-gray-400 dark:placeholder-gray-500;
+        @apply focus:ring-0 focus:outline-none;
+    }
+
+    .search-shortcut {
+        @apply flex items-center text-xs flex-shrink-0;
+
+        kbd {
+            @apply px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 font-mono text-gray-500 dark:text-gray-400;
+        }
+    }
+}
+
+.search-results {
+    @apply flex-1 overflow-y-auto min-h-0;
+
+    /* Custom scrollbar for dark mode */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(156, 163, 175, 0.3);
+        border-radius: 4px;
+
+        &:hover {
+            background: rgba(156, 163, 175, 0.5);
+        }
+    }
+
+    .dark & {
+        scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(75, 85, 99, 0.5);
+
+            &:hover {
+                background: rgba(75, 85, 99, 0.7);
+            }
+        }
+    }
+
+    .search-results-header {
+        @apply px-4 py-2 text-sm text-gray-500 dark:text-gray-400;
+        @apply border-b border-gray-100 dark:border-gray-800;
+        @apply sticky top-0 bg-white dark:bg-gray-900 z-10;
+
+        .search-query-text {
+            @apply font-medium text-gray-700 dark:text-gray-300;
+        }
+    }
+
+    .search-empty {
+        @apply px-4 py-12 text-center text-gray-500 dark:text-gray-400;
+
+        .empty-icon {
+            @apply w-12 h-12 mx-auto mb-4 text-gray-300 dark:text-gray-600;
+        }
+
+        .suggestion-link {
+            @apply text-primary underline cursor-pointer;
+            @apply hover:text-primary-hover;
+        }
+    }
+
+    .search-loading {
+        @apply px-4 py-12 text-center;
+
+        .spinner {
+            @apply w-6 h-6 mx-auto mb-3 animate-spin text-primary;
+        }
+    }
+
+    .search-results-list {
+        @apply py-2;
+    }
+
+    .search-group {
+        @apply mb-2;
+
+        &:last-child {
+            @apply mb-0;
+        }
+    }
+
+    .search-group-header {
+        @apply flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wide;
+        @apply text-gray-500 dark:text-gray-400;
+        @apply sticky top-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-[5];
+
+        .group-icon {
+            @apply w-4 h-4;
+        }
+    }
+
+    .search-result {
+        @apply flex items-start gap-3 px-4 py-2.5 mx-2 rounded-lg cursor-pointer;
+        @apply hover:bg-gray-50 dark:hover:bg-gray-800/50;
+        @apply transition-colors duration-150;
+
+        &.selected {
+            @apply bg-primary/5 dark:bg-primary/10;
+            @apply ring-1 ring-primary/20;
+        }
+
+        .result-icon {
+            @apply w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5;
+        }
+
+        .result-content {
+            @apply flex-1 min-w-0 flex flex-col gap-0.5;
+        }
+
+        .result-title {
+            @apply text-sm font-medium text-gray-900 dark:text-white;
+            @apply line-clamp-1;
+
+            mark {
+                @apply bg-yellow-200 dark:bg-yellow-500/30 text-inherit rounded px-0.5;
+            }
+        }
+
+        .result-breadcrumb {
+            @apply text-xs text-gray-500 dark:text-gray-400;
+            @apply line-clamp-1;
+        }
+
+        .result-snippet {
+            @apply text-xs text-gray-600 dark:text-gray-400 mt-0.5;
+            @apply line-clamp-2 leading-relaxed;
+
+            mark {
+                @apply bg-yellow-200 dark:bg-yellow-500/30 text-inherit rounded px-0.5;
+            }
+        }
+
+        .result-arrow {
+            @apply w-4 h-4 text-gray-400 opacity-0 flex-shrink-0 mt-0.5;
+            @apply transition-opacity duration-150;
+        }
+
+        &:hover .result-arrow,
+        &.selected .result-arrow {
+            @apply opacity-100;
+        }
+    }
+}
+
+.search-footer {
+    @apply flex items-center justify-between px-4 py-3;
+    @apply border-t border-gray-200 dark:border-gray-700;
+    @apply text-xs text-gray-500 dark:text-gray-400;
+
+    .search-commands {
+        @apply flex items-center gap-4;
+
+        .command {
+            @apply flex items-center gap-1.5;
+
+            kbd {
+                @apply px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 font-mono;
+            }
+        }
+    }
+
+    .search-powered-by {
+        @apply flex items-center gap-1.5;
+
+        a {
+            @apply text-primary hover:underline;
+        }
+    }
+}
+
+/* Search trigger button (in header) */
+.search-trigger {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-lg;
+    @apply bg-gray-100 dark:bg-gray-800;
+    @apply text-gray-500 dark:text-gray-400;
+    @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+    @apply transition-colors cursor-pointer;
+
+    .search-icon {
+        @apply w-4 h-4;
+    }
+
+    .search-placeholder {
+        @apply hidden sm:block text-sm;
+    }
+
+    .search-kbd {
+        @apply hidden sm:flex items-center gap-0.5 text-xs;
+
+        kbd {
+            @apply px-1.5 py-0.5 rounded bg-white dark:bg-gray-900 font-sans;
+        }
+    }
+}

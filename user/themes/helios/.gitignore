@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build artifacts (keep build/ as it contains compiled CSS)
+# build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Optional: lock files (uncomment if you want to exclude)
+# package-lock.json

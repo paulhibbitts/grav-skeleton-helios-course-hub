@@ -1,0 +1,129 @@
+title: API Endpoint
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            content:
+              ordering@: 100
+            header.media_order:
+              ordering@: 101           
+            header.api.method:
+              type: select
+              label: HTTP Method
+              size: medium
+              options:
+                GET: GET
+                POST: POST
+                PUT: PUT
+                PATCH: PATCH
+                DELETE: DELETE
+              validate:
+                required: true
+
+            header.api.path:
+              type: text
+              label: Endpoint Path
+              placeholder: /users/{id}
+              help: Use {param} for path parameters
+              validate:
+                required: true
+
+            header.api.description:
+              type: textarea
+              label: Description
+              rows: 2
+              placeholder: Brief description of what this endpoint does
+
+            header.api.parameters:
+              type: list
+              label: Parameters
+              style: vertical
+              collapsed: false
+              fields:
+                .name:
+                  type: text
+                  label: Name
+                  placeholder: email
+                  validate:
+                    required: true
+                .type:
+                  type: select
+                  label: Type
+                  options:
+                    string: string
+                    integer: integer
+                    number: number
+                    boolean: boolean
+                    array: array
+                    object: object
+                  default: string
+                .required:
+                  type: toggle
+                  label: Required
+                  highlight: 1
+                  default: 0
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                .description:
+                  type: text
+                  label: Description
+                  placeholder: Parameter description
+                .default:
+                  type: text
+                  label: Default Value
+                  placeholder: Optional default value
+
+            header.api.request_example:
+              type: textarea
+              label: Request Example
+              placeholder: JSON request body example
+              rows: 10
+              classes: code-input
+              codemirror: true
+
+            header.api.response_example:
+              type: textarea
+              label: Response Example
+              placeholder: JSON response body example
+              rows: 10
+              classes: code-input
+              codemirror: true
+
+            header.api.response_codes:
+              type: list
+              label: Response Codes
+              style: vertical
+              collapsed: false
+              fields:
+                .code:
+                  type: select
+                  label: Status Code
+                  options:
+                    '200': '200 - OK'
+                    '201': '201 - Created'
+                    '204': '204 - No Content'
+                    '400': '400 - Bad Request'
+                    '401': '401 - Unauthorized'
+                    '403': '403 - Forbidden'
+                    '404': '404 - Not Found'
+                    '409': '409 - Conflict'
+                    '422': '422 - Unprocessable Entity'
+                    '429': '429 - Too Many Requests'
+                    '500': '500 - Internal Server Error'
+                  validate:
+                    required: true
+                .description:
+                  type: text
+                  label: Description
+                  placeholder: When this status code is returned

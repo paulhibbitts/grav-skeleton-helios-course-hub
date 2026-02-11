@@ -1,0 +1,707 @@
+name: Helios
+version: 1.0.2
+type: theme
+slug: helios
+premium: true
+description: A modern, highly configurable documentation theme built on Tailwind CSS 4 and Alpine.js
+icon: book-open
+author:
+  name: Trilby Media, LLC
+  email: hello@trilby.media
+homepage: https://getgrav.org/premium/helios
+demo: https://demo.getgrav.org/helios/
+keywords: grav, theme, documentation, tailwind, docs, api, premium
+bugs: https://github.com/getgrav/grav-premium-issues/labels/helios
+docs: https://getgrav.org/premium/helios/docs
+license: https://getgrav.org/premium/license
+
+dependencies:
+  - { name: grav, version: '>=1.7.6' }
+  - { name: svg-icons, version: '>=1.0.0' }
+  - { name: shortcode-core, version: '>=4.0.0' }
+  - { name: simplesearch, version: '>=2.0.0' }
+  - { name: codesh, version: '>=1.0.0' }
+  - { name: page-toc, version: '>=1.0.0' }
+
+form:
+  validation: loose
+  fields:
+
+    helios_tabs:
+      type: tabs
+      style: subtle
+      fields:
+
+        # ============================================
+        # APPEARANCE TAB
+        # ============================================
+        helios_appearance_tab:
+          type: tab
+          title: THEME_HELIOS.ADMIN.APPEARANCE
+          fields:
+
+            section_theme:
+              type: section
+              title: THEME_HELIOS.ADMIN.THEME_SETTINGS
+              underline: true
+              fields:
+
+                appearance.theme:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.DEFAULT_THEME
+                  help: THEME_HELIOS.ADMIN.DEFAULT_THEME_HELP
+                  default: system
+                  options:
+                    system: THEME_HELIOS.ADMIN.SYSTEM
+                    light: THEME_HELIOS.ADMIN.LIGHT
+                    dark: THEME_HELIOS.ADMIN.DARK
+
+                appearance.selector:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.SHOW_THEME_TOGGLE
+                  help: THEME_HELIOS.ADMIN.SHOW_THEME_TOGGLE_HELP
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+            section_fonts:
+              type: section
+              title: THEME_HELIOS.ADMIN.FONTS
+              underline: true
+              fields:
+
+                fonts.body:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.BODY_FONT
+                  help: THEME_HELIOS.ADMIN.BODY_FONT_HELP
+                  default: inter
+                  options:
+                    inter: Inter
+                    open-sans: Open Sans
+                    geom: Geom
+                    nunito-sans: Nunito Sans
+                    ubuntu-sans: Ubuntu Sans
+                    work-sans: Work Sans
+                    public-sans: Public Sans
+                    quicksand: Quicksand
+
+                fonts.body_size:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.BODY_FONT_SIZE
+                  help: THEME_HELIOS.ADMIN.BODY_FONT_SIZE_HELP
+                  default: medium
+                  options:
+                    small: THEME_HELIOS.ADMIN.SIZE_SMALL
+                    medium: THEME_HELIOS.ADMIN.SIZE_MEDIUM
+                    large: THEME_HELIOS.ADMIN.SIZE_LARGE
+
+                fonts.code:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.CODE_FONT
+                  help: THEME_HELIOS.ADMIN.CODE_FONT_HELP
+                  default: jetbrains-mono
+                  options:
+                    jetbrains-mono: JetBrains Mono
+                    fira-code: Fira Code
+                    intel-one-mono: Intel One Mono
+                    atkinson-hyperlegible-mono: Atkinson Hyperlegible Mono
+                    inconsolata: Inconsolata
+
+                fonts.code_size:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.CODE_FONT_SIZE
+                  help: THEME_HELIOS.ADMIN.CODE_FONT_SIZE_HELP
+                  default: medium
+                  options:
+                    small: THEME_HELIOS.ADMIN.SIZE_SMALL
+                    medium: THEME_HELIOS.ADMIN.SIZE_MEDIUM
+                    large: THEME_HELIOS.ADMIN.SIZE_LARGE
+
+            section_colors:
+              type: section
+              title: THEME_HELIOS.ADMIN.CUSTOM_COLORS
+              underline: true
+              fields:
+
+                colors.primary:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.PRIMARY_COLOR
+                  help: THEME_HELIOS.ADMIN.PRIMARY_COLOR_HELP
+                  default: '#3B82F6'
+
+                colors.primary_hover:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.PRIMARY_COLOR_HOVER
+                  help: THEME_HELIOS.ADMIN.PRIMARY_COLOR_HOVER_HELP
+                  default: '#2563EB'
+
+                colors.primary_text:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.PRIMARY_TEXT_COLOR
+                  help: THEME_HELIOS.ADMIN.PRIMARY_TEXT_COLOR_HELP
+                  default: '#FFFFFF'
+
+                colors.accent:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.ACCENT_COLOR
+                  help: THEME_HELIOS.ADMIN.ACCENT_COLOR_HELP
+                  default: '#8B5CF6'
+
+            section_colors_dark:
+              type: section
+              title: THEME_HELIOS.ADMIN.DARK_MODE_COLORS
+              underline: true
+              fields:
+
+                colors.primary_dark:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.PRIMARY_COLOR_DARK
+                  help: THEME_HELIOS.ADMIN.PRIMARY_COLOR_DARK_HELP
+                  default: '#60A5FA'
+
+                colors.primary_dark_hover:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.PRIMARY_COLOR_DARK_HOVER
+                  help: THEME_HELIOS.ADMIN.PRIMARY_COLOR_DARK_HOVER_HELP
+                  default: '#93C5FD'
+
+                colors.primary_dark_text:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.PRIMARY_DARK_TEXT_COLOR
+                  help: THEME_HELIOS.ADMIN.PRIMARY_DARK_TEXT_COLOR_HELP
+                  default: '#111827'
+
+                colors.accent_dark:
+                  type: colorpicker
+                  label: THEME_HELIOS.ADMIN.ACCENT_COLOR_DARK
+                  help: THEME_HELIOS.ADMIN.ACCENT_COLOR_DARK_HELP
+                  default: '#A78BFA'
+
+            section_gray:
+              type: section
+              title: THEME_HELIOS.ADMIN.GRAY_SCALE
+              underline: true
+              fields:
+
+                colors.gray_preset:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.GRAY_PRESET
+                  help: THEME_HELIOS.ADMIN.GRAY_PRESET_HELP
+                  default: zinc
+                  options:
+                    zinc: Zinc
+                    slate: Slate
+                    stone: Stone
+                    neutral: Neutral
+                    gray: Gray
+                    custom: Custom
+
+                colors.gray_custom:
+                  type: textarea
+                  label: THEME_HELIOS.ADMIN.GRAY_CUSTOM
+                  help: THEME_HELIOS.ADMIN.GRAY_CUSTOM_HELP
+                  placeholder: |
+                    --color-helios-gray-50: #fafafa;
+                    --color-helios-gray-100: #f4f4f5;
+                    --color-helios-gray-200: #e4e4e7;
+                    --color-helios-gray-300: #d4d4d8;
+                    --color-helios-gray-400: #a1a1aa;
+                    --color-helios-gray-500: #71717a;
+                    --color-helios-gray-600: #52525b;
+                    --color-helios-gray-700: #3f3f46;
+                    --color-helios-gray-800: #27272a;
+                    --color-helios-gray-900: #18181b;
+                    --color-helios-gray-950: #09090b;
+                  rows: 12
+
+            section_branding:
+              type: section
+              title: THEME_HELIOS.ADMIN.BRANDING
+              underline: true
+              fields:
+
+                logo.image:
+                  type: file
+                  label: THEME_HELIOS.ADMIN.LOGO
+                  description: THEME_HELIOS.ADMIN.LOGO_DESC
+                  size: large
+                  destination: 'user://assets/helios'
+                  multiple: false
+                  accept:
+                    - image/*
+
+                logo.image_dark:
+                  type: file
+                  label: THEME_HELIOS.ADMIN.LOGO_DARK
+                  description: THEME_HELIOS.ADMIN.LOGO_DARK_DESC
+                  size: large
+                  destination: 'user://assets/helios'
+                  multiple: false
+                  accept:
+                    - image/*
+
+                logo.text:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.LOGO_TEXT
+                  help: THEME_HELIOS.ADMIN.LOGO_TEXT_HELP
+                  default: 'Documentation'
+
+                logo.height:
+                  type: text
+                  size: x-small
+                  label: THEME_HELIOS.ADMIN.LOGO_HEIGHT
+                  help: THEME_HELIOS.ADMIN.LOGO_HEIGHT_HELP
+                  default: 'h-8'
+
+                custom_favicon:
+                  type: file
+                  label: THEME_HELIOS.ADMIN.FAVICON
+                  description: THEME_HELIOS.ADMIN.FAVICON_DESC
+                  size: large
+                  destination: 'user://assets/helios'
+                  multiple: false
+                  accept:
+                    - image/*
+
+            header_menu_section:
+              type: section
+              title: THEME_HELIOS.ADMIN.HEADER_MENU
+              underline: true
+              fields:
+
+                header.menu:
+                  type: list
+                  label: THEME_HELIOS.ADMIN.MENU_ITEMS
+                  help: THEME_HELIOS.ADMIN.MENU_ITEMS_HELP
+                  style: vertical
+                  fields:
+                    .route:
+                      type: text
+                      label: THEME_HELIOS.ADMIN.MENU_ROUTE
+                      placeholder: '/privacy'
+                    .label:
+                      type: text
+                      label: THEME_HELIOS.ADMIN.MENU_LABEL
+                      placeholder: 'Privacy'
+                    .external:
+                      type: toggle
+                      label: THEME_HELIOS.ADMIN.MENU_EXTERNAL
+                      highlight: 0
+                      default: 0
+                      options:
+                        1: PLUGIN_ADMIN.ENABLED
+                        0: PLUGIN_ADMIN.DISABLED
+
+        # ============================================
+        # NAVIGATION TAB
+        # ============================================
+        helios_navigation_tab:
+          type: tab
+          title: THEME_HELIOS.ADMIN.NAVIGATION
+          fields:
+
+            section_nav:
+              type: section
+              title: THEME_HELIOS.ADMIN.NAVIGATION_SETTINGS
+              underline: true
+              fields:
+
+                navigation.sidebar_width:
+                  type: number
+                  label: THEME_HELIOS.ADMIN.SIDEBAR_WIDTH
+                  help: THEME_HELIOS.ADMIN.SIDEBAR_WIDTH_HELP
+                  default: 280
+                  append: px
+                  validate:
+                    min: 200
+                    max: 400
+
+                sidebar.powered_by:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.POWERED_BY
+                  help: THEME_HELIOS.ADMIN.POWERED_BY_HELP
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+
+                navigation.content_width:
+                  type: number
+                  label: THEME_HELIOS.ADMIN.CONTENT_WIDTH
+                  help: THEME_HELIOS.ADMIN.CONTENT_WIDTH_HELP
+                  default: 768
+                  append: px
+                  validate:
+                    min: 600
+                    max: 1200
+
+                navigation.toc_position:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.TOC_POSITION
+                  help: THEME_HELIOS.ADMIN.TOC_POSITION_HELP
+                  default: right
+                  options:
+                    right: THEME_HELIOS.ADMIN.RIGHT
+                    left: THEME_HELIOS.ADMIN.LEFT
+                    hidden: THEME_HELIOS.ADMIN.HIDDEN
+
+                navigation.toc_start:
+                  type: number
+                  label: THEME_HELIOS.ADMIN.TOC_START
+                  help: THEME_HELIOS.ADMIN.TOC_START_HELP
+                  default: 2
+                  validate:
+                    min: 1
+                    max: 4
+
+                navigation.toc_depth:
+                  type: number
+                  label: THEME_HELIOS.ADMIN.TOC_DEPTH
+                  help: THEME_HELIOS.ADMIN.TOC_DEPTH_HELP
+                  default: 3
+                  validate:
+                    min: 2
+                    max: 6
+
+                navigation.breadcrumbs:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.SHOW_BREADCRUMBS
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                navigation.prev_next:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.SHOW_PREV_NEXT
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                navigation.scroll_spy:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.SCROLL_SPY
+                  help: THEME_HELIOS.ADMIN.SCROLL_SPY_HELP
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+            section_htmx:
+              type: section
+              title: THEME_HELIOS.ADMIN.HTMX_NAVIGATION
+              underline: true
+              fields:
+
+                htmx.enabled:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.ENABLE_HTMX
+                  help: THEME_HELIOS.ADMIN.ENABLE_HTMX_HELP
+                  highlight: 0
+                  default: 0
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+        # ============================================
+        # VERSIONING TAB
+        # ============================================
+        helios_versioning_tab:
+          type: tab
+          title: THEME_HELIOS.ADMIN.VERSIONING
+          fields:
+
+            section_versioning:
+              type: section
+              title: THEME_HELIOS.ADMIN.VERSIONING_SETTINGS
+              underline: true
+              fields:
+
+                versioning.enabled:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.ENABLE_VERSIONING
+                  help: THEME_HELIOS.ADMIN.ENABLE_VERSIONING_HELP
+                  highlight: 0
+                  default: 0
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                versioning.mode:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.VERSION_MODE
+                  help: THEME_HELIOS.ADMIN.VERSION_MODE_HELP
+                  default: explicit
+                  options:
+                    explicit: THEME_HELIOS.ADMIN.MODE_EXPLICIT
+                    implicit: THEME_HELIOS.ADMIN.MODE_IMPLICIT
+
+                versioning.auto_detect:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.AUTO_DETECT_VERSIONS
+                  help: THEME_HELIOS.ADMIN.AUTO_DETECT_VERSIONS_HELP
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                versioning.root:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.VERSION_ROOT
+                  help: THEME_HELIOS.ADMIN.VERSION_ROOT_HELP
+                  placeholder: 'docs'
+
+                versioning.version_pattern:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.VERSION_PATTERN
+                  help: THEME_HELIOS.ADMIN.VERSION_PATTERN_HELP
+                  default: '/^v?\d+(\.\d+)*$/'
+                  placeholder: '/^v?\d+(\.\d+)*$/'
+
+                versioning.redirect_unversioned:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.REDIRECT_UNVERSIONED
+                  help: THEME_HELIOS.ADMIN.REDIRECT_UNVERSIONED_HELP
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+            section_version_list:
+              type: section
+              title: THEME_HELIOS.ADMIN.VERSION_LIST
+              underline: true
+              fields:
+
+                versioning.versions:
+                  type: selectize
+                  label: THEME_HELIOS.ADMIN.VERSIONS
+                  help: THEME_HELIOS.ADMIN.VERSIONS_HELP
+                  classes: fancy
+                  validate:
+                    type: commalist
+
+                versioning.default_version:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.DEFAULT_VERSION
+                  help: THEME_HELIOS.ADMIN.DEFAULT_VERSION_HELP
+                  placeholder: 'v3'
+
+                versioning.current_version:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.CURRENT_VERSION
+                  help: THEME_HELIOS.ADMIN.CURRENT_VERSION_HELP
+                  placeholder: 'v3'
+
+            section_version_display:
+              type: section
+              title: THEME_HELIOS.ADMIN.VERSION_DISPLAY
+              underline: true
+              fields:
+
+                versioning.show_badge:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.SHOW_VERSION_BADGE
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                versioning.show_dropdown:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.SHOW_VERSION_DROPDOWN
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                versioning.labels:
+                  type: array
+                  label: THEME_HELIOS.ADMIN.VERSION_LABELS
+                  help: THEME_HELIOS.ADMIN.VERSION_LABELS_HELP
+                  placeholder_key: 'v1'
+                  placeholder_value: 'Version 1 (Legacy)'
+
+        # ============================================
+        # SEARCH TAB
+        # ============================================
+        helios_search_tab:
+          type: tab
+          title: THEME_HELIOS.ADMIN.SEARCH
+          fields:
+
+            section_search:
+              type: section
+              title: THEME_HELIOS.ADMIN.SEARCH_SETTINGS
+              underline: true
+              fields:
+
+                search.enabled:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.ENABLE_SEARCH
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                search.provider:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.SEARCH_PROVIDER
+                  help: THEME_HELIOS.ADMIN.SEARCH_PROVIDER_HELP
+                  default: simplesearch
+                  options:
+                    simplesearch: SimpleSearch
+                    yetisearch-pro: YetiSearch Pro (Premium)
+
+                search.keyboard_shortcut:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.KEYBOARD_SHORTCUT
+                  help: THEME_HELIOS.ADMIN.KEYBOARD_SHORTCUT_HELP
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                search.shortcut_key:
+                  type: select
+                  label: THEME_HELIOS.ADMIN.SHORTCUT_KEY
+                  help: THEME_HELIOS.ADMIN.SHORTCUT_KEY_HELP
+                  default: k
+                  options:
+                    k: K
+                    p: P
+                    s: S
+                    f: F
+                    '/': /
+
+                search.placeholder:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.SEARCH_PLACEHOLDER
+                  default: 'Search documentation...'
+
+        # ============================================
+        # GITHUB TAB
+        # ============================================
+        helios_github_tab:
+          type: tab
+          title: THEME_HELIOS.ADMIN.GITHUB
+          fields:
+
+            section_github:
+              type: section
+              title: THEME_HELIOS.ADMIN.GITHUB_SETTINGS
+              underline: true
+              fields:
+
+                github.enabled:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.ENABLE_GITHUB
+                  highlight: 0
+                  default: 0
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                github.repo:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.GITHUB_REPO
+                  help: THEME_HELIOS.ADMIN.GITHUB_REPO_HELP
+                  placeholder: 'owner/repo'
+
+                github.branch:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.GITHUB_BRANCH
+                  default: 'main'
+
+                github.edit_link:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.SHOW_EDIT_LINK
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                github.edit_text:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.EDIT_LINK_TEXT
+                  default: 'Edit this page'
+
+                github.path_prefix:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.PATH_PREFIX
+                  help: THEME_HELIOS.ADMIN.PATH_PREFIX_HELP
+                  placeholder: 'user/'
+
+        # ============================================
+        # ADVANCED TAB
+        # ============================================
+        helios_advanced_tab:
+          type: tab
+          title: THEME_HELIOS.ADMIN.ADVANCED
+          fields:
+
+            section_advanced:
+              type: section
+              title: THEME_HELIOS.ADMIN.ADVANCED_SETTINGS
+              underline: true
+              fields:
+
+                append_site_title:
+                  type: toggle
+                  label: THEME_HELIOS.ADMIN.APPEND_SITE_TITLE
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  validate:
+                    type: bool
+
+                body_classes:
+                  type: text
+                  label: THEME_HELIOS.ADMIN.BODY_CLASSES
+                  help: THEME_HELIOS.ADMIN.BODY_CLASSES_HELP
+
+

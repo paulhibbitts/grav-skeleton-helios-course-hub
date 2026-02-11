@@ -1,0 +1,200 @@
+/* Base typography styles */
+body {
+    @apply antialiased;
+}
+
+/* Global scrollbar styles */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.4);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.6);
+}
+
+/* Dark mode scrollbars */
+.dark * {
+    scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
+}
+
+.dark *::-webkit-scrollbar-thumb {
+    background: rgba(75, 85, 99, 0.5);
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+    background: rgba(75, 85, 99, 0.7);
+}
+
+/* Prose customizations for documentation */
+.prose {
+    @apply max-w-none;
+
+    /* Headings with anchor links */
+    h1, h2, h3, h4, h5, h6 {
+        @apply scroll-mt-24 relative;
+
+        .anchor-link {
+            @apply absolute -left-6 opacity-0 transition-opacity text-gray-400 hover:text-primary no-underline;
+        }
+
+        &:hover .anchor-link {
+            @apply opacity-100;
+        }
+    }
+
+    h1 {
+        @apply text-3xl font-bold tracking-tight text-gray-900 dark:text-white;
+    }
+
+    h2 {
+        @apply text-2xl font-semibold tracking-tight text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2;
+    }
+
+    h3 {
+        @apply text-xl font-semibold text-gray-900 dark:text-white;
+    }
+
+    h4 {
+        @apply text-lg font-semibold text-gray-900 dark:text-white;
+    }
+
+    /* Links */
+    a {
+        @apply text-primary dark:text-primary-dark hover:text-primary-hover dark:hover:text-primary-dark-hover no-underline hover:underline;
+    }
+
+    /* Lists */
+    ul, ol {
+        @apply my-4;
+    }
+
+    li {
+        @apply my-1;
+    }
+
+    /* Blockquotes - but not md-alerts */
+    blockquote:not(:has(.md-alert)) {
+        @apply border-l-4 border-primary bg-gray-50 dark:bg-gray-800 py-2 px-4 my-4 italic;
+    }
+
+    /* GitHub Markdown Alerts */
+    .md-alert {
+        @apply my-4 py-3 px-4 border-l-4 rounded-r-lg not-italic;
+    }
+
+    .md-alert--note {
+        @apply bg-blue-500/10;
+    }
+
+    .md-alert--tip {
+        @apply bg-green-500/10;
+    }
+
+    .md-alert--important {
+        @apply bg-purple-500/10;
+    }
+
+    .md-alert--warning {
+        @apply bg-amber-500/10;
+    }
+
+    .md-alert--caution {
+        @apply bg-red-500/10;
+    }
+
+    .md-alert-title {
+        @apply flex items-center gap-2 font-semibold mt-0 mb-2 text-sm;
+
+        svg {
+            @apply w-4 h-4;
+        }
+    }
+
+    .md-alert-body {
+        > *:first-child {
+            @apply mt-0;
+        }
+
+        > *:last-child {
+            @apply mb-0;
+        }
+    }
+
+    /* Tables */
+    table {
+        @apply w-full text-sm;
+    }
+
+    thead {
+        @apply bg-gray-50 dark:bg-gray-800;
+    }
+
+    th {
+        @apply px-4 py-3 text-left font-semibold text-gray-900 dark:text-white;
+    }
+
+    td {
+        @apply px-4 py-3 border-t border-gray-200 dark:border-gray-700;
+    }
+
+    /* Striped tables */
+    .table-striped tr:nth-child(even) {
+        @apply bg-gray-50 dark:bg-gray-800/50;
+    }
+
+    /* Compact tables */
+    .table-compact th {
+        @apply px-3 py-2 text-xs;
+    }
+
+    .table-compact td {
+        @apply px-3 py-1.5;
+    }
+
+    /* Inline code */
+    :not(pre) > code {
+        @apply bg-gray-100 dark:bg-gray-800 text-accent dark:text-accent-dark px-1.5 py-0.5 rounded font-mono;
+        font-size: var(--helios-code-size, var(--text-sm));
+    }
+
+    /* Code inside headings should inherit heading font-size */
+    h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+        font-size: inherit !important;
+    }
+
+    /* Code blocks */
+    pre, pre code, pre[class*="language-"], code[class*="language-"] {
+        font-family: var(--font-mono) !important;
+        font-size: var(--helios-code-size, var(--text-sm)) !important;
+    }
+
+    /* Horizontal rule */
+    hr {
+        @apply border-gray-200 dark:border-gray-700 my-8;
+    }
+
+    /* Images */
+    img {
+        @apply rounded-lg shadow-md;
+    }
+}
+
+/* Dark mode body text */
+.dark body {
+    @apply text-gray-300;
+}

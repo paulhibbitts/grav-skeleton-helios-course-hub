@@ -1,0 +1,25 @@
+enabled: true
+default_for_all: false
+toolbar: 'undo,redo,|,removeformat,|,heading,bold,italic,underline,strikethrough,|,link,image,|,blockquote,bulletList,orderedList,|,codeBlock,table,|,htmlBlock,shortcodeBlock'
+extra_typography:
+  enabled: true
+  custom:
+    # Emoticons
+    ':)': '😊'
+    ':(': '😢'
+    ':D': '😃'
+    ';)': '😉'
+    ':P': '😛'
+    ':o': '😮'
+    ':|': '😐'
+    ':*': '😘'
+    'B)': '😎'
+    ':/': '😕'
+    '<3': '❤️'
+    '</3': '💔'
+    # Extra symbols not in Typography extension
+    '~=': '≈'
+    '[ ]': '☐'
+    '[x]': '☑'
+    '(/)': '✓'
+    '(x)': '✗'

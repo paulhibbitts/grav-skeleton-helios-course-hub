@@ -1,0 +1,202 @@
+/* Sidebar Navigation Styles */
+.sidebar-nav {
+    @apply space-y-1;
+
+    /* Navigation items */
+    .nav-item {
+        @apply block;
+
+        .nav-link {
+            @apply flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors;
+            @apply text-gray-700 dark:text-gray-300;
+            @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+            @apply hover:text-gray-900 dark:hover:text-white;
+        }
+
+        .nav-link.active {
+            @apply bg-primary/10 text-primary dark:text-primary-dark font-medium;
+        }
+
+        /* Navigation icon (from svg_icons) */
+        .nav-icon {
+            @apply w-5 h-5 shrink-0 text-gray-400 dark:text-gray-500;
+        }
+
+        .nav-link.active .nav-icon {
+            @apply text-primary dark:text-primary-dark;
+        }
+
+        .nav-icon svg {
+            @apply w-full h-full;
+        }
+
+        /* Container for parent items (link + toggle) */
+        .nav-link-container {
+            @apply flex items-center rounded-md;
+            @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+        }
+
+        .nav-link-container.active {
+            @apply bg-primary/10;
+        }
+
+        .nav-link-container .nav-link {
+            @apply flex-1 hover:bg-transparent;
+        }
+
+        .nav-link-container.active .nav-link {
+            @apply text-primary dark:text-primary-dark font-medium bg-transparent;
+        }
+
+        /* Toggle button for expand/collapse */
+        .nav-toggle-btn {
+            @apply flex items-center justify-center w-8 h-8 shrink-0;
+            @apply rounded-md transition-colors;
+            @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+        }
+
+        /* Expand/collapse icon */
+        .nav-toggle {
+            @apply w-4 h-4 text-gray-400 transition-transform;
+        }
+
+        .nav-toggle.expanded {
+            @apply rotate-90;
+        }
+    }
+
+    /* Nested navigation */
+    .nav-children {
+        @apply ml-4 border-l border-gray-200 dark:border-gray-700 pl-2 space-y-1 mt-1;
+    }
+
+    /* Chapter/Section headers */
+    .nav-section {
+        @apply px-3 py-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400;
+    }
+}
+
+/* Mobile navigation overlay */
+.mobile-nav-overlay {
+    @apply fixed inset-0 bg-black/50 z-40 transition-opacity;
+}
+
+.mobile-nav-panel {
+    @apply fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-white dark:bg-gray-900 z-50 shadow-xl;
+    @apply transform transition-transform duration-300;
+}
+
+.mobile-nav-panel.closed {
+    @apply -translate-x-full;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    @apply flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400;
+
+    a {
+        @apply hover:text-primary dark:hover:text-primary-dark;
+    }
+
+    .separator {
+        @apply text-gray-400 dark:text-gray-600;
+    }
+
+    .current {
+        @apply text-gray-900 dark:text-white font-medium truncate max-w-[200px];
+    }
+}
+
+/* Prev/Next Navigation */
+.prev-next-nav {
+    @apply flex justify-between items-center gap-4 mt-12 pt-8 border-t border-gray-200 dark:border-gray-700;
+
+    .nav-button {
+        @apply flex items-center gap-2 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700;
+        @apply hover:border-primary dark:hover:border-primary-dark hover:bg-gray-50 dark:hover:bg-gray-800;
+        @apply transition-colors;
+
+        .label {
+            @apply text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide;
+        }
+
+        .title {
+            @apply text-sm font-medium text-gray-900 dark:text-white;
+        }
+    }
+
+    .nav-button.prev {
+        @apply text-left;
+    }
+
+    .nav-button.next {
+        @apply text-right ml-auto;
+    }
+}
+
+/* Theme Toggle - iOS style 3-way switch */
+.theme-toggle {
+    @apply relative flex items-center p-1 rounded-full;
+    @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.theme-toggle-indicator {
+    @apply absolute top-1 left-1 w-7 h-7 rounded-full;
+    @apply bg-white dark:bg-gray-500 shadow-sm;
+    @apply transition-transform duration-300 ease-out;
+    z-index: 0;
+}
+
+.theme-toggle-btn {
+    @apply relative z-10 flex items-center justify-center w-7 h-7 rounded-full;
+    @apply text-gray-500 dark:text-gray-400;
+    @apply transition-colors duration-200;
+}
+
+.theme-toggle-btn:hover {
+    @apply text-gray-700 dark:text-gray-200;
+}
+
+.theme-toggle-btn-active {
+    @apply text-gray-900 dark:text-white;
+}
+
+/* Table of Contents (On This Page) */
+.toc-nav {
+    /* Scrollspy indicator line on the left */
+    .toc-link {
+        @apply pl-3;
+        margin-left: -1px; /* Overlap with border-l */
+
+        /* Active state styling like Starlight */
+        &[data-active="true"] {
+            @apply border-primary text-primary font-medium;
+        }
+    }
+
+    /* Nested items get progressively more padding */
+    ul ul .toc-link {
+        @apply pl-6;
+    }
+
+    ul ul ul .toc-link {
+        @apply pl-9;
+    }
+
+    ul ul ul ul .toc-link {
+        @apply pl-12;
+    }
+}
+
+/* HTMX Navigation Loading Indicator */
+.htmx-indicator {
+    @apply opacity-0 transition-opacity duration-200;
+}
+
+.htmx-request .htmx-indicator {
+    @apply opacity-100;
+}
+
+.htmx-request.htmx-indicator {
+    @apply opacity-100;
+}

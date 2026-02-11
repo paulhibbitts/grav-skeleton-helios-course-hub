@@ -1,0 +1,11 @@
+{# doc-grid shortcode template #}
+{% set colClass = {
+    1: 'grid-cols-1',
+    2: 'sm:grid-cols-2',
+    3: 'sm:grid-cols-2 lg:grid-cols-3',
+    4: 'sm:grid-cols-2 lg:grid-cols-4'
+} %}
+
+<div class="doc-grid grid gap-4 {{ colClass[columns] ?? 'sm:grid-cols-2' }} not-prose">
+    {{ content|raw }}
+</div>

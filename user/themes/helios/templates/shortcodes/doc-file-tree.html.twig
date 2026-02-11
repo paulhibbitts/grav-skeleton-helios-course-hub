@@ -1,0 +1,44 @@
+{# doc-file-tree shortcode template #}
+{# Recursive macro for rendering tree items #}
+{% import _self as self %}
+
+{% macro tree_item(item, svg_icon_func) %}
+    {% import _self as self %}
+    <li class="doc-file-tree-item {{ item.type }} {{ item.highlight ? 'highlight' : '' }} {{ item.placeholder ? 'placeholder' : '' }}" role="treeitem">
+        <span class="doc-file-tree-entry">
+            <span class="doc-file-tree-icon">
+                {% if item.placeholder %}
+                    <span class="doc-file-tree-dots">...</span>
+                {% elseif item.type == 'directory' %}
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2 4a2 2 0 0 1 2-2h4.586A2 2 0 0 1 10 2.586L11.414 4H20a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4z"/>
+                    </svg>
+                {% else %}
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                {% endif %}
+            </span>
+            <span class="doc-file-tree-name">{{ item.name }}{% if item.type == 'directory' and not item.name ends with '/' %}/{% endif %}</span>
+            {% if item.comment %}
+                <span class="doc-file-tree-comment">{{ item.comment }}</span>
+            {% endif %}
+        </span>
+        {% if item.children|length > 0 %}
+            <ul class="doc-file-tree-list" role="group">
+                {% for child in item.children %}
+                    {{ self.tree_item(child, svg_icon_func) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}
+
+<div class="doc-file-tree not-prose">
+    <ul class="doc-file-tree-list" role="tree">
+        {% for item in tree %}
+            {{ self.tree_item(item, svg_icon) }}
+        {% endfor %}
+    </ul>
+</div>

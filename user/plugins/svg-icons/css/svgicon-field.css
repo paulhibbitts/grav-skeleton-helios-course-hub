@@ -1,0 +1,288 @@
+.svgicon-field__container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.svgicon-field__preview {
+    position: relative;
+    border: 1px solid var(--theme-border-color, #dfe3e9);
+    background: var(--theme-panel-background, #f8fafc);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    min-height: 3.5rem;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.svgicon-field__preview-display {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.svgicon-field__preview-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: var(--theme-preview-background, rgba(15, 23, 42, 0.05));
+}
+
+.svgicon-field__preview-icon img,
+.svgicon-field__preview-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.svgicon-field__preview-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--theme-text-color, #142136);
+    text-transform: none;
+}
+
+.svgicon-field__placeholder {
+    font-size: 0.9rem;
+    color: var(--theme-text-muted, #64748b);
+}
+
+.svgicon-field__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.svgicon-field__actions .button {
+    flex: 0 0 auto;
+}
+
+.svgicon-field__nojs {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--theme-text-muted, #64748b);
+}
+
+.svgicon-field__nojs code {
+    background: rgba(99, 102, 241, 0.08);
+    border-radius: 0.35rem;
+    padding: 0 0.3rem;
+}
+
+/* Modal Styles */
+.svgicon-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.svgicon-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.svgicon-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+}
+
+.svgicon-modal__dialog {
+    position: relative;
+    margin: 4vh auto;
+    max-width: 720px;
+    width: 90%;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--theme-dialog-background, #ffffff);
+    color: var(--theme-dialog-color, #0f172a);
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.45);
+    overflow: hidden;
+}
+
+.svgicon-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--theme-border-color, #dfe3e9);
+}
+
+.svgicon-modal__header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.svgicon-modal__close {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+}
+
+.svgicon-modal__controls {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--theme-border-color, #dfe3e9);
+    flex-wrap: wrap;
+}
+
+.svgicon-modal__control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 160px;
+}
+
+.svgicon-modal__control span {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.svgicon-modal__control--search {
+    flex: 1 1 280px;
+}
+
+.svgicon-modal__select,
+.svgicon-modal__search {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border: 1px solid var(--theme-border-color, #dfe3e9);
+    font-size: 0.95rem;
+    background: var(--theme-input-background, #f8fafc);
+    color: inherit;
+    height: 2.5rem;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.svgicon-modal__select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+    margin-bottom: 0;
+}
+
+.svgicon-modal__grid {
+    padding: 0.75rem 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.75rem;
+    overflow-y: auto;
+    min-height: 260px;
+    position: relative;
+}
+
+.svgicon-modal__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    padding: 0.75rem;
+    background: var(--theme-preview-background, #f1f5f9);
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.svgicon-modal__icon:hover {
+    border-color: var(--theme-accent-color, #6366f1);
+    box-shadow: 0 10px 25px -12px rgba(99, 102, 241, 0.45);
+    transform: translateY(-2px);
+}
+
+.svgicon-modal__icon.is-selected {
+    border-color: var(--theme-accent-color, #6366f1);
+    box-shadow: 0 10px 30px -12px rgba(99, 102, 241, 0.55);
+}
+
+.svgicon-modal__icon-preview {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svgicon-modal__icon-preview img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.svgicon-modal__icon-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--theme-text-muted, #475569);
+    text-align: center;
+    word-break: break-all;
+}
+
+.svgicon-modal__empty {
+    margin: 1rem 0;
+    text-align: center;
+    color: var(--theme-text-muted, #64748b);
+    font-size: 0.95rem;
+}
+
+.svgicon-modal__footer {
+    padding: 0.75rem 1.25rem 1rem;
+    font-size: 0.85rem;
+    color: var(--theme-text-muted, #64748b);
+}
+
+.svgicon-modal__status {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1.25rem 0.5rem;
+    font-size: 0.9rem;
+    color: var(--theme-text-muted, #64748b);
+}
+
+.svgicon-modal__status--loading {
+    color: var(--theme-accent-color, #6366f1);
+}
+
+.svgicon-modal__status--error {
+    color: #dc2626;
+}
+
+.svgicon-modal__status--empty {
+    color: var(--theme-text-muted, #64748b);
+}
+
+.svgicon-modal__sentinel {
+    width: 100%;
+    height: 1px;
+}
+
+@media (max-width: 640px) {
+    .svgicon-modal__dialog {
+        width: 96%;
+        margin: 5vh auto;
+    }
+
+    .svgicon-modal__grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+}

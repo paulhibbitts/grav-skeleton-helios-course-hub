@@ -1,0 +1,221 @@
+THEME_HELIOS:
+  ADMIN:
+    # Tabs
+    APPEARANCE: Appearance
+    NAVIGATION: Navigation
+    VERSIONING: Versioning
+    SEARCH: Search
+    GITHUB: GitHub
+    ADVANCED: Advanced
+
+    # Theme Settings
+    THEME_SETTINGS: Theme Settings
+    DEFAULT_THEME: Default Theme
+    DEFAULT_THEME_HELP: Choose the default color scheme for the documentation
+    SYSTEM: System (Auto)
+    LIGHT: Light
+    DARK: Dark
+    SHOW_THEME_TOGGLE: Show Theme Toggle
+    SHOW_THEME_TOGGLE_HELP: Display a light/dark mode toggle in the header
+    REMEMBER_THEME: Remember Selection
+    REMEMBER_THEME_HELP: Persist user's theme preference across sessions
+
+    # Fonts
+    FONTS: Fonts
+    BODY_FONT: Body Font
+    BODY_FONT_HELP: Primary font used for body text
+    BODY_FONT_SIZE: Body Font Size
+    BODY_FONT_SIZE_HELP: Base font size for body text (Small -10%, Medium default, Large +10%)
+    CODE_FONT: Code Font
+    CODE_FONT_HELP: Monospace font used for code blocks
+    CODE_FONT_SIZE: Code Font Size
+    CODE_FONT_SIZE_HELP: Font size for code blocks (Small -10%, Medium default, Large +10%)
+    SIZE_SMALL: Small
+    SIZE_MEDIUM: Medium
+    SIZE_LARGE: Large
+
+    # Custom Colors (Light Mode)
+    CUSTOM_COLORS: Light Mode Colors
+    PRIMARY_COLOR: Primary Color
+    PRIMARY_COLOR_HELP: Main brand color used for links, buttons, and accents
+    PRIMARY_COLOR_HOVER: Primary Hover Color
+    PRIMARY_COLOR_HOVER_HELP: Color used when hovering over primary elements
+    PRIMARY_TEXT_COLOR: Primary Text Color
+    PRIMARY_TEXT_COLOR_HELP: Text color used on primary-colored backgrounds (e.g., buttons). Use white for dark primary colors, dark for light primary colors
+    ACCENT_COLOR: Accent Color
+    ACCENT_COLOR_HELP: Secondary accent color for highlights
+
+    # Dark Mode Colors
+    DARK_MODE_COLORS: Dark Mode Colors
+    PRIMARY_COLOR_DARK: Primary Color (Dark)
+    PRIMARY_COLOR_DARK_HELP: Primary color used in dark mode
+    PRIMARY_COLOR_DARK_HOVER: Primary Hover Color (Dark)
+    PRIMARY_COLOR_DARK_HOVER_HELP: Hover color for primary elements in dark mode
+    PRIMARY_DARK_TEXT_COLOR: Primary Text Color (Dark)
+    PRIMARY_DARK_TEXT_COLOR_HELP: Text color used on primary-colored backgrounds in dark mode
+    ACCENT_COLOR_DARK: Accent Color (Dark)
+    ACCENT_COLOR_DARK_HELP: Accent color used in dark mode
+
+    # Gray Scale
+    GRAY_SCALE: Gray Scale
+    GRAY_PRESET: Gray Scale Preset
+    GRAY_PRESET_HELP: Choose a Tailwind gray palette or select Custom to define your own
+    GRAY_CUSTOM: Custom Gray Scale
+    GRAY_CUSTOM_HELP: Define custom gray scale CSS variables (only used when preset is Custom)
+
+    # Branding
+    BRANDING: Branding
+    LOGO: Logo (Light Mode)
+    LOGO_DESC: Upload your logo for light mode (SVG recommended for best results)
+    LOGO_DARK: Logo (Dark Mode)
+    LOGO_DARK_DESC: Upload your logo for dark mode (optional, falls back to light mode logo)
+    LOGO_TEXT: Logo Text
+    LOGO_TEXT_HELP: Text to display if no logo image is set
+    LOGO_HEIGHT: Logo Height
+    LOGO_HEIGHT_HELP: Tailwind height class (e.g., h-8, h-10)
+    FAVICON: Favicon
+    FAVICON_DESC: Upload a custom favicon for the site
+
+    # Header Menu
+    HEADER_MENU: Header Menu
+    MENU_ITEMS: Menu Items
+    MENU_ITEMS_HELP: Links displayed in the header navigation
+    MENU_ROUTE: Route/URL
+    MENU_LABEL: Label
+    MENU_EXTERNAL: External Link
+
+    # Navigation
+    NAVIGATION_SETTINGS: Navigation Settings
+    SIDEBAR_WIDTH: Sidebar Width
+    SIDEBAR_WIDTH_HELP: Width of the sidebar navigation in pixels
+    POWERED_BY: Show "Powered by Grav"
+    POWERED_BY_HELP: Display "Powered by Grav" in the sidebar footer
+    CONTENT_WIDTH: Content Width
+    CONTENT_WIDTH_HELP: Maximum width of the content area in pixels for readability
+    TOC_POSITION: Table of Contents Position
+    TOC_POSITION_HELP: Where to display the on-page table of contents
+    RIGHT: Right
+    LEFT: Left
+    HIDDEN: Hidden
+    TOC_START: TOC Start Level
+    TOC_START_HELP: Starting heading level for TOC (1=h1, 2=h2)
+    TOC_DEPTH: TOC Depth
+    TOC_DEPTH_HELP: Number of heading levels to include from start (e.g., 3 levels deep)
+    SHOW_BREADCRUMBS: Show Breadcrumbs
+    SHOW_PREV_NEXT: Show Previous/Next Navigation
+    SCROLL_SPY: Scroll Spy
+    SCROLL_SPY_HELP: Highlight current section in table of contents while scrolling
+
+    # HTMX Navigation
+    HTMX_NAVIGATION: HTMX Navigation (Experimental)
+    ENABLE_HTMX: Enable HTMX Navigation
+    ENABLE_HTMX_HELP: Load page content via XHR without full page reloads for a smoother SPA-like experience
+
+    # Versioning
+    VERSIONING_SETTINGS: Versioning Settings
+    ENABLE_VERSIONING: Enable Versioning
+    ENABLE_VERSIONING_HELP: Enable documentation versioning with version switcher
+    VERSION_MODE: Version Mode
+    VERSION_MODE_HELP: "Explicit: all versions have URL prefixes. Implicit: current version has no prefix"
+    MODE_EXPLICIT: Explicit (all prefixed)
+    MODE_IMPLICIT: Implicit (current unprefixed)
+    AUTO_DETECT_VERSIONS: Auto-Detect Versions
+    AUTO_DETECT_VERSIONS_HELP: Automatically scan for version folders matching the pattern
+    VERSION_ROOT: Version Root Folder
+    VERSION_ROOT_HELP: Parent folder containing versioned documentation (empty = site root)
+    VERSION_PATTERN: Version Pattern
+    VERSION_PATTERN_HELP: Regex pattern for detecting version folders (e.g., /^v?\d+(\.\d+)*$/)
+    REDIRECT_UNVERSIONED: Redirect Unversioned URLs
+    REDIRECT_UNVERSIONED_HELP: Automatically redirect URLs without version prefix to the default version (e.g., /basics/installation → /v3/basics/installation)
+    VERSION_LIST: Version Configuration
+    VERSIONS: Manual Version List
+    VERSIONS_HELP: Comma-separated list of versions (only used if auto-detect is disabled)
+    DEFAULT_VERSION: Default Version
+    DEFAULT_VERSION_HELP: The default/latest version shown to new visitors
+    CURRENT_VERSION: Current Version (Implicit Mode)
+    CURRENT_VERSION_HELP: Version identifier for unprefixed content in implicit mode
+    VERSION_DISPLAY: Display Options
+    SHOW_VERSION_BADGE: Show Version Badge
+    SHOW_VERSION_DROPDOWN: Show Version Dropdown
+    VERSION_LABELS: Custom Version Labels
+    VERSION_LABELS_HELP: Friendly display labels for versions (key = version id, value = label)
+
+    # Search
+    SEARCH_SETTINGS: Search Settings
+    ENABLE_SEARCH: Enable Search
+    SEARCH_PROVIDER: Search Provider
+    SEARCH_PROVIDER_HELP: Choose which search plugin to use
+    KEYBOARD_SHORTCUT: Keyboard Shortcut
+    KEYBOARD_SHORTCUT_HELP: Enable keyboard shortcut to open search
+    SHORTCUT_KEY: Shortcut Key
+    SHORTCUT_KEY_HELP: The key to press with Cmd (Mac) or Ctrl (Windows/Linux)
+    SEARCH_PLACEHOLDER: Search Placeholder
+
+    # GitHub
+    GITHUB_SETTINGS: GitHub Integration
+    ENABLE_GITHUB: Enable GitHub Integration
+    GITHUB_REPO: Repository
+    GITHUB_REPO_HELP: GitHub repository in format 'owner/repo'
+    GITHUB_BRANCH: Branch
+    SHOW_EDIT_LINK: Show Edit Link
+    EDIT_LINK_TEXT: Edit Link Text
+    PATH_PREFIX: Path Prefix to Strip
+    PATH_PREFIX_HELP: Prefix to remove from file paths (e.g., 'user/' for Grav skeletons)
+
+    # Advanced
+    ADVANCED_SETTINGS: Advanced Settings
+    APPEND_SITE_TITLE: Append Site Title
+    BODY_CLASSES: Body Classes
+    BODY_CLASSES_HELP: Additional CSS classes to add to the body element
+    SECTION_CLASSES: Section Classes
+
+    # API
+    API_SETTINGS: API Documentation
+    ENABLE_API_DOCS: Enable API Documentation
+    API_BASE_URL: API Base URL
+    API_BASE_URL_HELP: Base URL for API endpoints shown in documentation
+
+  # Frontend strings
+  SEARCH: Search
+  SEARCH_DOCS: Search documentation...
+  NO_RESULTS: No results found
+  SEARCHING: Searching...
+  TRY_DIFFERENT: Try a different search term
+  DID_YOU_MEAN: "Did you mean:"
+  TYPE_MORE: Type at least %d characters to search
+  TO_NAVIGATE: to navigate
+  TO_SELECT: to select
+  TO_CLOSE: to close
+  COPY: Copy
+  COPIED: Copied!
+  EDIT_PAGE: Edit this page
+  ON_THIS_PAGE: On this page
+  PREVIOUS: Previous
+  NEXT: Next
+  VERSION: Version
+  VERSION_LATEST: latest
+  LIGHT_MODE: Light
+  DARK_MODE: Dark
+  SYSTEM_MODE: System
+  COPYRIGHT: "&copy; {{year}} {{name}}. All rights reserved."
+  GO_BACK: Go Back
+  BACK_TO_HOME: Back to Home
+  TRY_SEARCHING: "Try searching: press"
+  POWERED_BY_YETISEARCH: Powered by <a href="https://getgrav.org/premium/yetisearch" target="_blank" rel="noopener">YetiSearch Pro</a>
+  POWERED_BY_GRAV: Powered by <a href="https://getgrav.org" class="text-primary hover:underline" target="_blank" rel="noopener">Grav</a>
+  PARAMETERS: Parameters
+  NAME: Name
+  TYPE: Type
+  DESCRIPTION: Description
+  REQUIRED: required
+  OPTIONAL: optional
+  DEFAULT: "Default:"
+  REQUEST: Request
+  RESPONSE: Response
+  RESPONSE_CODES: Response Codes
+  CONTACT_HEADING: Let's Start a Conversation
+  CONTACT_DESCRIPTION: Have a question, suggestion, or just want to say hello? We'd love to hear from you. Fill out the form and we'll respond as soon as possible.
+  CONTACT_EMAIL_LABEL: Email Us
+  CONTACT_EMAIL_VALUE: hello@example.com
+  CONTACT_RESPONSE_LABEL: Response Time
+  CONTACT_RESPONSE_VALUE: Within 24-48 hours

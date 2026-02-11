@@ -1,0 +1,35 @@
+{
+  "name": "helios-theme",
+  "repository": "",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "copy:alpine": "cat node_modules/alpinejs/dist/cdn.min.js node_modules/@alpinejs/collapse/dist/cdn.min.js > js/alpine.min.js",
+    "copy:fonts": "cp node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2 fonts/inter-variable.woff2 && cp node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2 fonts/jetbrains-mono-variable.woff2 && cp node_modules/@fontsource-variable/open-sans/files/open-sans-latin-wght-normal.woff2 fonts/open-sans-variable.woff2 && cp node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2 fonts/nunito-sans-variable.woff2 && cp node_modules/@fontsource-variable/work-sans/files/work-sans-latin-wght-normal.woff2 fonts/work-sans-variable.woff2 && cp node_modules/@fontsource-variable/public-sans/files/public-sans-latin-wght-normal.woff2 fonts/public-sans-variable.woff2 && cp node_modules/@fontsource-variable/quicksand/files/quicksand-latin-wght-normal.woff2 fonts/quicksand-variable.woff2",
+    "copy:assets": "npm run copy:alpine && npm run copy:fonts",
+    "dev": "npm run copy:assets && npx @tailwindcss/cli -i ./css/site.css -o ./build/css/site.css --watch --minify --verbose",
+    "build": "npm run copy:assets && NODE_ENV=production npx @tailwindcss/cli -i ./css/site.css -o ./build/css/site.css --minify",
+    "prod": "npm run build"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.15.2",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/nunito-sans": "^5.2.7",
+    "@fontsource-variable/open-sans": "^5.2.7",
+    "@fontsource-variable/public-sans": "^5.2.7",
+    "@fontsource-variable/quicksand": "^5.2.10",
+    "@fontsource-variable/work-sans": "^5.2.8",
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5",
+    "@tailwindcss/vite": "^4.1.17",
+    "alpinejs": "^3.15.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "tailwindcss": "^4.1.17"
+  }
+}

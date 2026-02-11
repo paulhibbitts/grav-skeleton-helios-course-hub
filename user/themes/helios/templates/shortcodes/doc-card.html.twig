@@ -1,0 +1,7 @@
+{# doc-card shortcode template - uses shared partial #}
+{% include 'partials/doc-card.html.twig' with {
+    title: title,
+    link: link ? url(link) : null,
+    icon: icon,
+    content: content
+} %}

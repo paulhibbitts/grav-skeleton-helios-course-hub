@@ -1,0 +1,43 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {# Chapter header #}
+    <div class="not-prose mb-8">
+        <h1 class="flex items-center gap-4 mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {% if page.header.icon %}
+            <span class="flex-shrink-0 inline-flex items-center justify-center p-2 rounded-xl bg-primary/15 text-primary">
+                {{ svg_icon(page.header.icon, 'w-6 h-6')|raw }}
+            </span>
+            {% endif %}
+            <span>{{ page.title }}</span>
+        </h1>
+
+        {% if page.header.description or page.summary %}
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+            {{ page.header.description ?: page.summary|striptags }}
+        </p>
+        {% endif %}
+    </div>
+
+    {# Page content if any #}
+    {% if page.content|trim %}
+        <div class="prose dark:prose-invert max-w-none mb-12">
+            {{ page.content|raw }}
+        </div>
+    {% endif %}
+
+    {# Child pages listing #}
+    {% set children = page.children.visible %}
+    {% if children.count > 0 %}
+    <div class="grid gap-4 sm:grid-cols-2">
+        {% for child in children %}
+            {% include 'partials/doc-card.html.twig' with {
+                title: child.title,
+                link: child.url,
+                icon: child.header.icon,
+                description: child.header.description ?: child.summary|striptags
+            } %}
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

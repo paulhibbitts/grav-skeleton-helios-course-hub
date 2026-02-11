@@ -1,0 +1,7 @@
+{% extends 'partials/yetisearch-pro/base/modal-simple.html.twig' %}
+
+{% block modal_data_attrs %}
+{% if helios.versioning.enabled and helios_version %}
+data-ys-extra-params="filter[version][eqor]={{ helios_version|url_encode }}"
+{% endif %}
+{% endblock %}

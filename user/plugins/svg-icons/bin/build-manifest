@@ -1,0 +1,149 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Build SVG Icons Manifest
+ *
+ * Generates a JSON manifest file containing all available icons
+ * organized by set for efficient loading in the admin icon picker.
+ *
+ * Usage: php bin/build-manifest
+ */
+
+declare(strict_types=1);
+
+$pluginDir = dirname(__DIR__);
+$iconsDir = $pluginDir . '/icons';
+$outputFile = $pluginDir . '/data/icons-manifest.json';
+
+if (!is_dir($iconsDir)) {
+    echo "Error: Icons directory not found: {$iconsDir}\n";
+    exit(1);
+}
+
+/**
+ * Recursively scan a directory for SVG files
+ */
+function scanIconDirectory(string $path, string $prefix = ''): array
+{
+    $result = [];
+    $items = scandir($path);
+
+    if ($items === false) {
+        return $result;
+    }
+
+    $hasSvgFiles = false;
+    $hasSubdirs = false;
+    $svgFiles = [];
+    $subdirs = [];
+
+    foreach ($items as $item) {
+        if ($item === '.' || $item === '..') {
+            continue;
+        }
+
+        $fullPath = $path . '/' . $item;
+
+        if (is_dir($fullPath)) {
+            $hasSubdirs = true;
+            $subdirs[] = $item;
+        } elseif (is_file($fullPath) && strtolower(pathinfo($item, PATHINFO_EXTENSION)) === 'svg') {
+            $hasSvgFiles = true;
+            $svgFiles[] = pathinfo($item, PATHINFO_FILENAME);
+        }
+    }
+
+    // If this directory has SVG files directly, treat it as an icon set
+    if ($hasSvgFiles) {
+        $setId = $prefix ?: basename($path);
+        sort($svgFiles, SORT_NATURAL | SORT_FLAG_CASE);
+        $result[$setId] = $svgFiles;
+    }
+
+    // If this directory has subdirectories, recurse into them
+    if ($hasSubdirs) {
+        foreach ($subdirs as $subdir) {
+            $newPrefix = $prefix ? $prefix . '/' . $subdir : $subdir;
+            $subResult = scanIconDirectory($path . '/' . $subdir, $newPrefix);
+            $result = array_merge($result, $subResult);
+        }
+    }
+
+    return $result;
+}
+
+/**
+ * Format a set ID into a human-readable name
+ */
+function formatSetName(string $setId): string
+{
+    // Replace slashes with spaces, capitalize words
+    $name = str_replace('/', ' ', $setId);
+    $name = str_replace(['-', '_'], ' ', $name);
+    $name = ucwords($name);
+    return $name;
+}
+
+echo "Scanning icons directory: {$iconsDir}\n";
+
+$icons = scanIconDirectory($iconsDir);
+
+// Sort sets alphabetically
+ksort($icons, SORT_NATURAL | SORT_FLAG_CASE);
+
+// Build the manifest structure
+$manifest = [
+    'version' => 1,
+    'generated' => date('c'),
+    'sets' => [],
+    'icons' => [],
+];
+
+$totalIcons = 0;
+
+foreach ($icons as $setId => $iconList) {
+    $count = count($iconList);
+    $totalIcons += $count;
+
+    $manifest['sets'][] = [
+        'id' => $setId,
+        'name' => formatSetName($setId),
+        'count' => $count,
+    ];
+
+    $manifest['icons'][$setId] = $iconList;
+
+    echo "  - {$setId}: {$count} icons\n";
+}
+
+echo "\nTotal: " . count($manifest['sets']) . " sets, {$totalIcons} icons\n";
+
+// Ensure data directory exists
+$dataDir = dirname($outputFile);
+if (!is_dir($dataDir)) {
+    mkdir($dataDir, 0755, true);
+    echo "Created directory: {$dataDir}\n";
+}
+
+// Write the manifest file
+$json = json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+if ($json === false) {
+    echo "Error: Failed to encode manifest as JSON\n";
+    exit(1);
+}
+
+if (file_put_contents($outputFile, $json) === false) {
+    echo "Error: Failed to write manifest file: {$outputFile}\n";
+    exit(1);
+}
+
+echo "\nManifest written to: {$outputFile}\n";
+
+// Also create a minified version for production
+$minifiedFile = $pluginDir . '/data/icons-manifest.min.json';
+$minifiedJson = json_encode($manifest, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+file_put_contents($minifiedFile, $minifiedJson);
+echo "Minified manifest written to: {$minifiedFile}\n";
+
+echo "\nDone!\n";

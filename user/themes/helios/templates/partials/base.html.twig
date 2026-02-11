@@ -1,0 +1,264 @@
+{% set theme_config = config.themes.helios %}
+{% set appearance = theme_config.appearance %}
+{% set colors = theme_config.colors %}
+{% set nav_config = theme_config.navigation %}
+{% set fonts = theme_config.fonts %}
+{% set htmx_enabled = theme_config.htmx.enabled|default(false) %}
+{% set is_htmx = is_htmx_request|default(false) %}
+
+{# For HTMX requests, return only the content partial #}
+{% if is_htmx %}
+    {% include 'partials/htmx-content.html.twig' %}
+{% else %}
+
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: 'en' }}"
+      x-data="{
+          mobileNavOpen: false,
+          searchOpen: false,
+          theme: localStorage.getItem('helios-theme') || '{{ appearance.theme }}',
+          sidebarOpen: true
+      }"
+      :class="{ 'dark': theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) }">
+<head>
+    <script>
+        // Prevent FOUC: Apply dark mode immediately before page renders
+        (function() {
+            var theme = localStorage.getItem('helios-theme') || '{{ appearance.theme }}';
+            var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDark) document.documentElement.classList.add('dark');
+        })();
+    </script>
+    <script>
+        // Protect Phiki code blocks from browser extensions (e.g., 1Password) that re-highlight code
+        (function() {
+            var stored = new WeakMap();
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(m) {
+                    // Watch for new code blocks being added
+                    if (m.type === 'childList') {
+                        m.addedNodes.forEach(function(node) {
+                            if (node.nodeType === 1) {
+                                var codes = node.matches && node.matches('pre.phiki code') ? [node] :
+                                           (node.querySelectorAll ? node.querySelectorAll('pre.phiki code') : []);
+                                codes.forEach(function(code) {
+                                    if (!stored.has(code) && code.querySelector('span[style]')) {
+                                        stored.set(code, code.innerHTML);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    // Watch for modifications to code block contents
+                    if (m.type === 'childList' && m.target.matches && m.target.matches('pre.phiki code')) {
+                        var original = stored.get(m.target);
+                        if (original && !m.target.querySelector('span[style]')) {
+                            m.target.innerHTML = original;
+                        }
+                    }
+                });
+            });
+            observer.observe(document.documentElement, { childList: true, subtree: true });
+        })();
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    {% if theme_config.append_site_title ?? true %}
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    {% else %}
+    <title>{{ page.title ?: site.title }}</title>
+    {% endif %}
+
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% endif %}
+
+    {% if page.robots %}
+    <meta name="robots" content="{{ page.robots }}">
+    {% endif %}
+
+    {# Favicon #}
+    {% if theme_config.custom_favicon %}
+        {% set favicon = theme_config.custom_favicon|first %}
+        <link rel="icon" href="{{ url('user://assets/helios/' ~ favicon.name) }}">
+    {% else %}
+        <link rel="icon" type="image/svg+xml" href="{{ url('theme://images/favicon.svg') }}">
+    {% endif %}
+
+    {# CSS Variables for theming #}
+    {% include 'partials/variables.html.twig' with { include_layout_vars: true } %}
+
+    {# Inline script to prevent FOUC for dark mode #}
+    <script>
+        (function() {
+            const stored = localStorage.getItem('helios-theme') || '{{ appearance.theme }}';
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (stored === 'dark' || (stored === 'system' && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    {% block head %}
+        {{ assets.css()|raw }}
+    {% endblock %}
+</head>
+
+{% set shortcut_key = theme_config.search.shortcut_key|default('k') %}
+<body class="min-h-screen bg-white dark:bg-gray-950/93 text-gray-900 dark:text-gray-100 {{ theme_config.body_classes }}"
+      @keydown.window="if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === '{{ shortcut_key }}') { event.preventDefault(); searchOpen = true; }"
+      @keydown.window.escape="searchOpen = false; mobileNavOpen = false">
+
+    {# Skip to content link for accessibility #}
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg">
+        Skip to content
+    </a>
+
+    {# Mobile navigation overlay #}
+    <div x-show="mobileNavOpen"
+         x-transition:enter="transition-opacity duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="mobileNavOpen = false"
+         class="mobile-nav-overlay lg:hidden"
+         x-cloak></div>
+
+    {# Mobile navigation panel #}
+    <div x-show="mobileNavOpen"
+         x-transition:enter="transition-transform duration-300"
+         x-transition:enter-start="-translate-x-full"
+         x-transition:enter-end="translate-x-0"
+         x-transition:leave="transition-transform duration-300"
+         x-transition:leave-start="translate-x-0"
+         x-transition:leave-end="-translate-x-full"
+         class="mobile-nav-panel lg:hidden"
+         x-cloak>
+        {% include 'partials/sidebar.html.twig' with { mobile: true } %}
+    </div>
+
+    {# Search modal #}
+    {% if theme_config.search.enabled %}
+        {% if theme_config.search.provider == 'yetisearch-pro' %}
+            {% include 'partials/yetisearch-pro/modal.html.twig' %}
+        {% else %}
+            {% include 'partials/search-modal.html.twig' %}
+        {% endif %}
+    {% endif %}
+
+    {# Main layout wrapper #}
+    <div class="flex min-h-screen">
+
+        {# Sidebar navigation (desktop) #}
+        <aside class="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:z-30 border-r border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 w-[var(--helios-sidebar-width)]">
+            {% include 'partials/sidebar.html.twig' %}
+        </aside>
+
+        {# Main content area #}
+        <div class="flex-1 min-w-0 overflow-x-clip lg:pl-[var(--helios-sidebar-width)]">
+
+            {# Top header bar #}
+            {% include 'partials/header.html.twig' %}
+
+            {# Content wrapper #}
+            {# TOC position: 'right' (default), 'left', or 'hidden' to disable #}
+            {# Child templates can set hide_toc = true to force hidden #}
+            {% set toc_pos = hide_toc|default(false) ? 'hidden' : nav_config.toc_position|default('right') %}
+
+            {# HTMX loading indicator #}
+            {% if htmx_enabled %}
+            <div id="htmx-loading" class="htmx-indicator fixed top-0 left-0 right-0 z-50 h-1">
+                <div class="h-full bg-primary animate-pulse"></div>
+            </div>
+            {% endif %}
+
+            {# Main content area #}
+            <main id="main-content" class="flex-1 min-w-0 px-4 py-8 sm:px-6 lg:px-8"
+                  {% if htmx_enabled %}
+                  hx-boost="true"
+                  hx-target="#htmx-swap-target"
+                  hx-swap="innerHTML show:window:top"
+                  hx-indicator="#htmx-loading"
+                  {% endif %}>
+
+                {# Centered container for content + TOC #}
+                <div class="mx-auto flex gap-8 {% if toc_pos == 'hidden' %}max-w-[var(--helios-content-width)]{% else %}max-w-[calc(var(--helios-content-width)+var(--helios-toc-width)+2rem)]{% endif %}">
+
+                    {# TOC on left if configured #}
+                    {% if toc_pos == 'left' %}
+                    <aside id="htmx-toc-container" class="hidden lg:block shrink-0 w-[var(--helios-toc-width)]">
+                        <div class="sticky top-20 overflow-y-auto max-h-[calc(100vh-5rem)]">
+                            {% include 'partials/toc.html.twig' %}
+                        </div>
+                    </aside>
+                    {% endif %}
+
+                    {# Content area #}
+                    <div class="flex-1 min-w-0 max-w-[var(--helios-content-width)]">
+                        {# HTMX swap target - this content gets replaced #}
+                        <div id="htmx-swap-target">
+                            {# Breadcrumbs #}
+                            <div id="htmx-breadcrumbs">
+                                {% if nav_config.breadcrumbs and helios_breadcrumbs is defined and helios_breadcrumbs|length > 1 %}
+                                    {% include 'partials/breadcrumbs.html.twig' %}
+                                {% endif %}
+                            </div>
+
+                            {# Page content #}
+                            <article id="htmx-article" class="prose dark:prose-invert max-w-none">
+                                {% block content %}{% endblock %}
+                            </article>
+
+                            {# Previous/Next navigation #}
+                            <div id="htmx-prev-next">
+                                {% if nav_config.prev_next %}
+                                    {% include 'partials/prev-next.html.twig' %}
+                                {% endif %}
+                            </div>
+
+                            {# TOC template for HTMX updates #}
+                            {% if htmx_enabled %}
+                            <template id="htmx-toc-template">
+                                {% include 'partials/toc.html.twig' %}
+                            </template>
+                            <script type="application/json" id="htmx-nav-state">
+                            {
+                                "route": "{{ page.route }}",
+                                "url": "{{ page.url }}",
+                                "title": "{{ page.title|e('js') }}",
+                                "siteTitle": "{{ site.title|e('js') }}",
+                                "appendSiteTitle": {{ (theme_config.append_site_title ?? true) ? 'true' : 'false' }}
+                            }
+                            </script>
+                            {% endif %}
+                        </div>
+
+                        {# Footer #}
+                        {% include 'partials/footer.html.twig' %}
+                    </div>
+
+                    {# TOC on right (default) #}
+                    {% if toc_pos == 'right' %}
+                    <aside id="htmx-toc-container" class="hidden lg:block shrink-0 w-[var(--helios-toc-width)]">
+                        <div class="sticky top-20 overflow-y-auto max-h-[calc(100vh-5rem)]">
+                            {% include 'partials/toc.html.twig' %}
+                        </div>
+                    </aside>
+                    {% endif %}
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    {% block bottom %}
+        {{ assets.js('bottom')|raw }}
+    {% endblock %}
+</body>
+</html>
+{% endif %}{# end is_htmx check #}

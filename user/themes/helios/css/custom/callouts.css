@@ -1,0 +1,112 @@
+/* Callout/Admonition Boxes */
+.callout {
+    @apply my-6 border-l-4 pl-4;
+
+    .callout-header {
+        @apply flex items-center gap-2 font-semibold mb-2;
+
+        .callout-icon {
+            @apply w-5 h-5 flex-shrink-0;
+        }
+
+        .callout-title {
+            @apply text-sm uppercase tracking-wide;
+        }
+    }
+
+    .callout-content {
+        @apply text-sm leading-relaxed;
+
+        p:last-child {
+            @apply mb-0;
+        }
+
+        code {
+            @apply bg-white/50 dark:bg-black/20;
+        }
+    }
+
+    /* Note - Blue */
+    &.callout-note {
+        @apply border-blue-500;
+
+        .callout-header {
+            @apply text-blue-700 dark:text-blue-400;
+        }
+    }
+
+    /* Tip - Green */
+    &.callout-tip {
+        @apply border-green-500;
+
+        .callout-header {
+            @apply text-green-700 dark:text-green-400;
+        }
+    }
+
+    /* Warning - Yellow/Amber */
+    &.callout-warning {
+        @apply border-amber-500;
+
+        .callout-header {
+            @apply text-amber-700 dark:text-amber-400;
+        }
+    }
+
+    /* Danger/Error - Red */
+    &.callout-danger {
+        @apply border-red-500;
+
+        .callout-header {
+            @apply text-red-700 dark:text-red-400;
+        }
+    }
+
+    /* Caution - Red */
+    &.callout-caution {
+        @apply border-red-500;
+
+        .callout-header {
+            @apply text-red-700 dark:text-red-400;
+        }
+    }
+
+    /* Info - Purple */
+    &.callout-info {
+        @apply border-purple-500;
+
+        .callout-header {
+            @apply text-purple-700 dark:text-purple-400;
+        }
+    }
+
+    /* Important - Purple */
+    &.callout-important {
+        @apply border-purple-500;
+
+        .callout-header {
+            @apply text-purple-700 dark:text-purple-400;
+        }
+    }
+}
+
+/* Collapsible callout (Details/Summary pattern) */
+.callout-collapsible {
+    @apply cursor-pointer;
+
+    .callout-header {
+        @apply select-none;
+
+        .expand-icon {
+            @apply ml-auto w-4 h-4 transition-transform;
+        }
+    }
+
+    &[open] .expand-icon {
+        @apply rotate-90;
+    }
+
+    .callout-content {
+        @apply pt-2;
+    }
+}

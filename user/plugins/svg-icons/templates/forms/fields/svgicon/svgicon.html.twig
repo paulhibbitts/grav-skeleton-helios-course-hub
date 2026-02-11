@@ -1,0 +1,66 @@
+{% extends "forms/field.html.twig" %}
+
+{% block global_attributes %}
+    data-grav-field="svgicon"
+    data-grav-svgicon-field
+    {{ parent() }}
+{% endblock %}
+
+{% block input %}
+    {% set current_value = value ?? '' %}
+    {% if current_value is not same as('') %}
+        {% set current_value = current_value|string %}
+    {% endif %}
+
+    {# Parse the value to extract set and icon name #}
+    {% set parts = current_value ? current_value|split('/') : [] %}
+    {% set icon_file = parts|last|default('') %}
+    {% set icon_name = icon_file ends with '.svg' ? icon_file|slice(0, icon_file|length - 4) : icon_file %}
+    {% set current_set = parts|length > 1 ? parts|slice(0, -1)|join('/') : field.default_set|default('tabler') %}
+
+    {% set placeholder = field.placeholder|default('No icon selected') %}
+    {% set choose_label = field.choose_label|default('Choose Icon') %}
+    {% set clear_label = field.clear_label|default('Clear') %}
+    {% set base_url = url('plugin://svg-icons/icons') %}
+    {% set endpoint = admin_route('/svg-icons') %}
+
+    {# Support for allowed_sets option to limit which icon sets are available #}
+    {% set allowed_sets = field.allowed_sets|default([])|json_encode %}
+
+    <div class="svgicon-field__container"
+         data-base-url="{{ base_url|e('html_attr') }}"
+         data-default-set="{{ field.default_set|default('tabler')|e('html_attr') }}"
+         data-placeholder="{{ placeholder|e('html_attr') }}"
+         data-selected-set="{{ current_set|e('html_attr') }}"
+         data-selected-icon="{{ icon_name|e('html_attr') }}"
+         data-endpoint="{{ endpoint|e('html_attr') }}"
+         data-allowed-sets="{{ allowed_sets|e('html_attr') }}">
+        <div class="svgicon-field__preview" data-svgicon-preview>
+            {% if current_value %}
+                <div class="svgicon-field__preview-display">
+                    <span class="svgicon-field__preview-icon">
+                        {{ svg_icon(current_value, 'svgicon-field__preview-svg')|raw }}
+                    </span>
+                    <span class="svgicon-field__preview-label">{{ current_value|replace({'.svg':''}) }}</span>
+                </div>
+            {% else %}
+                <span class="svgicon-field__placeholder">{{ placeholder }}</span>
+            {% endif %}
+        </div>
+        <div class="svgicon-field__actions">
+            <button type="button" class="button svgicon-field__choose" data-svgicon-choose>{{ choose_label }}</button>
+            <button type="button" class="button svgicon-field__clear" data-svgicon-clear{% if not current_value %} disabled{% endif %}>{{ clear_label }}</button>
+        </div>
+        <input
+            type="hidden"
+            name="{{ (scope ~ field.name)|fieldName }}"
+            value="{{ current_value }}"
+            data-svgicon-input
+        />
+        <noscript>
+            <div class="svgicon-field__nojs">
+                JavaScript is required to use the icon chooser. Enter the icon path manually (for example: <code>tabler/arrow-right.svg</code>) in the page frontmatter.
+            </div>
+        </noscript>
+    </div>
+{% endblock %}

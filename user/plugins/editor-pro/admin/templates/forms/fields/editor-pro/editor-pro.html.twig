@@ -1,0 +1,70 @@
+{% set field = field|merge({style: 'vertical', show_label: false}) %}
+{% extends "forms/fields/textarea/textarea.html.twig" %}
+
+{% block field %}
+    {# Load Editor Pro assets only when the field is rendered #}
+    {# Add cache-busting query in dev to ensure latest assets load #}
+    {% set _ep_cache_bust = date().timestamp %}
+    {% do assets.addJs('plugin://editor-pro/admin/assets/vendor/tiptap-bundle.js?v=' ~ _ep_cache_bust, {'group': 'bottom', 'priority': 5, 'loading': 'defer'}) %}
+    {% do assets.addCss('plugin://editor-pro/admin/assets/theme.css', {'group': 'head', 'priority': 9}) %}
+    {% do assets.addCss('plugin://editor-pro/admin/assets/editor-pro.css', {'group': 'head', 'priority': 10}) %}
+    {% do assets.addJs('plugin://editor-pro/admin/assets/editor-pro.min.js?v=' ~ _ep_cache_bust, {'group': 'bottom', 'priority': 15, 'loading': 'defer'}) %}
+    
+    {{ parent() }}
+{% endblock %}
+
+{% block input_attributes %}
+    data-grav-field="editor-pro"
+    data-grav-disabled="{{ toggleable ? 'true' : 'false' }}"
+    data-grav-default="{{ field.default | default('') }}"
+    {{ parent() }}
+{% endblock %}
+
+{% block input %}
+    {% set value = (value is null ? field.default : value) %}
+    {% set tabindex = field.tabindex ? ' tabindex="' ~ field.tabindex ~ '"' : '' %}
+    
+    {# Pre-resolve all image and link paths using Editor Pro Twig function #}
+    {% set pathMappings = editor_pro_path_mappings(admin.page.route) %}
+    {% set summaryDelimiter = grav.config.get('site.summary.delimiter') ?? grav.config.get('site.summary.delimeter') ?? '===' %}
+
+    {% set adminNonceValue = admin_nonce() %}
+    {% if adminNonceValue is empty %}
+        {% set adminNonceValue = grav.session.get('admin-nonce-' ~ grav.user.username) %}
+    {% endif %}
+    {% if adminNonceValue is empty %}
+        {% set adminNonceValue = 'fallback-nonce-' ~ random() %}
+    {% endif %}
+    <div class="editor-pro-wrapper" id="editor-pro"
+         data-path-mappings="{{ pathMappings | json_encode | e('html_attr') }}"
+         data-admin-route="{{ grav.config.get('plugins.admin.route') }}"
+         data-admin-nonce="{{ adminNonceValue }}"
+         data-page-route="{{ admin.page.route }}"
+         data-summary-delimiter="{{ summaryDelimiter | e('html_attr') }}">
+        <textarea
+            data-grav-field="editor-pro"
+            data-grav-disabled="{{ toggleable ? 'true' : 'false' }}"
+            data-grav-default="{{ field.default | default('') }}"
+            name="{{ (scope ~ field.name) | fieldName }}"
+            id="{{ field.id | default(field.name) }}"
+            {%- if field.style -%}{{ (' style="' ~ field.style ~ '"') | raw }}{%- endif -%}
+            {%- if field.classes is defined %} class="{{ field.classes }}"{% endif -%}
+            {%- if field.size %}{{ (' size="' ~ field.size ~ '"') | raw }}{% endif -%}
+            {%- if field.minlength %}{{ (' minlength="' ~ field.minlength ~ '"') | raw }}{% endif -%}
+            {%- if field.maxlength %}{{ (' maxlength="' ~ field.maxlength ~ '"') | raw }}{% endif -%}
+            {%- if field.rows %}{{ (' rows="' ~ field.rows ~ '"') | raw }}{% endif -%}
+            {%- if field.cols %}{{ (' cols="' ~ field.cols ~ '"') | raw }}{% endif -%}
+            {%- if field.readonly or isDisabledToggleable %}{{ ' readonly="readonly"' | raw }}{% endif -%}
+            {%- if field.disabled or isDisabledToggleable %}{{ ' disabled="disabled"' | raw }}{% endif -%}
+            {%- if field.autocomplete is defined %}{{ (' autocomplete="' ~ field.autocomplete ~ '"') | raw }}{% endif -%}
+            {%- if field.autofocus in ['on', 'true', 1] %}{{ ' autofocus="autofocus"' | raw }}{% endif -%}
+            {%- if field.novalidate in ['on', 'true', 1] %}{{ ' novalidate="novalidate"' | raw }}{% endif -%}
+            {%- if field.placeholder %}{{ (' placeholder="' ~ field.placeholder | t ~ '"') | raw }}{% endif -%}
+            {%- if field.wrap %}{{ (' wrap="' ~ field.wrap ~ '"') | raw }}{% endif -%}
+            {%- if required %}{{ ' required="required"' | raw }}{% endif -%}
+            {{ tabindex | raw }}
+            >{{ value | join("\n") | e('html') }}</textarea>
+        
+        <div class="editor-pro-container epc" id="editor-pro-{{ field.id | default(field.name) }}"></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% set theme_config = config.themes.helios %}
+{% set nav_config = theme_config.navigation %}
+{% set scroll_spy_enabled = nav_config.scroll_spy ?? true %}
+
+{# Recursive macro for rendering TOC items with nesting #}
+{% macro toc_item(item, level, active_id) %}
+    {% set indent_class = level == 1 ? 'pl-3' : level == 2 ? 'pl-6' : level == 3 ? 'pl-9' : 'pl-12' %}
+    {% set item_id = item.name %}
+
+    <li class="relative">
+        <a href="{{ item.uri }}"
+           data-toc-link="{{ item_id }}"
+           class="toc-link block py-1 text-sm transition-colors {{ indent_class }}"
+           :class="{
+               'text-primary dark:text-primary-dark font-medium': activeId === '{{ item_id }}',
+               'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white': activeId !== '{{ item_id }}'
+           }">
+            <span class="absolute left-0 top-0 bottom-0 w-0.5 transition-colors"
+                  :class="{
+                      'bg-primary dark:bg-primary-dark': activeId === '{{ item_id }}',
+                      'bg-transparent': activeId !== '{{ item_id }}'
+                  }"></span>
+            {{ item.label | raw }}
+        </a>
+        {% if item.children|length > 0 %}
+            <ul>
+                {% for child in item.children %}
+                    {{ _self.toc_item(child, level + 1, active_id) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}
+
+{% set toc_start = nav_config.toc_start|default(2) %}
+{% set toc_depth = nav_config.toc_depth|default(3) %}
+
+{# Check if page-toc plugin is enabled #}
+{% set page_toc_enabled = config.plugins['page-toc'].enabled|default(false) %}
+
+{% if page_toc_enabled %}
+    {% set table_of_contents = toc_items(page.content, toc_start, toc_depth) %}
+{% else %}
+    {% set table_of_contents = null %}
+{% endif %}
+
+{% if table_of_contents is not empty and table_of_contents.children|length > 0 %}
+<div class="py-8 px-4" x-data="{% if scroll_spy_enabled %}tocScrollSpy(){% else %}{ activeId: '' }{% endif %}">
+    <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">
+        {{ 'THEME_HELIOS.ON_THIS_PAGE'|t }}
+    </h4>
+
+    <nav class="toc-nav border-l border-gray-200 dark:border-gray-700">
+        <ul class="space-y-0.5">
+            {% for item in table_of_contents.children %}
+                {{ _self.toc_item(item, 1, '') }}
+            {% endfor %}
+        </ul>
+    </nav>
+
+</div>
+{% endif %}

@@ -1,0 +1,114 @@
+{#
+    Custom SimpleSearch JSON Response for Helios Theme
+    Returns rich result data with snippets and breadcrumbs for modal search
+#}
+{% set search_query = query|default('') %}
+{% set results = [] %}
+{% set grouped = {} %}
+{% set snippet_length = 150 %}
+
+{# Macro to build breadcrumb by traversing parents (up to 5 levels deep) #}
+{% macro get_breadcrumb(page) %}
+{%- set parts = [] -%}
+{%- set p1 = page.parent -%}
+{%- if p1 and p1.route != '/' -%}
+    {%- set parts = parts|merge([p1.title]) -%}
+    {%- set p2 = p1.parent -%}
+    {%- if p2 and p2.route != '/' -%}
+        {%- set parts = [p2.title]|merge(parts) -%}
+        {%- set p3 = p2.parent -%}
+        {%- if p3 and p3.route != '/' -%}
+            {%- set parts = [p3.title]|merge(parts) -%}
+            {%- set p4 = p3.parent -%}
+            {%- if p4 and p4.route != '/' -%}
+                {%- set parts = [p4.title]|merge(parts) -%}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endif -%}
+{%- endif -%}
+{{- parts|join(' > ') -}}
+{% endmacro %}
+
+{% import _self as helpers %}
+
+{% for result in search_results %}
+    {# Build breadcrumb from parent pages #}
+    {% set breadcrumb = helpers.get_breadcrumb(result)|trim %}
+
+    {# Get parent title for grouping (immediate parent) #}
+    {% set group_parent = result.parent %}
+    {% if group_parent and group_parent.route != '/' %}
+        {% set group_title = group_parent.title %}
+    {% else %}
+        {% set group_title = 'Documentation' %}
+    {% endif %}
+
+    {# Get content for snippet - rendered content stripped of HTML #}
+    {% set raw_content = result.content|striptags|replace({"\n": " ", "\r": " ", "\t": " "}) %}
+    {# Collapse multiple spaces #}
+    {% set raw_content = raw_content|replace({"  ": " "})|trim %}
+
+    {# Generate snippet - try to find query in content #}
+    {% set snippet = '' %}
+    {% if raw_content %}
+        {# Check if query appears in content (case-insensitive) #}
+        {% set content_lower = raw_content|lower %}
+        {% set query_lower = search_query|lower %}
+
+        {# Split by query to find position #}
+        {% set parts = content_lower|split(query_lower, 2) %}
+
+        {% if parts|length > 1 %}
+            {# Query was found - calculate position #}
+            {% set before_match = parts[0] %}
+            {% set match_pos = before_match|length %}
+
+            {# Start 50 chars before match #}
+            {% set start = match_pos - 50 %}
+            {% if start < 0 %}{% set start = 0 %}{% endif %}
+
+            {# Get snippet from original content (preserving case) #}
+            {% set snippet = raw_content|slice(start, snippet_length) %}
+
+            {# Add ellipsis #}
+            {% if start > 0 %}
+                {% set snippet = '...' ~ snippet|trim %}
+            {% endif %}
+            {% if (start + snippet_length) < raw_content|length %}
+                {% set snippet = snippet ~ '...' %}
+            {% endif %}
+        {% else %}
+            {# Query not found in content - just show beginning #}
+            {% set snippet = raw_content|slice(0, snippet_length) %}
+            {% if raw_content|length > snippet_length %}
+                {% set snippet = snippet ~ '...' %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    {# Build result object #}
+    {% set result_item = {
+        url: result.url,
+        title: result.title,
+        route: result.route,
+        breadcrumb: breadcrumb,
+        snippet: snippet|trim,
+        parent: group_title
+    } %}
+
+    {# Add to grouped results #}
+    {% if grouped[group_title] is not defined %}
+        {% set grouped = grouped|merge({ (group_title): [] }) %}
+    {% endif %}
+    {% set grouped = grouped|merge({ (group_title): grouped[group_title]|merge([result_item]) }) %}
+
+    {# Also add to flat results array #}
+    {% set results = results|merge([result_item]) %}
+{% endfor %}
+
+{{ {
+    query: search_query,
+    count: results|length,
+    results: results,
+    grouped: grouped
+}|json_encode|raw }}

@@ -1,0 +1,69 @@
+title: Contact
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            content:
+              ordering@: 100
+            header.media_order:
+              ordering@: 101
+            header.description:
+              type: textarea
+              label: Description
+              toggleable: true
+              rows: 2
+              placeholder: A short description shown below the page title
+
+            contact_section:
+              type: section
+              title: Contact Form Settings
+              underline: true
+
+            header.contact.heading:
+              type: text
+              label: Sidebar Heading
+              toggleable: true
+              placeholder: Let's Start a Conversation
+              help: Leave empty to use default from language file
+
+            header.contact.description:
+              type: textarea
+              label: Sidebar Description
+              toggleable: true
+              rows: 3
+              placeholder: Have a question? We'd love to hear from you.
+              help: Leave empty to use default from language file
+
+            header.contact.info:
+              type: list
+              label: Contact Info Cards
+              style: vertical
+              collapsed: false
+              help: Leave empty to use defaults (Email and Response Time)
+              fields:
+                .icon:
+                  type: svgicon
+                  label: Icon
+                  default_set: tabler
+                .label:
+                  type: text
+                  label: Label
+                  placeholder: Email Us
+                  validate:
+                    required: true
+                .value:
+                  type: text
+                  label: Value
+                  placeholder: hello@example.com
+                  validate:
+                    required: true

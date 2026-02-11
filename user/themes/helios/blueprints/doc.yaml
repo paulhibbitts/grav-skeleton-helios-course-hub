@@ -1,0 +1,32 @@
+title: Documentation Page
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+          fields:
+            content:
+              ordering@: 100
+            header.media_order:
+              ordering@: 101
+            header.icon:
+              type: svgicon
+              label: Icon
+              toggleable: true
+              default_set: tabler
+              help: Optional icon displayed in navigation and page header
+            header.description:
+              type: textarea
+              label: Description
+              toggleable: true
+              rows: 2
+              placeholder: A short description for this page
+              help: Used in navigation cards and page summaries

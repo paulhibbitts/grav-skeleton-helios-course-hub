@@ -1,0 +1,118 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set api = page.header.api %}
+{% set theme_config = config.themes.helios %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+
+    {# API Endpoint Card #}
+    {% if api %}
+    <div class="api-endpoint-card">
+        {# Endpoint header with method and path #}
+        <div class="endpoint-header">
+            <span class="api-method method-{{ api.method|lower }}">{{ api.method }}</span>
+            <code class="endpoint-path">
+                {{ theme_config.api.base_url }}{% for part in api.path|split('/') %}{% if part starts with '{' %}<span class="path-param">{{ part }}</span>{% else %}{{ part }}{% endif %}{% if not loop.last %}/{% endif %}{% endfor %}
+            </code>
+        </div>
+
+        {# Description #}
+        {% if api.description %}
+        <div class="endpoint-description">
+            {{ api.description|raw }}
+        </div>
+        {% endif %}
+
+        <div class="endpoint-body">
+            {# Parameters table #}
+            {% if api.parameters %}
+            <div class="api-params">
+                <h3 class="params-title">{{ 'THEME_HELIOS.PARAMETERS'|t }}</h3>
+                <table class="params-table">
+                    <thead>
+                        <tr>
+                            <th>{{ 'THEME_HELIOS.NAME'|t }}</th>
+                            <th>{{ 'THEME_HELIOS.TYPE'|t }}</th>
+                            <th>{{ 'THEME_HELIOS.DESCRIPTION'|t }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for param in api.parameters %}
+                        <tr>
+                            <td>
+                                <span class="param-name">{{ param.name }}</span>
+                                {% if param.required %}
+                                <span class="param-required">{{ 'THEME_HELIOS.REQUIRED'|t }}</span>
+                                {% else %}
+                                <span class="param-optional">{{ 'THEME_HELIOS.OPTIONAL'|t }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="param-type">{{ param.type }}</span>
+                            </td>
+                            <td>
+                                <span class="param-description">{{ param.description }}</span>
+                                {% if param.default is defined %}
+                                <div class="param-default">{{ 'THEME_HELIOS.DEFAULT'|t }} <code>{{ param.default }}</code></div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+
+            {# Request/Response examples #}
+            {% if api.request_example or api.response_example %}
+            {% set default_tab = api.request_example ? 'request' : 'response' %}
+            <div class="api-examples" x-data="{ tab: '{{ default_tab }}' }">
+                <div class="examples-tabs">
+                    {% if api.request_example %}
+                    <button @click="tab = 'request'"
+                            :class="{ 'active': tab === 'request' }">
+                        {{ 'THEME_HELIOS.REQUEST'|t }}
+                    </button>
+                    {% endif %}
+                    {% if api.response_example %}
+                    <button @click="tab = 'response'"
+                            :class="{ 'active': tab === 'response' }">
+                        {{ 'THEME_HELIOS.RESPONSE'|t }}
+                    </button>
+                    {% endif %}
+                </div>
+
+                {% if api.request_example %}
+                <div x-show="tab === 'request'" class="example-panel" :class="{ 'active': tab === 'request' }">
+                    {{ api.request_example|codesh('json') }}
+                </div>
+                {% endif %}
+
+                {% if api.response_example %}
+                <div x-show="tab === 'response'" class="example-panel" :class="{ 'active': tab === 'response' }">
+                    {{ api.response_example|codesh('json') }}
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {# Response codes #}
+            {% if api.response_codes %}
+            <div class="api-responses">
+                <h3 class="responses-title">{{ 'THEME_HELIOS.RESPONSE_CODES'|t }}</h3>
+                {% for response in api.response_codes %}
+                <div class="response-item">
+                    <span class="response-code code-{{ response.code|slice(0, 1) }}xx">{{ response.code }}</span>
+                    <span class="response-description">{{ response.description }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {# Additional page content #}
+    {{ page.content|raw }}
+{% endblock %}

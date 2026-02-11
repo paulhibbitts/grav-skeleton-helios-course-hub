@@ -1,0 +1,11 @@
+{# doc-steps shortcode template #}
+<ol class="doc-steps not-prose">
+    {% for key, step in steps %}
+    <li class="doc-step">
+        <div class="doc-step-number">{{ key + 1 }}</div>
+        <div class="doc-step-content prose dark:prose-invert max-w-none">
+            {{ step.getContent()|raw }}
+        </div>
+    </li>
+    {% endfor %}
+</ol>

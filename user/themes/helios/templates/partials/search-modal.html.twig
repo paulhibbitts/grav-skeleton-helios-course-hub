@@ -1,0 +1,362 @@
+{% set theme_config = config.themes.helios %}
+{% set search_config = theme_config.search %}
+
+<div x-show="searchOpen"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     @click.self="searchOpen = false"
+     class="search-modal"
+     x-cloak
+     role="dialog"
+     aria-modal="true"
+     aria-label="Search documentation">
+
+    <div class="search-dialog"
+         x-data="searchComponent()"
+         x-effect="if (searchOpen) $nextTick(() => $refs.searchInput?.focus())"
+         @keydown.arrow-up.prevent="selectPrevious()"
+         @keydown.arrow-down.prevent="selectNext()"
+         @keydown.enter.prevent="goToSelected()">
+
+        {# Search input #}
+        <div class="search-input-wrapper">
+            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+
+            <input type="text"
+                   x-ref="searchInput"
+                   x-model="query"
+                   @input.debounce.150ms="search()"
+                   placeholder="{{ search_config.placeholder ?: 'THEME_HELIOS.SEARCH_DOCS'|t }}"
+                   autocomplete="off"
+                   autocorrect="off"
+                   autocapitalize="off"
+                   spellcheck="false">
+
+            <div class="search-shortcut">
+                <kbd>ESC</kbd>
+            </div>
+        </div>
+
+        {# Search results #}
+        <div class="search-results">
+            {# Results count header #}
+            <div x-show="!loading && resultCount > 0"
+                 x-transition:enter="transition-opacity duration-100"
+                 x-transition:leave="transition-opacity duration-75"
+                 class="search-results-header">
+                <span x-text="resultCount + ' result' + (resultCount !== 1 ? 's' : '') + ' for '"></span>
+                <span class="search-query-text" x-text="query"></span>
+            </div>
+
+
+            {# Empty state #}
+            <div x-show="!loading && query.length >= {{ search_config.min_chars ?: 2 }} && resultCount === 0"
+                 x-transition:enter="transition-opacity duration-100"
+                 x-transition:leave="transition-opacity duration-75"
+                 class="search-empty">
+                <svg class="empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 9.172a4 4 0 015.656 0M9 9a4 4 0 00-4 4v0a4 4 0 004 4h6a4 4 0 004-4v0a4 4 0 00-4-4M15 9V5a3 3 0 00-3-3v0a3 3 0 00-3 3v4"/>
+                </svg>
+                <p>{{ 'THEME_HELIOS.NO_RESULTS'|t }}</p>
+                <p x-show="!suggestion" class="text-sm mt-1">{{ 'THEME_HELIOS.TRY_DIFFERENT'|t }}</p>
+                <p x-show="suggestion" class="text-sm mt-1">
+                    {{ 'THEME_HELIOS.DID_YOU_MEAN'|t }}
+                    <a href="#" class="suggestion-link" @click.prevent="query = suggestion; search()" x-text="suggestion"></a>?
+                </p>
+            </div>
+
+            {# Grouped Results #}
+            <div x-show="!loading && resultCount > 0"
+                 x-transition:enter="transition-opacity duration-100"
+                 x-transition:leave="transition-opacity duration-75"
+                 class="search-results-list">
+                <template x-for="(groupResults, groupName) in grouped" :key="groupName">
+                    <div class="search-group">
+                        {# Group header #}
+                        <div class="search-group-header">
+                            <svg class="group-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                            </svg>
+                            <span x-text="groupName"></span>
+                        </div>
+
+                        {# Results in group #}
+                        <template x-for="(result, idx) in groupResults" :key="result.id || idx">
+                            <a :href="result.url"
+                               @click="searchOpen = false"
+                               @mouseenter="selectedIndex = flatIndex(result)"
+                               class="search-result"
+                               :class="{ 'selected': selectedIndex === flatIndex(result) }">
+                                <svg class="result-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <div class="result-content">
+                                    <span class="result-title" x-html="highlightMatch(result.title, query)"></span>
+                                    <span class="result-breadcrumb" x-text="result.breadcrumb"></span>
+                                    <span x-show="result.snippet" class="result-snippet" x-html="highlightMatch(result.snippet, query)"></span>
+                                </div>
+                                <svg class="result-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </template>
+                    </div>
+                </template>
+            </div>
+
+            {# Prompt to type more #}
+            <div x-show="!loading && query.length > 0 && query.length < {{ search_config.min_chars ?: 2 }}"
+                 x-transition:enter="transition-opacity duration-100"
+                 x-transition:leave="transition-opacity duration-75"
+                 class="search-empty">
+                <p>{{ 'THEME_HELIOS.TYPE_MORE'|t(search_config.min_chars ?: 2) }}</p>
+            </div>
+        </div>
+
+        {# Footer with keyboard shortcuts #}
+        <div class="search-footer">
+            <div class="search-commands">
+                <span class="command">
+                    <kbd>&uarr;</kbd><kbd>&darr;</kbd>
+                    <span>{{ 'THEME_HELIOS.TO_NAVIGATE'|t }}</span>
+                </span>
+                <span class="command">
+                    <kbd>Enter</kbd>
+                    <span>{{ 'THEME_HELIOS.TO_SELECT'|t }}</span>
+                </span>
+                <span class="command">
+                    <kbd>Esc</kbd>
+                    <span>{{ 'THEME_HELIOS.TO_CLOSE'|t }}</span>
+                </span>
+            </div>
+
+            {% if search_config.provider == 'yetisearch-pro' %}
+            <div class="search-powered-by">
+                {{ 'THEME_HELIOS.POWERED_BY_YETISEARCH'|t|raw }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function searchComponent() {
+    const provider = '{{ search_config.provider ?: "simplesearch" }}';
+    const baseUrl = '{{ base_url }}';
+    const currentVersion = '{{ helios_version ?: "" }}';
+    const versioningEnabled = {{ (helios.versioning.enabled ?? false) ? 'true' : 'false' }};
+
+    return {
+        query: '',
+        results: [],
+        grouped: {},
+        resultCount: 0,
+        loading: false,
+        selectedIndex: 0,
+        abortController: null,
+        suggestion: null,
+
+        async search() {
+            const minChars = {{ search_config.min_chars ?: 2 }};
+            if (this.query.length < minChars) {
+                this.results = [];
+                this.grouped = {};
+                this.resultCount = 0;
+                return;
+            }
+
+            // Cancel any in-flight request
+            if (this.abortController) {
+                this.abortController.abort();
+            }
+            this.abortController = new AbortController();
+
+            this.loading = true;
+            this.selectedIndex = 0;
+
+            try {
+                // Build URL based on provider
+                let url;
+                if (provider === 'yetisearch-pro') {
+                    url = `${baseUrl}/ys?q=${encodeURIComponent(this.query)}&ajax=1`;
+                    // Add version filter if versioning is enabled
+                    // Using filter[version][eqor] for "equals OR empty/null" to include unversioned pages
+                    if (versioningEnabled && currentVersion) {
+                        url += `&filter[version][eqor]=${encodeURIComponent(currentVersion)}`;
+                    }
+                } else {
+                    url = `${baseUrl}/search.json/query:${encodeURIComponent(this.query)}`;
+                    // SimpleSearch uses referer for version detection, but we can also pass it as a param
+                    if (versioningEnabled && currentVersion) {
+                        url += `/version:${encodeURIComponent(currentVersion)}`;
+                    }
+                }
+
+                const response = await fetch(url, { signal: this.abortController.signal });
+
+                // Check for server errors
+                if (!response.ok) {
+                    console.error('Search error: Server returned', response.status);
+                    this.clearResults();
+                    return;
+                }
+
+                // Verify we got JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    console.error('Search error: Expected JSON, got', contentType);
+                    this.clearResults();
+                    return;
+                }
+
+                const data = await response.json();
+
+                if (provider === 'yetisearch-pro') {
+                    this.processYetiSearchResults(data);
+                } else {
+                    this.processSimpleSearchResults(data);
+                }
+            } catch (error) {
+                if (error.name !== 'AbortError') {
+                    console.error('Search error:', error);
+                    this.clearResults();
+                }
+            }
+
+            this.loading = false;
+        },
+
+        processSimpleSearchResults(data) {
+            if (data.results) {
+                this.results = data.results;
+                this.grouped = data.grouped || {};
+                this.resultCount = data.count || data.results.length;
+            } else if (Array.isArray(data)) {
+                this.results = data;
+                this.grouped = { 'Results': data };
+                this.resultCount = data.length;
+            } else {
+                this.clearResults();
+            }
+        },
+
+        processYetiSearchResults(data) {
+            // Capture suggestion for "did you mean" feature
+            this.suggestion = data.suggestion || null;
+
+            if (!data.results || !Array.isArray(data.results)) {
+                this.clearResults(false); // Keep suggestion even if no results
+                return;
+            }
+
+            // Normalize YetiSearch results to our format
+            const normalized = data.results.map(r => {
+                // Handle breadcrumbs - may be JSON string or array
+                let breadcrumbs = r._meta?.breadcrumbs || [];
+                if (typeof breadcrumbs === 'string') {
+                    try { breadcrumbs = JSON.parse(breadcrumbs); } catch(e) { breadcrumbs = []; }
+                }
+                if (!Array.isArray(breadcrumbs)) breadcrumbs = [];
+                const parent = breadcrumbs.length > 0 ? breadcrumbs[0].name : 'Results';
+                const breadcrumb = breadcrumbs.map(b => b.name).join(' > ');
+
+                // Use pre-highlighted content if available
+                const isChunk = r._meta?.is_chunk === true;
+                const pageTitle = r._highlights?.title || r.title || r.content?.title || '';
+                const chunkHeading = r._meta?.heading || '';
+                // For chunks, show "Page Title - Heading" format
+                const title = isChunk && chunkHeading ? `${pageTitle} - ${chunkHeading}` : pageTitle;
+                // For chunks, prefer chunk-specific content over page excerpt
+                // _highlights.content = chunk content, _highlights.excerpt = page excerpt
+                const snippet = isChunk
+                    ? (r._highlights?.content || r.content?.excerpt || r.content?.content || '')
+                    : (r._highlights?.excerpt || r._highlights?.content || r.excerpt || r.content?.excerpt || '');
+
+                // Build full URL from route + base URL + optional anchor
+                const route = r.route || r.content?.route || r.url || r.content?.url || '';
+                const anchor = r._meta?.anchor ? `#${r._meta.anchor}` : '';
+                const url = route ? `${baseUrl}${route}${anchor}` : '';
+
+                return {
+                    id: r.id,
+                    url: url,
+                    title: title,
+                    breadcrumb: breadcrumb,
+                    snippet: snippet,
+                    parent: parent,
+                    _original: r
+                };
+            });
+
+            this.results = normalized;
+            this.resultCount = data.total || normalized.length;
+
+            // Group by parent
+            this.grouped = {};
+            for (const result of normalized) {
+                const group = result.parent || 'Results';
+                if (!this.grouped[group]) {
+                    this.grouped[group] = [];
+                }
+                this.grouped[group].push(result);
+            }
+        },
+
+        clearResults(clearSuggestion = true) {
+            this.results = [];
+            this.grouped = {};
+            this.resultCount = 0;
+            this.loading = false;
+            if (clearSuggestion) this.suggestion = null;
+        },
+
+        flatIndex(result) {
+            return this.results.findIndex(r => (r.id && r.id === result.id) || r.url === result.url);
+        },
+
+        selectPrevious() {
+            if (this.selectedIndex > 0) {
+                this.selectedIndex--;
+                this.scrollToSelected();
+            }
+        },
+
+        selectNext() {
+            if (this.selectedIndex < this.results.length - 1) {
+                this.selectedIndex++;
+                this.scrollToSelected();
+            }
+        },
+
+        scrollToSelected() {
+            this.$nextTick(() => {
+                const selected = this.$el.querySelector('.search-result.selected');
+                if (selected) {
+                    selected.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                }
+            });
+        },
+
+        goToSelected() {
+            if (this.results[this.selectedIndex]) {
+                window.location.href = this.results[this.selectedIndex].url;
+            }
+        },
+
+        highlightMatch(text, query) {
+            if (!query || !text) return text || '';
+            // If text already contains <mark> tags (from YetiSearch), return as-is
+            if (text.includes('<mark>')) return text;
+            const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${escaped})`, 'gi');
+            return text.replace(regex, '<mark>$1</mark>');
+        }
+    };
+}
+</script>

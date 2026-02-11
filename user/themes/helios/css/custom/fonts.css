@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Font Definitions - All fonts are variable and loaded from local files
+   ========================================================================== */
+
+/* Inter Variable (Default) */
+@font-face {
+    font-family: Inter;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/inter-variable.woff2') format('woff2');
+}
+
+/* Open Sans Variable */
+@font-face {
+    font-family: OpenSans;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/open-sans-variable.woff2') format('woff2');
+}
+
+/* Geom Variable */
+@font-face {
+    font-family: Geom;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/geom-variable.woff2') format('woff2');
+}
+
+/* Nunito Sans Variable */
+@font-face {
+    font-family: NunitoSans;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/nunito-sans-variable.woff2') format('woff2');
+}
+
+/* Ubuntu Sans Variable */
+@font-face {
+    font-family: UbuntuSans;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/ubuntu-sans-variable.woff2') format('woff2');
+}
+
+/* Work Sans Variable */
+@font-face {
+    font-family: WorkSans;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/work-sans-variable.woff2') format('woff2');
+}
+
+/* Public Sans Variable */
+@font-face {
+    font-family: PublicSans;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/public-sans-variable.woff2') format('woff2');
+}
+
+/* Quicksand Variable */
+@font-face {
+    font-family: Quicksand;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/quicksand-variable.woff2') format('woff2');
+}
+
+/* JetBrains Mono Variable (Code font) */
+@font-face {
+    font-family: JetBrainsMono;
+    font-weight: 100 800;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/jetbrains-mono-variable.woff2') format('woff2');
+}
+
+/* Fira Code Variable (Code font) */
+@font-face {
+    font-family: FiraCode;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/fireacode-mono-variable.woff2') format('woff2');
+}
+
+/* Intel One Mono Variable (Code font) */
+@font-face {
+    font-family: IntelOneMono;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/intelone-mono-variable.woff2') format('woff2');
+}
+
+/* Atkinson Hyperlegible Mono Variable (Code font) */
+@font-face {
+    font-family: AtkinsonHyperlegibleMono;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/atkins-hyper-legible-mono-variable.woff2') format('woff2');
+}
+
+/* Inconsolata Variable (Code font) */
+@font-face {
+    font-family: Inconsolata;
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url('../../fonts/inconsolata-variable.woff2') format('woff2');
+}

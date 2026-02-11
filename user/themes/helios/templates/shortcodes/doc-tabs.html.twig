@@ -1,0 +1,38 @@
+{# doc-tabs shortcode template #}
+<div class="doc-tabs not-prose" data-tabs-id="{{ hash }}"{% if sync_labels %} data-sync-labels="true"{% endif %}>
+    {# Tab navigation #}
+    <div class="doc-tabs-nav" role="tablist">
+        {% for key, tab in tabs %}
+        {% set title = tab.getParameter('title', 'Tab ' ~ (key + 1)) %}
+        <button
+            type="button"
+            role="tab"
+            class="doc-tab-button{% if key == active %} active{% endif %}"
+            data-tab-index="{{ key }}"
+            data-tab-label="{{ title }}"
+            aria-selected="{{ key == active ? 'true' : 'false' }}"
+            aria-controls="tab-panel-{{ hash }}-{{ key }}"
+            id="tab-{{ hash }}-{{ key }}"
+        >
+            {{ title }}
+        </button>
+        {% endfor %}
+    </div>
+
+    {# Tab panels #}
+    <div class="doc-tabs-content">
+        {% for key, tab in tabs %}
+        <div
+            role="tabpanel"
+            class="doc-tab-panel{% if key == active %} active{% endif %}"
+            id="tab-panel-{{ hash }}-{{ key }}"
+            aria-labelledby="tab-{{ hash }}-{{ key }}"
+            {% if key != active %}hidden{% endif %}
+        >
+            <div class="prose dark:prose-invert max-w-none">
+                {{ tab.getContent()|raw }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
