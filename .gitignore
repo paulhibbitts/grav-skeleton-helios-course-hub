@@ -7,6 +7,8 @@ data/*
 !data/.*
 plugins/*
 !plugins/.*
+!plugins/helios-course-hub-support/
+!plugins/helios-course-hub-support/**
 !themes/helios/.*
 themes/helios/*
 !themes/quark/.*
