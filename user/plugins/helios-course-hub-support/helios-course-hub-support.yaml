@@ -1,0 +1,3 @@
+enabled: true
+js_assets:
+  - url: https://cdn.embedly.com/widgets/platform.js
