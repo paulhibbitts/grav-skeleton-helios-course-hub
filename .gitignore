@@ -9,6 +9,8 @@ plugins/*
 !plugins/.*
 !themes/helios/.*
 themes/helios/*
+!themes/quark/.*
+themes/quark/*
 localhost/*
 !localhost/.*
 
