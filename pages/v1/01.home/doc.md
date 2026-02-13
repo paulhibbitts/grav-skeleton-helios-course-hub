@@ -21,3 +21,5 @@ Is this your first online course? If so, you might find these articles of help:
 * [Student toolkit to help tackle remote learning](https://socialmediaforlearning.com/2020/03/22/guest-post-a-student-toolkit-to-help-you-tackle-remote-learning-written-by-students-for-students/)
 
 [Usability 101: Introduction to Usability](https://www.nngroup.com/articles/usability-101-introduction-to-usability/?classes=link-preview&target=_blank)
+
+<a class="embedly-card" data-card-controls="0" data-card-align="left" href="https://www.nngroup.com/articles/usability-101-introduction-to-usability/">Usability 101: Introduction to Usability</a>
