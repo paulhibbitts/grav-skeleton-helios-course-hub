@@ -1,0 +1,10 @@
+enabled: true
+languages:
+  -
+    code: en
+    content:
+      MY_PLUGIN:
+        GREETING: Hello
+        CTA: 'Read More'
+      THEME_HELIOS:
+        VERSION: Course
