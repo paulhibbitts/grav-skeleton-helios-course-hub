@@ -38,3 +38,13 @@ form:
           type: text
           label: URL
           placeholder: https://cdn.example.com/script.js
+    js_inline:
+      type: editor
+      label: Inline JavaScript
+      help: JavaScript code to be injected inline on every page (runs before external JS assets).
+      codemirror:
+        mode: 'javascript'
+        indentUnit: 4
+        lineNumbers: true
+        styleActiveLine: true
+      rows: 20
