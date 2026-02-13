@@ -1,19 +1,9 @@
 enabled: true
 js_inline: |
   (function() {
-      var SCROLL_KEY = 'embedly-scroll-pos';
       var theme = localStorage.getItem('helios-theme') || 'system';
       var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
       var cardTheme = isDark ? 'dark' : 'light';
-
-      // Restore scroll position after a theme-triggered reload
-      var savedPos = sessionStorage.getItem(SCROLL_KEY);
-      if (savedPos !== null) {
-          sessionStorage.removeItem(SCROLL_KEY);
-          window.addEventListener('load', function() {
-              window.scrollTo(0, parseInt(savedPos, 10));
-          });
-      }
 
       var embeds = document.querySelectorAll('.embedly-card');
       for (var i = 0; i < embeds.length; i++) {
@@ -30,12 +20,16 @@ js_inline: |
           window.addEventListener('load', function() {
               var observer = new MutationObserver(function() {
                   observer.disconnect();
-                  sessionStorage.setItem(SCROLL_KEY, window.scrollY);
                   window.location.reload();
               });
               observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
           });
       }
   })();
+css_inline: |
+  .prose blockquote,
+  .prose blockquote * {
+      font-style: normal;
+  }
 js_assets:
   - url: https://cdn.embedly.com/widgets/platform.js

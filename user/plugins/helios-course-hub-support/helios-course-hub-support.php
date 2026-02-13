@@ -28,6 +28,12 @@ class HeliosCourseHubSupportPlugin extends Plugin
     {
         $assets = $this->grav['assets'];
 
+        // Add inline CSS from config
+        $css_inline = $this->config->get('plugins.helios-course-hub-support.css_inline', '');
+        if (!empty($css_inline)) {
+            $assets->addInlineCss($css_inline);
+        }
+
         // Add inline JS from config (runs before external assets)
         $js_inline = $this->config->get('plugins.helios-course-hub-support.js_inline', '');
         if (!empty($js_inline)) {
