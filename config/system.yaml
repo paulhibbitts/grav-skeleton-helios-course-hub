@@ -35,7 +35,7 @@ pages:
   type: regular
   dirs:
     - 'page://'
-  theme: mytheme
+  theme: helios
   order:
     by: default
     dir: asc
