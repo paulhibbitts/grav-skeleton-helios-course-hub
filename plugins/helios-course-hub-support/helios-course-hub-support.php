@@ -33,9 +33,19 @@ class HeliosCourseHubSupportPlugin extends Plugin
         // data-card-theme must be set before platform.js executes.
         $embedly_theme_js = <<<'JS'
 (function() {
+    var SCROLL_KEY = 'embedly-scroll-pos';
     var theme = localStorage.getItem('helios-theme') || 'system';
     var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
     var cardTheme = isDark ? 'dark' : 'light';
+
+    // Restore scroll position after a theme-triggered reload
+    var savedPos = sessionStorage.getItem(SCROLL_KEY);
+    if (savedPos !== null) {
+        sessionStorage.removeItem(SCROLL_KEY);
+        window.addEventListener('load', function() {
+            window.scrollTo(0, parseInt(savedPos, 10));
+        });
+    }
 
     var embeds = document.querySelectorAll('.embedly-card');
     for (var i = 0; i < embeds.length; i++) {
@@ -45,18 +55,19 @@ class HeliosCourseHubSupportPlugin extends Plugin
     // Watch for dark class changes on <html> via MutationObserver,
     // since the Helios theme toggle buttons directly manipulate the
     // class list without dispatching the helios-theme-change event.
-    var observer = new MutationObserver(function(mutations) {
-        for (var i = 0; i < mutations.length; i++) {
-            if (mutations[i].attributeName === 'class') {
-                if (document.querySelectorAll('iframe[src*="embedly"]').length > 0) {
-                    observer.disconnect();
-                    window.location.reload();
-                }
-                break;
-            }
-        }
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    // Only start observing after page has fully loaded, so we skip
+    // the initial class mutations during page setup and only react
+    // to user-initiated theme toggles.
+    if (embeds.length > 0) {
+        window.addEventListener('load', function() {
+            var observer = new MutationObserver(function() {
+                observer.disconnect();
+                sessionStorage.setItem(SCROLL_KEY, window.scrollY);
+                window.location.reload();
+            });
+            observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        });
+    }
 })();
 JS;
 
