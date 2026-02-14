@@ -48,3 +48,13 @@ form:
         lineNumbers: true
         styleActiveLine: true
       rows: 20
+    css_inline:
+      type: editor
+      label: Inline CSS
+      help: CSS code to be injected inline on every page.
+      codemirror:
+        mode: 'css'
+        indentUnit: 4
+        lineNumbers: true
+        styleActiveLine: true
+      rows: 20

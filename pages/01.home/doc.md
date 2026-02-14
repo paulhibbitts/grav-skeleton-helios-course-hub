@@ -1,7 +1,7 @@
 ---
 title: CPT-363 Course Hub
 body_classes: 'title-center title-h1h2'
-published: true
+published: false
 visible: true
 ---
 
