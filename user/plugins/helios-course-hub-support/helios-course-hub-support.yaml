@@ -31,13 +31,13 @@ css_inline: |
       font-style: normal;
   }
   /* Responsive iframe/video containers */
-  .html5-video-container {
+  .hchs-embed-container {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       overflow: hidden;
   }
-  .html5-video-container iframe {
+  .hchs-embed-container iframe {
       position: absolute;
       top: 0;
       left: 0;

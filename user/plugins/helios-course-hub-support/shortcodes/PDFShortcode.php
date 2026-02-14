@@ -16,7 +16,7 @@ class PDFShortcode extends Shortcode
             $pdfurl= $sc->getParameter('url', $sc->getBbCode());
 
             if ($pdfurl) {
-                $output = '<p><div class="html5-video-container"><iframe src="https://docs.google.com/gview?url='.$pdfurl.'&embedded=true" width="640" height="480"></iframe></div></p>';
+                $output = '<p><div class="hchs-embed-container"><iframe src="https://docs.google.com/gview?url='.$pdfurl.'&embedded=true" width="640" height="480"></iframe></div></p>';
 
                 return $output;
 
@@ -24,7 +24,7 @@ class PDFShortcode extends Shortcode
 
                 if ($str) {
 
-                    return '<p><div class="html5-video-container"><iframe src="https://docs.google.com/gview?url='.$str.'&embedded=true" width="640" height="480"></iframe></div></p>';
+                    return '<p><div class="hchs-embed-container"><iframe src="https://docs.google.com/gview?url='.$str.'&embedded=true" width="640" height="480"></iframe></div></p>';
 
                 }
 

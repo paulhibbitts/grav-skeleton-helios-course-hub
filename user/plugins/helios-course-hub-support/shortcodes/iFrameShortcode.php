@@ -22,7 +22,7 @@ class iFrameShortcode extends Shortcode
             }
 
             if ($iframeurl) {
-                $output = '<p><div class="html5-video-container"><iframe src="'.$iframeurl.'" width="640" height="480"></iframe></div></p>';
+                $output = '<p><div class="hchs-embed-container"><iframe src="'.$iframeurl.'" width="640" height="480"></iframe></div></p>';
 
                 return $output;
             }
