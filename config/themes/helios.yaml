@@ -23,12 +23,6 @@ logo:
   image_dark: {  }
   text: 'Helios Course Hub'
   height: h-8
-header:
-  menu:
-    -
-      route: /contact
-      label: 'Online Support'
-      external: '0'
 custom_favicon: {  }
 sidebar:
   powered_by: '0'

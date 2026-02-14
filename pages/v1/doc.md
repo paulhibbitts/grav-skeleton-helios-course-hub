@@ -41,7 +41,7 @@ navigation:
 [/doc-card]
 [doc-card title="Slides to be Discussed" icon="tabler/slideshow.svg"]
 
-- [The Skeptic’s Guide To Low-Fidelity Prototyping](https://www.smashingmagazine.com/2014/10/the-skeptics-guide-to-low-fidelity-prototyping/)
+- [A Guide to the Art of Guerrilla UX Testing](https://medium.springboard.com/a-guide-to-the-art-of-guerrilla-ux-testing-69a1411d34fb)
 
 [/doc-card]
 [/doc-grid]
