@@ -37,7 +37,7 @@ navigation:
   prev_next: true
   scroll_spy: true
 versioning:
-  enabled: false
+  enabled: true
   mode: explicit
   auto_detect: true
   root: null
