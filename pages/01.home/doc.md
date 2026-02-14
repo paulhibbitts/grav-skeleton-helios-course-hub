@@ -1,7 +1,7 @@
 ---
-title: 'CMPT363'
+title: 'CPT363'
 template: doc
-description: Course materials for CMPT363
+description: Course materials for CPT363
 published: false
 visible: true
 navigation:
