@@ -4,62 +4,34 @@ taxonomy:
     category: docs
 ---
 
-# Installation
+# Module One
 
-There are several ways to install the Helios theme for Grav.
+## What is usability and user experience design?
+[HCI, UI, IA, IxD, and UX](https://www.google.ca/slides/about/)  
+[Design Thinking](https://www.google.ca/slides/about/)  
+[Usability and UCD](https://www.google.ca/slides/about/)  
 
-## GPM Installation (Preferred)
+===
 
-The simplest way to install this theme is via the [Grav Package Manager (GPM)](https://learn.getgrav.org/cli-console/grav-cli-gpm) through your system's terminal:
+## **What is usability and user experience design?**
 
-```bash
-bin/gpm install helios
-```
+### Summaries and Questions  
+[May 9th Class One-minute Summaries](https://canvas.sfu.ca/courses/55288/assignments)
 
-This will install the Helios theme into your `/user/themes/helios` directory.
+### Presented Slides  
+[Placeholder Slides](https://docs.google.com/presentation/d/e/2PACX-1vSPiOUzmRG4EB6ng8KQgOwZEbVuN2u1d5tGVTiAyzlVuO_o4Zjyli3oAf_U_CqXml_6GMUBR9nUyEYb/pub?start=false&loop=false&delayms=3000)
 
-## Manual Installation
+[googleslides]https://docs.google.com/presentation/d/e/2PACX-1vSPiOUzmRG4EB6ng8KQgOwZEbVuN2u1d5tGVTiAyzlVuO_o4Zjyli3oAf_U_CqXml_6GMUBR9nUyEYb/embed?start=false&loop=false&delayms=3000[/googleslides]
 
-To install this theme manually:
+### Supplemental Materials  
+[Elements of User Experience by Jesse James Garrett](https://qofr.files.wordpress.com/2016/11/q-of-r-presentation-11.pdf)  
+[pdf]https://qofr.files.wordpress.com/2016/11/q-of-r-presentation-11.pdf[/pdf]
 
-1. Download the zip version of this repository
-2. Unzip it under `/your/site/grav/user/themes`
-3. Rename the folder to `helios`
+### Handouts
+[Course Overview](https://canvas.sfu.ca/courses/55288/files)  
 
-You should now have all the theme files under:
+### Quick Quiz
+[h5p]https://h5p.org/h5p/embed/213956[/h5p]  
 
-```
-/your/site/grav/user/themes/helios
-```
-
-## Required Plugins
-
-Helios works best with the following plugins:
-
-| Plugin | Required | Description |
-|--------|----------|-------------|
-| SimpleSearch | Yes | Powers the search functionality |
-| Shortcode Core | Recommended | Enables shortcode syntax for callouts and tabs |
-| SVG Icons | Recommended | Provides icon support throughout the theme |
-
-Install them via GPM:
-
-```bash
-bin/gpm install simplesearch shortcode-core svg-icons
-```
-
-## Skeleton Installation
-
-For a complete demo installation, you can use the Helios Skeleton:
-
-```bash
-# Download and extract the skeleton
-wget https://getgrav.org/download/skeletons/helios-site/latest
-unzip helios-site-*.zip -d my-docs-site
-```
-
-This gives you a ready-to-use documentation site with example content.
-
-## Next Steps
-
-Once installed, proceed to [Configuration](/getting-started/configuration) to customize your theme.
+### Recommended Reading  
+[embedly]https://medium.springboard.com/a-guide-to-the-art-of-guerrilla-ux-testing-69a1411d34fb[/embedly]
