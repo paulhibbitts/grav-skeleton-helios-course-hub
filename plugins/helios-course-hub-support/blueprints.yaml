@@ -30,7 +30,7 @@ form:
     js_assets:
       type: list
       label: JavaScript Asset URLs
-      help: Add external JavaScript URLs to be loaded on every page.
+      help: Add external JavaScript URLs, inline Javascript and CSS to be loaded on every page.
       style: vertical
       collapsed: false
       fields:
