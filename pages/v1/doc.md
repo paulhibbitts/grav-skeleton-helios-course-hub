@@ -4,6 +4,8 @@ template: doc
 description: Course materials for CPT363-1
 published: true
 visible: true
+navigation:
+    toc_position: hidden
 ---
 
 <blockquote class="announcement" markdown="1">
