@@ -8,6 +8,7 @@ data/*
 plugins/*
 !plugins/.*
 !plugins/helios-support/
+!plugins/helios-support/shortcodes/
 !themes/helios/.*
 themes/helios/*
 !themes/quark/.*
