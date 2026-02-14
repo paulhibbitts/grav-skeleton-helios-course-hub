@@ -9,6 +9,8 @@ plugins/*
 !plugins/.*
 !plugins/helios-support/
 !plugins/helios-support/shortcodes/
+!plugins/helios-course-hub-support/
+!plugins/helios-course-hub-support/**
 !themes/helios/.*
 themes/helios/*
 !themes/quark/.*

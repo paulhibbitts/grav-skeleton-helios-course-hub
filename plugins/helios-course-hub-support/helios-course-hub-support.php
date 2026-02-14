@@ -27,7 +27,17 @@ class HeliosCourseHubSupportPlugin extends Plugin
 
     public function onShortcodeHandlers()
     {
-        $this->grav['shortcode']->registerAllShortcodes(__DIR__ . '/shortcodes');
+        $shortcodes = $this->grav['shortcode'];
+        $dir = __DIR__ . '/shortcodes';
+
+        // Register only .php files to avoid processing .DS_Store
+        // or other non-PHP files that macOS may create
+        foreach (new \DirectoryIterator($dir) as $file) {
+            if ($file->isDot() || $file->isDir() || $file->getExtension() !== 'php') {
+                continue;
+            }
+            $shortcodes->registerShortcode($file->getFilename(), $dir);
+        }
     }
 
     public function onTwigSiteVariables()
