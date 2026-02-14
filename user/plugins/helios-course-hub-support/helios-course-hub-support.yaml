@@ -27,8 +27,7 @@ js_inline: |
       }
   })();
 css_inline: |
-  .prose blockquote,
-  .prose blockquote * {
+  .prose blockquote.announcement {
       font-style: normal;
   }
 js_assets:

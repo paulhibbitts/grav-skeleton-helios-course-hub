@@ -2,7 +2,7 @@ name: Helios Course Hub Support
 slug: helios-course-hub-support
 type: plugin
 version: 1.0.0
-description: Adds support for including external JS assets via URL in your Helios Course Hub site.
+description: Add external JavaScript URLs, inline Javascript and CSS to be loaded on every page.
 icon: plug
 author:
   name: Hibbitts Design
@@ -13,6 +13,7 @@ license: MIT
 
 dependencies:
   - { name: grav, version: '>=1.7.0' }
+  - { name: shortcode-core, version: '>=5.0.0' }
 
 form:
   validation: loose
@@ -30,7 +31,7 @@ form:
     js_assets:
       type: list
       label: JavaScript Asset URLs
-      help: Add external JavaScript URLs to be loaded on every page.
+      help: Add external JavaScript URLs, inline Javascript and CSS to be loaded on every page.
       style: vertical
       collapsed: false
       fields:
