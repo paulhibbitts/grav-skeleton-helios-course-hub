@@ -2,7 +2,7 @@ name: Helios Course Hub Support
 slug: helios-course-hub-support
 type: plugin
 version: 1.0.0
-description: Adds support for including external JS assets via URL in your Helios Course Hub site.
+description: Add external JavaScript URLs, inline Javascript and CSS to be loaded on every page.
 icon: plug
 author:
   name: Hibbitts Design
