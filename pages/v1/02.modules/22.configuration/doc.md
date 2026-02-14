@@ -1,5 +1,6 @@
 ---
 title: Module 2
+published: false
 taxonomy:
     category: docs
 ---

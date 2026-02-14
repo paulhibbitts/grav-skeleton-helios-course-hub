@@ -1,5 +1,6 @@
 ---
 title: Module 3
+published: false
 taxonomy:
     category: docs
 ---
