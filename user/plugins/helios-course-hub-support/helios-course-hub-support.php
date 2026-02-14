@@ -21,13 +21,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
 
         $this->enable([
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
-            'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
         ]);
-    }
-
-    public function onShortcodeHandlers()
-    {
-        $this->grav['shortcode']->registerAllShortcodes(__DIR__ . '/shortcodes');
     }
 
     public function onTwigSiteVariables()
