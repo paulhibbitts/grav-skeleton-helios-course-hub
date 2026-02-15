@@ -29,7 +29,7 @@ navigation:
 ## How to plan, conduct, and summarize usability tests?
 
 [doc-grid]
-[doc-card title="Required Reading" icon="tabler/star.svg"]
+[doc-card title="Required Reading" icon="tabler/book.svg"]
 
 - [Journey Map](#) assignment due Tue Jun 12th 11:59pm PDT
 
