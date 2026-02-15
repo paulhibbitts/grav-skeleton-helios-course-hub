@@ -2,7 +2,7 @@ name: Helios Course Hub Support
 slug: helios-course-hub-support
 type: plugin
 version: 1.0.0
-description: Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme.
+description: Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admin panel styling.
 icon: plug
 author:
   name: Hibbitts Design
