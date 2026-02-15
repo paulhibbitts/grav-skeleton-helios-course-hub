@@ -9,15 +9,9 @@ taxonomy:
 
 ![6192507935_3c435c6d94_b](6192507935_3c435c6d94_b.jpg?cropZoom=800,300 "6192507935_3c435c6d94_b")
 
+# Week 10 (Jul 11 - 17)
+
 ## How to design products for how people think, learn and feel?
-
-[Conceptual Models](https://www.google.ca/slides/about/)  
-[Design for Emotion](https://www.google.ca/slides/about/)  
-[Accessible and Inclusive Design](https://www.google.ca/slides/about/)
-
-===
-
-## **How to design products for how people think, learn and feel?**
 
 ### Summaries and Questions
 

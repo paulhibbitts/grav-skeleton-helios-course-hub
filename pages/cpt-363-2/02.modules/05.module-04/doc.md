@@ -9,15 +9,9 @@ taxonomy:
 
 ![6968244538_4c0f7c7e64_k](6968244538_4c0f7c7e64_k.jpg?cropZoom=800,300 "6968244538_4c0f7c7e64_k")
 
+# Week 4 (May 30 - Jun 5)
+
 ## How to explore and communicate possible design solutions?
-
-[Forms and Methods](https://www.google.ca/slides/about/)  
-[Design Scenarios](https://www.google.ca/slides/about/)  
-[Sketching and Storyboarding](https://www.google.ca/slides/about/)
-
-===
-
-## **How to explore and communicate possible design solutions?**
 
 ### Summaries and Questions
 

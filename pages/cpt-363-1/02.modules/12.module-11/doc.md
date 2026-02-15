@@ -9,15 +9,9 @@ taxonomy:
 
 ![4762082009_e0754cd5c3_b](4762082009_e0754cd5c3_b.jpg?cropZoom=800,300 "4762082009_e0754cd5c3_b")
 
+# Week 11 (Jul 18 - 24)'
+
 ## What are the essentials of effective visual communication?
-
-[Typography](https://www.google.ca/slides/about/)  
-[Grouping, Visual Hierarchy and Grids](https://www.google.ca/slides/about/)  
-[Visual Design Principles](https://www.google.ca/slides/about/)
-
-===
-
-## **What are the essentials of effective visual communication?**
 
 ### Summaries and Questions
 

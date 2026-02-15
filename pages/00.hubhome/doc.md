@@ -7,4 +7,4 @@ visible: true
 
 # Welcome to CPT-363 Course Hub
 
-Choose your specific course in the dropdown on the left.
+Choose your specific course or section in the dropdown on the left.

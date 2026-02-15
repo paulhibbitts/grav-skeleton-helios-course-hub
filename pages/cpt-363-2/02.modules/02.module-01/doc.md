@@ -9,7 +9,9 @@ taxonomy:
 
 ![10610701655_c57e2dc536_o](10610701655_c57e2dc536_o.jpg?cropZoom=800,300 "10610701655_c57e2dc536_o")
 
-## **What is usability and user experience design?**
+# Week 1 (May 9 - 15)
+
+## What is usability and user experience design?
 
 ### Summaries and Questions
 

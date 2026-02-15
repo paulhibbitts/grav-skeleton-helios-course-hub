@@ -9,15 +9,9 @@ taxonomy:
 
 ![4853380320_492f9dce63_b](4853380320_492f9dce63_b.jpg?cropZoom=800,300 "4853380320_492f9dce63_b")
 
+# Week 2 (May 16 - 22)
+
 ## What does a holistic user experience design process look like?
-
-[Software Development Processes](https://www.google.ca/slides/about/)  
-[User Experience Design Processes](https://www.google.ca/slides/about/)  
-[Our Design Process (aka Toolkit)](https://www.google.ca/slides/about/)
-
-===
-
-## **What does a holistic user experience design process look like?**
 
 ### Summaries and Questions
 

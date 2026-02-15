@@ -9,15 +9,9 @@ taxonomy:
 
 ![13966760787_2d0975e6bc_k](13966760787_2d0975e6bc_k.jpg?cropZoom=800,300 "13966760787_2d0975e6bc_k")
 
+# Week 8 (Jun 27 - Jul 3)
+
 ## How to understand and communicate people's needs and behaviours?
-
-[Needsfinding](https://www.google.ca/slides/about/)  
-[User Models](https://www.google.ca/slides/about/)  
-[Stories of Usage](https://www.google.ca/slides/about/)
-
-===
-
-## **How to understand and communicate people's needs and behaviours?**
 
 ### Summaries and Questions
 

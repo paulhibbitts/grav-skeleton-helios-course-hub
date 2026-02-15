@@ -9,15 +9,9 @@ taxonomy:
 
 ![16230041026_d438eb2482_k](16230041026_d438eb2482_k.jpg?cropZoom=800,300 "16230041026_d438eb2482_k")
 
+# Week 7 (Jun 20 - 26)
+
 ## How to design for mobile and multi-device usage?
-
-['Mobile' Design Principles](https://www.google.ca/slides/about/)  
-[Touch Interaction Design](https://www.google.ca/slides/about/)  
-[Responsive Web Design (RWD)](https://www.google.ca/slides/about/)
-
-===
-
-## **How to design for mobile and multi-device usage?**
 
 ### Summaries and Questions
 

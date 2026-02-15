@@ -9,9 +9,9 @@ taxonomy:
 
 ## ![35899263465_e2f708c950_k](35899263465_e2f708c950_k.jpg?cropZoom=800,300 "35899263465_e2f708c950_k")Course Wrap-up
 
-Guest Speaker
+# Week 13 (Aug 1)
 
-===
+Guest Speaker
 
 ## Summaries and Questions
 

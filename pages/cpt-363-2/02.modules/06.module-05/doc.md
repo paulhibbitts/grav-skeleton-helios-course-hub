@@ -9,15 +9,9 @@ taxonomy:
 
 ![4642289926_7964e733d1_b](4642289926_7964e733d1_b.jpg?cropZoom=800,300 "4642289926_7964e733d1_b")
 
+# Week 5 (Jun 6 - 12)
+
 ## How to plan, conduct, and summarize usability tests?
-
-[Testing Methods](https://www.google.ca/slides/about/)  
-[Conducting Tests](https://www.google.ca/slides/about/)  
-[Analysis and Reporting](https://www.google.ca/slides/about/)
-
-===
-
-## **How to plan, conduct, and summarize usability tests?**
 
 ### Summaries and Questions
 

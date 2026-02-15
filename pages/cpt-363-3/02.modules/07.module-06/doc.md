@@ -9,15 +9,9 @@ taxonomy:
 
 ![2760207306_21ac555261_b](2760207306_21ac555261_b.jpg?cropZoom=800,300 "2760207306_21ac555261_b")
 
+# Week 6 (Jun 13 - 19)
+
 ## How to conduct a usability inspection?
-
-[Cognitive Walkthroughs](https://www.google.ca/slides/about/)  
-[Conducting Heuristic Evaluations](https://www.google.ca/slides/about/)  
-[Nielsen’s Heuristics](https://www.google.ca/slides/about/)
-
-===
-
-## **How to conduct a usability inspection?**
 
 ### Summaries and Questions
 

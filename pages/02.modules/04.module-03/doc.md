@@ -9,15 +9,9 @@ taxonomy:
 
 ![6384294717_5047a35d48_b](6384294717_5047a35d48_b.jpg?cropZoom=800,300 "6384294717_5047a35d48_b")
 
+# Week 3 (May 23 - 29)
+
 ## How to make more strategic design decisions?
-
-[User Experience Strategy](https://www.google.ca/slides/about/)  
-[Current State and Future State](https://www.google.ca/slides/about/)  
-[Journey Mapping](https://www.google.ca/slides/about/)
-
-===
-
-## **How to make more strategic design decisions?**
 
 ### Summaries and Questions
 
