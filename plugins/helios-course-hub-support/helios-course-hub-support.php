@@ -57,7 +57,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
         $assets = $this->grav['assets'];
         $path = 'plugin://helios-course-hub-support/assets';
 
-        $assets->addCss("$path/custom.css");
-        $assets->addJs("$path/custom.js", ['group' => 'bottom', 'loading' => 'defer']);
+        $assets->addCss("$path/helios.css");
+        $assets->addJs("$path/helios.js", ['group' => 'bottom', 'loading' => 'defer']);
     }
 }
