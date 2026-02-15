@@ -8,3 +8,5 @@ visible: true
 # Welcome to CPT-363 Course Hub
 
 Choose your specific course or section in the dropdown on the left.
+
+! Before using this Helios Course Hub skeleton, you must install and activate the [Grav Premium Helios theme](https://getgrav.org/premium/helios).
