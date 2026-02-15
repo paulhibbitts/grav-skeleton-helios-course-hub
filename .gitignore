@@ -2,6 +2,7 @@
 accounts/*
 !accounts/.*
 config/security.yaml
+config/system.yaml
 config/versions.yaml
 data/*
 !data/.*
