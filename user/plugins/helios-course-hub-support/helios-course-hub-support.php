@@ -15,6 +15,22 @@ class HeliosCourseHubSupportPlugin extends Plugin
 
     public function onPluginsInitialized()
     {
+        // If the configured theme is missing, fall back to Quark so
+        // Grav can still render pages and the Admin panel remains accessible
+        $themeName = $this->config->get('system.pages.theme');
+        $themePath = GRAV_ROOT . '/user/themes/' . $themeName;
+
+        if (!is_dir($themePath)) {
+            $this->config->set('system.pages.theme', 'quark');
+
+            // Redirect frontend requests to the Admin Themes page
+            if (!$this->isAdmin()) {
+                $adminRoute = $this->config->get('plugins.admin.route', '/admin');
+                $this->grav->redirect($adminRoute . '/themes');
+                return;
+            }
+        }
+
         if ($this->isAdmin()) {
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0],
