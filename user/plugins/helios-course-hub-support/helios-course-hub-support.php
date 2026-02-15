@@ -16,6 +16,9 @@ class HeliosCourseHubSupportPlugin extends Plugin
     public function onPluginsInitialized()
     {
         if ($this->isAdmin()) {
+            $this->enable([
+                'onPageInitialized' => ['onPageInitialized', 0],
+            ]);
             return;
         }
 
@@ -23,6 +26,15 @@ class HeliosCourseHubSupportPlugin extends Plugin
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
             'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
         ]);
+    }
+
+    public function onPageInitialized()
+    {
+        $assets = $this->grav['assets'];
+        $path = 'plugin://helios-course-hub-support/assets';
+
+        $assets->addCss("$path/admin.css");
+        $assets->addJs("$path/admin.js");
     }
 
     public function onShortcodeHandlers()
