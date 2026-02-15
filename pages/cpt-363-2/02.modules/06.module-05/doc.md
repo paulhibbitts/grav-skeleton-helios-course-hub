@@ -2,6 +2,7 @@
 title: 'Week 5 (Jun 6 - 12)'
 published: true
 icon: tabler/hexagons.svg
+description: How to plan, conduct, and summarize usability tests?
 taxonomy:
     category:
         - docs

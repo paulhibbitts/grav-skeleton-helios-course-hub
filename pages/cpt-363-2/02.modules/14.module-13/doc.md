@@ -2,6 +2,7 @@
 title: 'Week 13 (Aug 1)'
 published: true
 icon: tabler/hexagons.svg
+description: Guest Speaker
 taxonomy:
     category:
         - docs

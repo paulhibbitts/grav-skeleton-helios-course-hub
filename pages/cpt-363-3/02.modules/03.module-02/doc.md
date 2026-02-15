@@ -2,6 +2,7 @@
 title: 'Week 2 (May 16 - 22)'
 published: true
 icon: tabler/hexagons.svg
+description: What does a holistic user experience design process look like?
 taxonomy:
     category:
         - docs

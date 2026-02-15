@@ -2,6 +2,7 @@
 title: 'Week 3 (May 23 - 29)'
 published: true
 icon: tabler/hexagons.svg
+description: How to make more strategic design decisions?
 taxonomy:
     category:
         - docs

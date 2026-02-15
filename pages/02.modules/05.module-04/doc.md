@@ -2,6 +2,7 @@
 title: 'Week 4 (May 30 - Jun 5)'
 published: true
 icon: tabler/hexagons.svg
+description: How to explore and communicate possible design solutions?
 taxonomy:
     category:
         - docs

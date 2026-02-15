@@ -2,6 +2,7 @@
 title: 'Week 10 (Jul 11 - 17)'
 published: true
 icon: tabler/hexagons.svg
+description: How to design products for how people think, learn and feel?
 taxonomy:
     category:
         - docs

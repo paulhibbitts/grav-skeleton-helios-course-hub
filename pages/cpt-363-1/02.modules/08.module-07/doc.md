@@ -2,6 +2,7 @@
 title: 'Week 7 (Jun 20 - 26)'
 published: true
 icon: tabler/hexagons.svg
+description: How to design for mobile and multi-device usage?
 taxonomy:
     category:
         - docs

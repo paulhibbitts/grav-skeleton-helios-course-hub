@@ -2,6 +2,7 @@
 title: 'Week 6 (Jun 13 - 19)'
 published: true
 icon: tabler/hexagons.svg
+description: How to conduct a usability inspection?
 taxonomy:
     category:
         - docs

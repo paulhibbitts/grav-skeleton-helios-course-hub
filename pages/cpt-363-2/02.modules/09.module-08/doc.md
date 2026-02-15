@@ -2,6 +2,7 @@
 title: 'Week 8 (Jun 27 - Jul 3)'
 published: true
 icon: tabler/hexagons.svg
+description: How to understand and communicate people's needs and behaviours?
 taxonomy:
     category:
         - docs

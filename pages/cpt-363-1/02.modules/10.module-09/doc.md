@@ -2,6 +2,7 @@
 title: 'Week 9 (Jul 4 - 10)'
 published: true
 icon: tabler/hexagons.svg
+description: Instructor user research review meetings in TBD, no regular class.
 taxonomy:
     category:
         - docs

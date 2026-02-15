@@ -1,10 +1,11 @@
 ---
 title: Welcome
+published: true
 icon: tabler/hexagons.svg
-body_classes: 'title-center title-h1h2'
-media_order: belinda-fewings-6wAGwpsXHE0-unsplash.jpg
-sitemap:
-    lastmod: '13-02-2026 00:15'
+description: Welcome to CPT-363 User Interface Design 👋🏼
+taxonomy:
+    category:
+        - docs
 navigation:
     toc_position: hidden
 ---
