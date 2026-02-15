@@ -14,7 +14,7 @@ colors:
   gray_preset: zinc
   gray_custom: null
 fonts:
-  body: inter
+  body: open-sans
   body_size: medium
   code: jetbrains-mono
   code_size: medium
