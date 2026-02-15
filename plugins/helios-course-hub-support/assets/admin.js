@@ -1,1 +1,1 @@
-/* Admin panel JS customizations */
+// Admin panel JS customizations

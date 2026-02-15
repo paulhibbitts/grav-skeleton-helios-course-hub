@@ -1,3 +1,5 @@
+// Admin panel JS customizations
+
 (function () {
   var theme = localStorage.getItem("helios-theme") || "system";
   var isDark =
