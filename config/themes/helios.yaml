@@ -46,12 +46,12 @@ versioning:
   current_version: v1
   version_pattern: '/^[a-zA-Z]+-?\d+([.-]\d+)*$/i'
   redirect_unversioned: false
-  show_badge: false
+  show_badge: true
   show_dropdown: false
   labels:
-    v1: CPT363-1
-    v2: CPT363-2
-    v3: CPT363-3
+    cpt-363-1: CPT-363-1
+    cpt-363-2: CPT-363-2
+    cpt-363-3: CPT-363-3
 search:
   enabled: true
   provider: simplesearch
