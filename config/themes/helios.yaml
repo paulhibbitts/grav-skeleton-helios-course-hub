@@ -37,6 +37,10 @@ header:
       route: /copyright
       label: Copyright
       external: '0'
+    -
+      route: /readme
+      label: ReadMe
+      external: '0'
 custom_favicon: {  }
 sidebar:
   powered_by: '0'
