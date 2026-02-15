@@ -1,8 +1,3 @@
----
-title: ReadMe
-published: true
----
-
 # Grav Skeleton Helios Course 
 
 <img width="1425" height="1014" alt="2026-02-15_13-58-55" src="https://github.com/user-attachments/assets/0bd5b8ab-8a29-4114-98fd-d88bd13e4c03" />
