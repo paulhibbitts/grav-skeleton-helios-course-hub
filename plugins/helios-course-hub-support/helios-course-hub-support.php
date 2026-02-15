@@ -43,27 +43,9 @@ class HeliosCourseHubSupportPlugin extends Plugin
     public function onTwigSiteVariables()
     {
         $assets = $this->grav['assets'];
+        $path = 'plugin://helios-course-hub-support/assets';
 
-        // Add inline CSS from config
-        $css_inline = $this->config->get('plugins.helios-course-hub-support.css_inline', '');
-        if (!empty($css_inline)) {
-            $assets->addInlineCss($css_inline);
-        }
-
-        // Add inline JS from config (runs before external assets)
-        $js_inline = $this->config->get('plugins.helios-course-hub-support.js_inline', '');
-        if (!empty($js_inline)) {
-            $assets->addInlineJs($js_inline, ['group' => 'bottom', 'position' => 'before']);
-        }
-
-        // Add external JS assets with defer
-        $js_urls = (array) $this->config->get('plugins.helios-course-hub-support.js_assets', []);
-
-        foreach ($js_urls as $entry) {
-            $url = $entry['url'] ?? '';
-            if (!empty($url)) {
-                $assets->addJs($url, ['group' => 'bottom', 'loading' => 'defer']);
-            }
-        }
+        $assets->addCss("$path/custom.css");
+        $assets->addJs("$path/custom.js", ['group' => 'bottom', 'loading' => 'defer']);
     }
 }

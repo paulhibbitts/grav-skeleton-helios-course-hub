@@ -1,0 +1,22 @@
+.prose blockquote.announcement {font-style: normal}
+.prose blockquote.announcement :is(h1,h2,h3) {margin: 0; line-height: 1.3}
+.prose blockquote.announcement h1 {margin-bottom: 0.25rem}
+.prose blockquote.announcement h2 {border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem}
+.prose blockquote.announcement h3 {margin: 0.75rem 0 0.25rem}
+.prose blockquote.announcement h2+h3 {margin-top: 0.25rem}
+.prose blockquote.announcement h1 {font-size: calc(2.25em * 0.8)}
+.prose blockquote.announcement h2 {font-size: calc(1.5em * 0.8)}
+.prose blockquote.announcement h3 {font-size: calc(1.25em * 0.8)}
+.prose blockquote.announcement h4 {font-size: calc(1em * 0.8)}
+.prose blockquote.announcement h5 {font-size: calc(0.875em * 0.8)}
+.prose blockquote.announcement h6 {font-size: calc(0.75em * 0.8)}
+.prose :is(h1,h2,h3,h4,h5,h6) {margin: 0; line-height: 1.3}
+.prose h1 {margin-bottom: 0.5rem}
+.prose h2 {border-bottom: none; padding-bottom: 0; margin-bottom: 1rem}
+.prose :is(h3,h4,h5,h6) {margin: 1.5rem 0 0.5rem}
+.prose :is(h2,h3,h4,h5)+:is(h3,h4,h5,h6) {margin-top: 1rem}
+/* Font Awesome icon spacing */
+.prose i[class^="fa"] {margin-right: 0.35em;}
+/* Responsive iframe/video containers */
+.responsive-container {position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden}
+.responsive-container iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none}

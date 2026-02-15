@@ -2,7 +2,7 @@ name: Helios Course Hub Support
 slug: helios-course-hub-support
 type: plugin
 version: 1.0.0
-description: Add external JavaScript URLs, inline Javascript and CSS to be loaded on every page.
+description: Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme.
 icon: plug
 author:
   name: Hibbitts Design
@@ -28,34 +28,3 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    js_assets:
-      type: list
-      label: JavaScript Asset URLs
-      help: Add external JavaScript URLs, inline Javascript and CSS to be loaded on every page.
-      style: vertical
-      collapsed: false
-      fields:
-        .url:
-          type: text
-          label: URL
-          placeholder: https://cdn.example.com/script.js
-    js_inline:
-      type: editor
-      label: Inline JavaScript
-      help: JavaScript code to be injected inline on every page (runs before external JS assets).
-      codemirror:
-        mode: 'javascript'
-        indentUnit: 4
-        lineNumbers: true
-        styleActiveLine: true
-      rows: 20
-    css_inline:
-      type: editor
-      label: Inline CSS
-      help: CSS code to be injected inline on every page.
-      codemirror:
-        mode: 'css'
-        indentUnit: 4
-        lineNumbers: true
-        styleActiveLine: true
-      rows: 20
