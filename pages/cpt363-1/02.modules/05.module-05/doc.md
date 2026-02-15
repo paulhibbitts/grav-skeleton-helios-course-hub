@@ -1,11 +1,10 @@
 ---
 title: 'Week 5 (Jun 6 - 12)'
 published: true
+icon: tabler/hexagons.svg
 taxonomy:
     category:
         - docs
-sitemap:
-    lastmod: '14-02-2026 23:08'
 ---
 
 ![4642289926_7964e733d1_b](4642289926_7964e733d1_b.jpg?cropZoom=800,300 "4642289926_7964e733d1_b")

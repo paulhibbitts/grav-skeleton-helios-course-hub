@@ -1,11 +1,10 @@
 ---
 title: 'Week 1 (May 9 - 15)'
 published: true
+icon: tabler/hexagons.svg
 taxonomy:
     category:
         - docs
-sitemap:
-    lastmod: '14-02-2026 17:03'
 ---
 
 ![10610701655_c57e2dc536_o](10610701655_c57e2dc536_o.jpg?cropZoom=800,300 "10610701655_c57e2dc536_o")

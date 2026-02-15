@@ -1,11 +1,10 @@
 ---
 title: 'Week 10 (Jul 11 - 17)'
 published: true
+icon: tabler/hexagons.svg
 taxonomy:
     category:
         - docs
-sitemap:
-    lastmod: '14-02-2026 23:10'
 ---
 
 ![6192507935_3c435c6d94_b](6192507935_3c435c6d94_b.jpg?cropZoom=800,300 "6192507935_3c435c6d94_b")

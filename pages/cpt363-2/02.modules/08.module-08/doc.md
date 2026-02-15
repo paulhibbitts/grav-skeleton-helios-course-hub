@@ -1,11 +1,10 @@
 ---
 title: 'Week 8 (Jun 27 - Jul 3)'
 published: true
+icon: tabler/hexagons.svg
 taxonomy:
     category:
         - docs
-sitemap:
-    lastmod: '14-02-2026 23:10'
 ---
 
 ![13966760787_2d0975e6bc_k](13966760787_2d0975e6bc_k.jpg?cropZoom=800,300 "13966760787_2d0975e6bc_k")

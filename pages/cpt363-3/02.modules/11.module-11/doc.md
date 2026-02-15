@@ -1,11 +1,10 @@
 ---
 title: 'Week 11 (Jul 18 - 24)'
 published: true
+icon: tabler/hexagons.svg
 taxonomy:
     category:
         - docs
-sitemap:
-    lastmod: '14-02-2026 23:10'
 ---
 
 ![4762082009_e0754cd5c3_b](4762082009_e0754cd5c3_b.jpg?cropZoom=800,300 "4762082009_e0754cd5c3_b")

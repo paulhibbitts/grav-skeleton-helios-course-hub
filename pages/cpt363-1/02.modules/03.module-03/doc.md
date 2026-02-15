@@ -1,11 +1,10 @@
 ---
 title: 'Week 3 (May 23 - 29)'
 published: true
+icon: tabler/hexagons.svg
 taxonomy:
     category:
         - docs
-sitemap:
-    lastmod: '14-02-2026 23:08'
 ---
 
 ![6384294717_5047a35d48_b](6384294717_5047a35d48_b.jpg?cropZoom=800,300 "6384294717_5047a35d48_b")
