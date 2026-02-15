@@ -5,7 +5,7 @@ published: true
 
 # Grav Skeleton Helios Course Hub
 
-This [Grav CMS](https://getgrav.org) skeleton package was built on the Grav Premium Helios theme (required), designed for creating open and collaborative course companion sites. Supports both single-course and multi-course configurations.
+This [Grav CMS](https://getgrav.org) skeleton package was built on the [Grav Premium Helios theme](https://getgrav.org/premium/helios) (required), designed for creating open and collaborative course companion sites. Supports both single-course and multi-course configurations.
 
 ## Features
 
@@ -22,7 +22,7 @@ This [Grav CMS](https://getgrav.org) skeleton package was built on the Grav Prem
 
 Use the top-level pages directory for a straightforward single-course site:
 
-\```
+```
 user/pages/
 ├── 01.home/
 ├── 02.getting-started/
@@ -30,13 +30,13 @@ user/pages/
 ├── 04.topics/
 ├── 05.resources/
 └── 06.contact/
-\```
+```
 
 ## Multi-Course Setup
 
 Use versioned directories to host multiple courses from one Grav installation:
 
-\```
+```
 user/pages/
 ├── v1/          # Course 1
 │   ├── 01.home/
@@ -50,7 +50,7 @@ user/pages/
 │   └── ...
 └── v3/          # Course 3
     └── ...
-\```
+```
 
 ## Multi-Course Folder Naming
 
