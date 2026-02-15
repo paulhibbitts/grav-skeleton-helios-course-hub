@@ -6,6 +6,12 @@ use Grav\Common\Plugin;
 
 class HeliosCourseHubSupportPlugin extends Plugin
 {
+    /** @var bool Whether the configured theme is missing */
+    protected $themeMissing = false;
+
+    /** @var string The name of the missing theme */
+    protected $missingThemeName = '';
+
     public static function getSubscribedEvents()
     {
         return [
@@ -15,6 +21,24 @@ class HeliosCourseHubSupportPlugin extends Plugin
 
     public function onPluginsInitialized()
     {
+        // If the configured theme is missing, fall back to Quark so
+        // Grav can still render pages and the Admin panel remains accessible
+        $themeName = $this->config->get('system.pages.theme');
+        $themePath = GRAV_ROOT . '/user/themes/' . $themeName;
+
+        if (!is_dir($themePath)) {
+            $this->config->set('system.pages.theme', 'quark');
+            $this->themeMissing = true;
+            $this->missingThemeName = $themeName;
+
+            // Redirect frontend requests to the Admin Themes page
+            if (!$this->isAdmin()) {
+                $adminRoute = $this->config->get('plugins.admin.route', '/admin');
+                $this->grav->redirect($adminRoute . '/themes');
+                return;
+            }
+        }
+
         if ($this->isAdmin()) {
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0],
@@ -35,6 +59,14 @@ class HeliosCourseHubSupportPlugin extends Plugin
 
         $assets->addCss("$path/admin.css");
         $assets->addJs("$path/admin.js");
+
+        // Show a banner prompting the user to install the missing theme
+        if ($this->themeMissing) {
+            $this->grav['messages']->add(
+                "The Helios Grav Premium theme is required but not installed. Please install and then activate it to use this Helios Course Hub skeleton.",
+                'warning'
+            );
+        }
     }
 
     public function onShortcodeHandlers()
