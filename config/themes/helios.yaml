@@ -67,6 +67,6 @@ github:
   edit_text: 'Edit this page'
   path_prefix: null
 htmx:
-  enabled: true
+  enabled: false
 body_classes: null
 append_site_title: true
