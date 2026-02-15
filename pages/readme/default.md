@@ -38,17 +38,17 @@ Use versioned directories to host multiple courses from one Grav installation:
 
 ```
 user/pages/
-├── v1/          # Course 1
+├── cpt-263/          # Course 1
 │   ├── 01.home/
 │   ├── 02.modules/
 │   ├── 03.schedule/
 │   └── ...
-├── v2/          # Course 2
+├── cpt-363/          # Course 2
 │   ├── 01.home/
 │   ├── 02.getting-started/
 │   ├── 03.schedule/
 │   └── ...
-└── v3/          # Course 3
+└── cpt-463/          # Course 3
     └── ...
 ```
 
@@ -56,11 +56,11 @@ user/pages/
 
 Course version folders must start with one or more letters, followed by a number. An optional hyphen can separate the letters from the number. Additional version segments (separated by dots or hyphens) are supported.
 
-**Valid names:** `v1`, `v2`, `v3`, `course-1`, `course-2`, `section1.2`, `term-3.1`
+**Valid names:** `course-1`, `course-2`, `course-section-1`, `course-section-2`
 
-**Invalid names:** `01.home` (starts with a digit), `resources` (no number), `1a` (starts with a digit)
+**Invalid names:** `01.course` (starts with a digit), `course` (no number), `1course` (starts with a digit)
 
-The simplest convention is `v1`, `v2`, `v3`, etc.
+The simplest convention is `course-1`, `course-2`, `course-3`, etc.
 
 ## Bundled Plugin: Helios Course Hub Support
 
@@ -75,10 +75,10 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 - **admin.js** — Admin panel JavaScript customizations
 
 ### Shortcodes
-- `[googleslides url="..."]` — Responsive Google Slides embed
-- `[pdf url="..."]` — PDF viewer via Google Docs
-- `[h5p url="..."]` or `[h5p id="..."]` — H5P interactive content
-- `[embedly url="..."]` — Embedly card with dark mode support
+- [raw]`[googleslides url="..."]`[/raw] — Responsive Google Slides embed
+- [raw]`[pdf url="..."]`[/raw] — PDF viewer via Google Docs
+- [raw]`[h5p url="..."]`[/raw] or [raw]`[h5p id="..."]`[/raw] — H5P interactive content
+- [raw]`[embedly url="..."]`[/raw] — Embedly card with dark mode support
 
 ## Requirements
 
@@ -88,3 +88,8 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 ## License
 
 MIT — Hibbitts Design
+
+<hr>
+
+Want to no longer display this page on your site?  
+Go to **Helios Theme Settings > Appearance**, scroll down to the bottom of the page and delete the **Header Menu** item **ReadMe**.
