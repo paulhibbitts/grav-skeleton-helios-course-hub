@@ -55,7 +55,7 @@ git:
         url: https://github.com/getgrav/grav-plugin-youtube
         path: user/plugins/youtube
         branch: master
-    quark:
-        url: https://github.com/getgrav/grav-theme-quark
-        path: user/themes/quark
+    learn2:
+        url: https://github.com/getgrav/grav-theme-learn2
+        path: user/themes/learn2
         branch: master
