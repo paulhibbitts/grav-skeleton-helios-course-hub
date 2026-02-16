@@ -32,7 +32,7 @@ user/pages/
 └── 06.contact/
 ```
 
-The site home page is set to `01.home`.
+The site home page is set to `01.home`, and confirm that **published** of `00.home-multicourse` to `false`.
 
 ## Multi-Course Setup
 
@@ -54,7 +54,7 @@ user/pages/
     └── ...
 ```
 
-The site home page is set to `00.home-multicourse`.
+The site home page is set to `00.home-multicourse`, and confirm that **published** of `00.home-multicourse` to `true`.
 
 ## Multi-Course Folder Naming
 
