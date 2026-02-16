@@ -47,6 +47,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
         }
 
         $this->enable([
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
             'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
         ]);
@@ -63,10 +64,15 @@ class HeliosCourseHubSupportPlugin extends Plugin
         // Show a banner prompting the user to install the missing theme
         if ($this->themeMissing) {
             $this->grav['messages']->add(
-                "The Helios Grav Premium theme is required but not installed. Please install and then activate it to use this Helios Course Hub skeleton.",
+                "The Helios Grav Premium theme is required. Please enter your Helios (and included SVG Icons) licenses and then install and activate Helios.",
                 'warning'
             );
         }
+    }
+
+    public function onTwigTemplatePaths()
+    {
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
     public function onShortcodeHandlers()
