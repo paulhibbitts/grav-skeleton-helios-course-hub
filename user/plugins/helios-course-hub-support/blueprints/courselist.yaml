@@ -1,4 +1,4 @@
-title: Multicourse
+title: Course List
 '@extends':
     type: default
     context: blueprints://pages
