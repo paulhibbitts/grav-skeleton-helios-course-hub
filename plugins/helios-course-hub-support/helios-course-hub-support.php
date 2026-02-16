@@ -47,6 +47,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
         }
 
         $this->enable([
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
             'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
         ]);
@@ -67,6 +68,11 @@ class HeliosCourseHubSupportPlugin extends Plugin
                 'warning'
             );
         }
+    }
+
+    public function onTwigTemplatePaths()
+    {
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
     public function onShortcodeHandlers()

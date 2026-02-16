@@ -1,6 +1,7 @@
 ---
 title: 'Home'
-body_classes: 'title-center title-h1h2'
+icon: tabler/book.svg
+description: A basic introduction to UI/UX design.
 navigation:
     prev_next: false
 ---
