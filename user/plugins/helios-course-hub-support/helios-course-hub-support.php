@@ -1,5 +1,7 @@
 <?php
 
+// Developed with the assistance of Claude Code (claude.ai)
+
 namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
