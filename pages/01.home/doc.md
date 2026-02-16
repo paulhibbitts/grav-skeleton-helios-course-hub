@@ -1,5 +1,5 @@
 ---
-title: 'Home'
+title: 'Home CPT-363'
 icon: tabler/bulb.svg
 description: A basic introduction to UI/UX design.
 navigation:
