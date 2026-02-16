@@ -32,6 +32,8 @@ user/pages/
 └── 06.contact/
 ```
 
+The site home page is set to `01.home`.
+
 ## Multi-Course Setup
 
 Use versioned directories to host multiple courses from one Grav installation:
@@ -51,6 +53,8 @@ user/pages/
 └── cpt-463/          # Course 3
     └── ...
 ```
+
+The site home page is set to `00.home-multicourse`.
 
 ## Multi-Course Folder Naming
 
