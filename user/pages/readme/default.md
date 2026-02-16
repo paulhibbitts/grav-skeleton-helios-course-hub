@@ -34,14 +34,14 @@ user/pages/
 
 If switching back from a multi-course setup, make the following changes:
 1. Set the site home page to `01.home`
-2. Set `00.home-multicourse` to **unpublished**
+2. For the page `00.home-multicourse` set **Published** to `false`
 3. Disable **Versioning** in Helios Theme settings
 
 ## Multi-Course Setup
 
 To host multiple courses from one Grav installation, make the following changes:
 1. Set the site home page to `00.home-multicourse`
-2. Set `00.home-multicourse` to **published**
+2. For the page `00.home-multicourse` set **Published** to `true`
 3. Enable **Versioning** in Helios Theme settings
 4. Create versioned course directories (see folder naming below)
 
