@@ -2,6 +2,7 @@
 title: 'Home CPT-363'
 navigation:
     prev_next: false
+    toc_position: hidden
 ---
 
 # What’s Happening This Week

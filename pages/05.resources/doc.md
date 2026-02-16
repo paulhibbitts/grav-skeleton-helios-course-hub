@@ -2,7 +2,8 @@
 title: Resources
 published: true
 navigation:
-  prev_next: false
+    prev_next: false
+    toc_position: hidden
 ---
 
 # Resources
