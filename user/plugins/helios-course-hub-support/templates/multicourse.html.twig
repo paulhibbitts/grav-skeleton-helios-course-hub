@@ -22,7 +22,13 @@
 
     {# Auto-generated course cards from version folders #}
     {% if helios_version_info.versions is defined and helios_version_info.versions|length > 0 %}
-    <div class="grid gap-4 sm:grid-cols-2">
+    {% set colClass = {
+        1: 'grid-cols-1',
+        2: 'sm:grid-cols-2',
+        3: 'sm:grid-cols-2 lg:grid-cols-3',
+        4: 'sm:grid-cols-2 lg:grid-cols-4'
+    } %}
+    <div class="grid gap-4 {{ colClass[page.header.cards_per_row|default(1)] ?? 'grid-cols-1' }}">
         {% for version in helios_version_info.versions %}
             {# Find the version's root page and its first child (home page) #}
             {% set version_page = pages.find('/' ~ version.id) %}
@@ -32,7 +38,7 @@
                 link: version.url,
                 icon: home_page.header.icon|default(page.header.card_icon|default('tabler/rocket.svg')),
                 description: home_page.header.description|default(null)
-            } %}
+            } only %}
         {% endfor %}
     </div>
     {% endif %}
