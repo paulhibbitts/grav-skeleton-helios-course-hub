@@ -76,14 +76,13 @@ The simplest convention is `course-1`, `course-2`, `course-3`, etc.
 Multi-course setups include a **Course List** page template (`courselist`) that automatically generates course cards from detected version folders. Each card displays:
 
 - **Title** from the versioning labels in Helios theme settings
-- **Icon** from the course home page frontmatter (`icon` field)
-- **Description** from the course home page frontmatter (`description` field)
+- **Icon** from the course root folder frontmatter (`icon` field)
+- **Description** from the course root folder frontmatter (`description` field)
 
-To customize a course card, add `icon` and `description` to the frontmatter of each course's home page (typically `01.home/doc.md`):
+To customize a course card, add `icon` and `description` to the frontmatter of the course root folder's markdown file (e.g. `cpt-363-1/default.md`):
 
 ```
 ---
-title: Home
 icon: tabler/bulb.svg
 description: A basic introduction to UI/UX design.
 ---
