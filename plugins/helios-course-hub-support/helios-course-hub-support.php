@@ -42,6 +42,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
         if ($this->isAdmin()) {
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0],
+                'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
             ]);
             return;
         }
@@ -68,6 +69,12 @@ class HeliosCourseHubSupportPlugin extends Plugin
                 'warning'
             );
         }
+    }
+
+    public function onGetPageBlueprints($event)
+    {
+        $types = $event->types;
+        $types->scanBlueprints('plugin://helios-course-hub-support/blueprints');
     }
 
     public function onTwigTemplatePaths()

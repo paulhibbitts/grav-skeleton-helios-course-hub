@@ -1,5 +1,5 @@
 ---
-title: CPT-363 Course Hub
+title: 'CPT-363 Course Hub'
 cards_per_row: 1
 card_icon: tabler/rocket.svg
 published: true
