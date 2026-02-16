@@ -1,6 +1,7 @@
 ---
-title: 'CPT-363 Home'
-body_classes: 'title-center title-h1h2'
+title: 'Home'
+icon: tabler/bulb.svg
+description: A basic introduction to UI/UX design.
 navigation:
     prev_next: false
 ---
