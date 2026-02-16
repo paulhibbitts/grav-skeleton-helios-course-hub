@@ -18,9 +18,9 @@ This [Grav CMS](https://getgrav.org) skeleton package was built on the [Grav Pre
 - Admin panel styling customizations (increased font sizes, Editor Pro toolbar scaling)
 - Announcement-style blockquotes with refined heading typography
 
-## Single Course Setup
+## Single Course Setup (Default)
 
-Use the top-level pages directory for a straightforward single-course site:
+This skeleton is pre-configured for a single-course setup — no changes needed. Just start editing your pages:
 
 ```
 user/pages/
@@ -32,11 +32,18 @@ user/pages/
 └── 06.contact/
 ```
 
-The site home page is set to `01.home`, and confirm that **published** of `00.home-multicourse` to `false`. The Helios Theme setting for **Versioning** must be disabled.
+If switching back from a multi-course setup, make the following changes:
+1. Set the site home page to `01.home`
+2. Set `00.home-multicourse` to **unpublished**
+3. Disable **Versioning** in Helios Theme settings
 
 ## Multi-Course Setup
 
-Use versioned directories to host multiple courses from one Grav installation:
+To host multiple courses from one Grav installation, make the following changes:
+1. Set the site home page to `00.home-multicourse`
+2. Set `00.home-multicourse` to **published**
+3. Enable **Versioning** in Helios Theme settings
+4. Create versioned course directories (see folder naming below)
 
 ```
 user/pages/
@@ -53,8 +60,6 @@ user/pages/
 └── cpt-463/          # Course 3
     └── ...
 ```
-
-The site home page is set to `00.home-multicourse`, and confirm that **published** of `00.home-multicourse` to `true`. The Helios Theme setting for **Versioning** must be enabled.
 
 ## Multi-Course Folder Naming
 
