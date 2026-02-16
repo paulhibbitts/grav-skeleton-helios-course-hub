@@ -50,6 +50,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
         }
 
         $this->enable([
+            'onThemeInitialized' => ['onThemeInitialized', -1000],
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
             'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
@@ -77,6 +78,18 @@ class HeliosCourseHubSupportPlugin extends Plugin
     {
         $types = $event->types;
         $types->scanBlueprints('plugin://helios-course-hub-support/blueprints');
+    }
+
+    public function onThemeInitialized()
+    {
+        // Override the version switcher label from "Version" to "Course"
+        $this->grav['languages']->mergeRecursive([
+            'en' => [
+                'THEME_HELIOS' => [
+                    'VERSION' => 'Course',
+                ],
+            ],
+        ]);
     }
 
     public function onTwigTemplatePaths()
