@@ -8,7 +8,7 @@ data/*
 plugins/*
 !plugins/.*
 !plugins/helios-support/
-!plugins/helios-support/shortcodes/
+!plugins/helios-support/**
 !plugins/helios-course-hub-support/
 !plugins/helios-course-hub-support/**
 !themes/helios/.*
