@@ -32,6 +32,8 @@ user/pages/
 └── 06.contact/
 ```
 
+The site home page is set to `01.home`, and confirm that **published** of `00.home-multicourse` to `false`. The Helios Theme setting for **Versioning** must be disabled.
+
 ## Multi-Course Setup
 
 Use versioned directories to host multiple courses from one Grav installation:
@@ -51,6 +53,8 @@ user/pages/
 └── cpt-463/          # Course 3
     └── ...
 ```
+
+The site home page is set to `00.home-multicourse`, and confirm that **published** of `00.home-multicourse` to `true`. The Helios Theme setting for **Versioning** must be enabled.
 
 ## Multi-Course Folder Naming
 
@@ -107,7 +111,7 @@ If the Helios theme is not installed, the plugin automatically falls back to the
 ## Requirements
 
 - Grav CMS >= 1.7.0
-- Premium Grav Helios Theme
+- Grav Premium Helios Theme
 - Shortcode Core plugin >= 5.0.0
 
 ## License
