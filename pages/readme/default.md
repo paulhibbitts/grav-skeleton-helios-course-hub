@@ -82,7 +82,7 @@ description: A basic introduction to UI/UX design.
 
 The number of cards per row can be set via `cards_per_row` (1–4) in the course list page frontmatter.
 
-## Bundled Plugin: Helios Course Hub Support
+## Included Plugin: Helios Course Hub Support
 
 Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admin panel styling.
 
