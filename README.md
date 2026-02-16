@@ -99,9 +99,14 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 - `[h5p url="..."]` or `[h5p id="..."]` — H5P interactive content
 - `[embedly url="..."]` — Embedly card with dark mode support
 
+### Theme Detection
+
+If the Helios theme is not installed, the plugin automatically falls back to the Quark theme, redirects visitors to the Admin Themes page, and displays a warning banner prompting you to install Helios.
+
 ## Requirements
 
 - Grav CMS >= 1.7.0
+- Premium Grav Helios Theme
 - Shortcode Core plugin >= 5.0.0
 
 ## License
