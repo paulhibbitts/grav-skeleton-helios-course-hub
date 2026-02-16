@@ -82,7 +82,7 @@ description: A basic introduction to UI/UX design.
 
 The number of cards per row can be set via `cards_per_row` (1–4) in the course list page frontmatter.
 
-## Bundled Plugin: Helios Course Hub Support
+## Included Plugin: Helios Course Hub Support
 
 Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admin panel styling.
 
@@ -107,6 +107,7 @@ If the Helios theme is not installed, the plugin automatically falls back to the
 ## Requirements
 
 - Grav CMS >= 1.7.0
+- Premium Grav Helios Theme
 - Shortcode Core plugin >= 5.0.0
 
 ## License
