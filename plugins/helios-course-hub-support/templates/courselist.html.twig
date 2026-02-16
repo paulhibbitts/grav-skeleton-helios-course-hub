@@ -36,7 +36,7 @@
             {% include 'partials/doc-card.html.twig' with {
                 title: version.label,
                 link: version.url,
-                icon: home_page.header.icon|default(page.header.card_icon|default('tabler/rocket.svg')),
+                icon: home_page.header.icon|default(page.header.card_icon|default('tabler/layout-list.svg')),
                 description: home_page.header.description|default(null)
             } only %}
         {% endfor %}
