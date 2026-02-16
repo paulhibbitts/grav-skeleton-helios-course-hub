@@ -61,7 +61,7 @@ versioning:
   root: null
   versions: null
   default_version: null
-  current_version: v1
+  current_version: null
   version_pattern: '/^[a-zA-Z]+-?\d+([.-]\d+)*$/i'
   redirect_unversioned: false
   show_badge: true
