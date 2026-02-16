@@ -23,20 +23,3 @@ form:
               toggleable: true
               rows: 3
               placeholder: A short description shown below the page title
-            header.cards_per_row:
-              type: select
-              label: Cards Per Row
-              toggleable: true
-              default: 1
-              options:
-                1: '1'
-                2: '2'
-                3: '3'
-                4: '4'
-              help: Number of course cards displayed per row on larger screens
-            header.card_icon:
-              type: svgicon
-              label: Default Card Icon
-              toggleable: true
-              default_set: tabler
-              help: Fallback icon for course cards when the course home page has no icon set
