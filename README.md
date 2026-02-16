@@ -61,7 +61,27 @@ Course version folders must start with one or more letters, followed by a number
 
 The simplest convention is `course-1`, `course-2`, `course-3`, etc.
 
-## Bundled Plugin: Helios Course Hub Support
+## Course List Page
+
+Multi-course setups include a **Course List** page template (`courselist`) that automatically generates course cards from detected version folders. Each card displays:
+
+- **Title** from the versioning labels in Helios theme settings
+- **Icon** from the course home page frontmatter (`icon` field)
+- **Description** from the course home page frontmatter (`description` field)
+
+To customize a course card, add `icon` and `description` to the frontmatter of each course's home page (typically `01.home/doc.md`):
+
+```
+---
+title: Home
+icon: tabler/bulb.svg
+description: A basic introduction to UI/UX design.
+---
+```
+
+The number of cards per row can be set via `cards_per_row` (1–4) in the course list page frontmatter.
+
+## Included Plugin: Helios Course Hub Support
 
 Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admin panel styling.
 
