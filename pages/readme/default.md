@@ -107,7 +107,7 @@ If the Helios theme is not installed, the plugin automatically falls back to the
 ## Requirements
 
 - Grav CMS >= 1.7.0
-- Premium Grav Helios Theme
+- Grav Premium Helios Theme
 - Shortcode Core plugin >= 5.0.0
 
 ## License
