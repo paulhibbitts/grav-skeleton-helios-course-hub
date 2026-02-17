@@ -74,6 +74,11 @@
     margin-top: 1rem
 }
 
+/* Font Awesome icon spacing */
+.prose i[class^="fa"] {
+    margin-right: 0.35em;
+}
+
 /* Responsive iframe/video containers */
 .responsive-container {
     position: relative;
