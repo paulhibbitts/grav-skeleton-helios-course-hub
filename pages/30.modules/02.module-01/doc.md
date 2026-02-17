@@ -35,6 +35,9 @@ navigation:
 
 [Course Overview](https://canvas.sfu.ca/courses/55288/files)
 
+### Quick Quiz
+[h5p]https://h5p.org/h5p/embed/213956[/h5p]  
+
 ### Recommended Reading
 
 [embedly]https://medium.springboard.com/a-guide-to-the-art-of-guerrilla-ux-testing-69a1411d34fb[/embedly]
