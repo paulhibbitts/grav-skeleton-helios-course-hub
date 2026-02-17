@@ -82,11 +82,12 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onThemeInitialized()
     {
-        // Override the version switcher label from "Version" to "Course"
+        // Override version switcher labels for course hub context
         $this->grav['languages']->mergeRecursive([
             'en' => [
                 'THEME_HELIOS' => [
                     'VERSION' => 'Course',
+                    'VERSION_LATEST' => 'default',
                 ],
             ],
         ]);
