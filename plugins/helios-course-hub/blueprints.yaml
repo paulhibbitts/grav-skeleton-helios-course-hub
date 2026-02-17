@@ -1,14 +1,14 @@
-name: Helios Course Hub Support
-slug: helios-course-hub-support
+name: Helios Course Hub
+slug: helios-course-hub
 type: plugin
 version: 1.0.0
-description: Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admin panel styling.
+description: Requires the Grav Premium Helios theme. Designed for use with the Grav Helios Course Hub skeleton, providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
 icon: plug
 author:
   name: Hibbitts Design
   email: paul@hibbittsdesign.org
   url: http://hibbittsdesign.org
-keywords: grav, plugin, helios, course-hub, assets, javascript
+keywords: grav, helios, courses 
 license: MIT
 
 dependencies:

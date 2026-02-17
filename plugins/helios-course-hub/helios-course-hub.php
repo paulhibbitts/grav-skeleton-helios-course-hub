@@ -6,7 +6,7 @@ namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
 
-class HeliosCourseHubSupportPlugin extends Plugin
+class HeliosCourseHubPlugin extends Plugin
 {
     /** @var bool Whether the configured theme is missing */
     protected $themeMissing = false;
@@ -60,7 +60,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
     public function onPageInitialized()
     {
         $assets = $this->grav['assets'];
-        $path = 'plugin://helios-course-hub-support/assets';
+        $path = 'plugin://helios-course-hub/assets';
 
         $assets->addCss("$path/admin.css");
         $assets->addJs("$path/admin.js");
@@ -77,7 +77,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
     public function onGetPageBlueprints($event)
     {
         $types = $event->types;
-        $types->scanBlueprints('plugin://helios-course-hub-support/blueprints');
+        $types->scanBlueprints('plugin://helios-course-hub/blueprints');
     }
 
     public function onThemeInitialized()
@@ -115,7 +115,7 @@ class HeliosCourseHubSupportPlugin extends Plugin
     public function onTwigSiteVariables()
     {
         $assets = $this->grav['assets'];
-        $path = 'plugin://helios-course-hub-support/assets';
+        $path = 'plugin://helios-course-hub/assets';
 
         $assets->addCss("$path/helios.css");
         $assets->addJs("$path/helios.js", ['group' => 'bottom', 'loading' => 'defer']);
