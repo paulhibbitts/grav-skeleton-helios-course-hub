@@ -76,7 +76,7 @@
 
 /* Font Awesome icon spacing */
 .prose i[class^="fa"] {
-    margin-right: 0.35em;
+    margin-right: 0.20em;
 }
 
 /* Responsive iframe/video containers */
@@ -100,11 +100,12 @@
 .prose p svg {
   position: relative;
   top: -1px;
-  margin-right: 1px;
+  margin-right: 0.10em;
 }
 
 /* Heading icons need a larger offset due to bigger font size */
 .prose :is(h1, h2, h3, h4, h5, h6) svg {
   position: relative;
   top: -2px;
+  margin-right: 0.10em;
 }
