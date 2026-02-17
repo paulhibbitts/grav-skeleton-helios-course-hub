@@ -1,12 +1,12 @@
 # Grav Skeleton Helios Course 
 
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). This [Grav CMS](https://getgrav.org) skeleton package is designed for creating open and collaborative course companion sites. Supports both single-course and multi-course configurations.
+
 ![](screenshot-1.png)
 Figure 1. Example Grav Helios Course Hub website, with a single course.
 
 ![](screenshot-2.png)
 Figure 2. Example Grav Helios Course Hub website, with multiple courses.
-
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). This [Grav CMS](https://getgrav.org) skeleton package is designed for creating open and collaborative course companion sites. Supports both single-course and multi-course configurations.
 
 ## Features
 
