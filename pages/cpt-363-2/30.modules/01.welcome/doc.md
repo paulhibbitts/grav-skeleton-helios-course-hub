@@ -22,6 +22,23 @@ Is this your first online course? If so, you might find these articles of help:
 * [What Makes a Successful Online Learner?](https://careerwise.minnstate.edu/education/successonline.html)
 * [Student toolkit to help tackle remote learning](https://socialmediaforlearning.com/2020/03/22/guest-post-a-student-toolkit-to-help-you-tackle-remote-learning-written-by-students-for-students/)
 
-[Usability 101: Introduction to Usability](https://www.nngroup.com/articles/usability-101-introduction-to-usability/?classes=link-preview&target=_blank)
+### Things To Do
+
+[doc-steps]
+[doc-step]
+Review the [Course Syllabus](/syllabus) and note key dates.
+[/doc-step]
+[doc-step]
+Look at this week's [Module](/modules) before our first class.
+[/doc-step]
+[doc-step]
+Explore the weekly [Schedule](/schedule) to see upcoming topics and readings.
+[/doc-step]
+[doc-step]
+Bookmark the [UX Techniques Guide](/ux-techniques-guide) for quick reference throughout the course.
+[/doc-step]
+[/doc-steps]
+
+### Introductory Reading
 
 <a class="embedly-card" data-card-controls="0" data-card-align="left" href="https://www.nngroup.com/articles/usability-101-introduction-to-usability/">Usability 101: Introduction to Usability</a>
