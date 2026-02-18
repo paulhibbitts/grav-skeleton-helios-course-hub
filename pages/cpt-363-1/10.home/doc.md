@@ -9,7 +9,8 @@ navigation:
 
 ## How to explore the problem space?
 
-[doc-grid]
+[doc-grid columns=1]
+
 [doc-card title="Important Reminders" icon="tabler/star.svg"]
 
 - [Journey Map](#) assignment due Tue Jun 12th 11:59pm PDT 
