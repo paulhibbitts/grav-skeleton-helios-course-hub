@@ -109,3 +109,8 @@
   top: -2px;
   margin-right: 0.10em;
 }
+
+/* Keep filled doc-button text color on hover */
+.prose a.doc-button:not(.doc-button-bordered):hover {
+    color: var(--color-primary-text);
+}

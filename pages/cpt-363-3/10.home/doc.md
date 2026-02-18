@@ -16,10 +16,13 @@ navigation:
 
 - [Course Reflection Log](#) assignment due Fri Aug 3rd 11:59pm PDT
 
+
 [/doc-card]
 [doc-card title="Required Reading" icon="tabler/book.svg"]
 
 - [The Skeptic’s Guide To Low-Fidelity Prototyping](https://www.smashingmagazine.com/2014/10/the-skeptics-guide-to-low-fidelity-prototyping/)
+
+[doc-button label="Required Reading Quiz due June 4th" link="https://canvas.sfu.ca/courses/55288/quizzes/123648" size="default"]
 
 [/doc-card]
 [/doc-grid]
