@@ -13,9 +13,9 @@ navigation:
 
 [doc-card title="Important Reminders" icon="tabler/star.svg"]
 
-- [Journey Map](#) assignment due Tue Jun 12th 11:59pm PDT 
+- [Journey Map](#) assignment [doc-badge label="Tue Jun 12th 11:59pm PDT" color="plain"]
 
-- [Course Reflection Log](#) assignment due Fri Aug 3rd 11:59pm PDT
+- [Course Reflection Log](#) assignment [doc-badge label="Fri Aug 3rd 11:59pm PDT" color="plain"]
 
 
 [/doc-card]
@@ -35,9 +35,9 @@ navigation:
 [doc-grid]
 [doc-card title="Required Reading" icon="tabler/book.svg"]
 
-- [Journey Map](#) assignment due Tue Jun 12th 11:59pm PDT
+- [Journey Map](#) assignment [doc-badge label="Tue Jun 12th 11:59pm PDT" color="plain"]
 
-- [Course Reflection Log](#) assignment due Fri Aug 3rd 11:59pm PDT
+- [Course Reflection Log](#) assignment [doc-badge label="Fri Aug 3rd 11:59pm PDT" color="plain"]
 
 [/doc-card]
 [doc-card title="Slides to be Discussed" icon="tabler/slideshow.svg"]
