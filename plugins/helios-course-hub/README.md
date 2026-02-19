@@ -1,6 +1,12 @@
-# Helios Course Hub Plugin
+# Grav Helios Course Hub Plugin
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Designed for use with the [Grav Helios Course Hub](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub) skeleton, providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Designed for use with the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
+
+![](screenshot-1.png)
+Figure 1. Example Grav Helios Course Hub website, with a single course.
+
+![](screenshot-2.png)
+Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
 ## Features
 

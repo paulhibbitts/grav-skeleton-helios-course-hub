@@ -6,6 +6,8 @@ description: Instructor user research review meetings in TBD, no regular class.
 taxonomy:
     category:
         - docs
+navigation:
+    toc_position: hidden
 ---
 
 ![9203760174_499895dece_k](9203760174_499895dece_k.jpg?cropZoom=800,300 "9203760174_499895dece_k")
