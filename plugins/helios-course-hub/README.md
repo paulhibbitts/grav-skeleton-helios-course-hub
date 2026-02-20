@@ -26,8 +26,11 @@ Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
 - `[iframe url="..."]` — Responsive iframe embed, 16:9 by default
 - `[iframe url="..." ratio="4:3"]` — Responsive iframe embed at 4:3 ratio
-- `[googleslides url="..."]` — Responsive Google Slides embed
-- `[pdf url="..."]` — PDF viewer via Google Docs
+- `[googleslides url="..."]` — Responsive Google Slides embed, 16:9 by default
+- `[googleslides url="..." ratio="4:3"]` — Responsive Google Slides embed at 4:3 ratio
+- `[pdf url="..."]` — PDF viewer via Google Docs, 16:9 by default
+- `[pdf url="..." ratio="4:3"]` — PDF viewer at 4:3 ratio
+- `[pdf url="..." ratio="portrait"]` — PDF viewer at portrait ratio (letter/A4)
 - `[h5p url="..."]` — H5P interactive content via full embed URL
 - `[h5p id="..."]` — H5P interactive content via Content ID (requires H5P Content Embed Source URL to be set in plugin settings)
 - `[embedly url="..."]` — Embedly card with dark mode support

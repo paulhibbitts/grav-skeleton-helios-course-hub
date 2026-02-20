@@ -11,41 +11,24 @@ class H5PShortcode extends Shortcode
         $this->shortcode->getHandlers()->add('h5p', function(ShortcodeInterface $sc) {
 
             // Get shortcode content and parameters
-            $str = $sc->getContent();
+            $h5pid  = $sc->getParameter('id', $sc->getBbCode());
+            $h5purl = $sc->getParameter('url', $sc->getBbCode()) ?: $sc->getContent();
 
-            $h5pid = $sc->getParameter('id', $sc->getBbCode());
+            // H5P resizer script handles iframe sizing dynamically
+            $resizer = '<script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>';
 
             if ($h5pid) {
-                $config = Grav::instance()['config'];
+                $config  = Grav::instance()['config'];
                 $h5proot = $config->get('plugins.helios-course-hub.h5pembedrootpath');
 
-                if (strpos($h5proot, 'h5p.com') !== false) {
-                    $output = '<p><iframe src="'.$h5proot.''.$h5pid.'/embed" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script></p>';
-                } else {
-                    $output = '<p><iframe src="'.$h5proot.''.$h5pid.'" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script></p>';
-                }
+                $embedurl = (strpos($h5proot, 'h5p.com') !== false)
+                    ? $h5proot . $h5pid . '/embed'
+                    : $h5proot . $h5pid;
 
-                return $output;
+                return '<p><iframe src="' . $embedurl . '" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe>' . $resizer . '</p>';
 
-            } else {
-
-                $h5purl= $sc->getParameter('url', $sc->getBbCode());
-
-                if ($h5purl) {
-                    $output = '<p><iframe src="'.$h5purl.'" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script></p>';
-
-                    return $output;
-
-                } else {
-
-                    if ($str) {
-                        $output = '<p><iframe src="'.$str.'" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script></p>';
-
-                        return $output;
-                    }
-
-                }
-
+            } elseif ($h5purl) {
+                return '<p><iframe src="' . $h5purl . '" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe>' . $resizer . '</p>';
             }
 
         });

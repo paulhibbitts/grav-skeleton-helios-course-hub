@@ -10,7 +10,7 @@ class iFrameShortcode extends Shortcode
         $this->shortcode->getHandlers()->add('iframe', function(ShortcodeInterface $sc) {
 
             // Get shortcode content and parameters
-            $iframeurl = $sc->getParameter('url', $sc->getBbCode());
+            $iframeurl = $sc->getParameter('url', $sc->getBbCode()) ?: $sc->getContent();
             $ratio     = $sc->getParameter('ratio', '16:9');
 
             // Map ratio parameter to CSS modifier class; default is 16:9

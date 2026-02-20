@@ -1,7 +1,6 @@
 <?php
 namespace Grav\Plugin\Shortcodes;
 
-use Grav\Common\Utils;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 class PDFShortcode extends Shortcode
@@ -11,23 +10,22 @@ class PDFShortcode extends Shortcode
         $this->shortcode->getHandlers()->add('pdf', function(ShortcodeInterface $sc) {
 
             // Get shortcode content and parameters
-            $str = $sc->getContent();
+            $pdfurl = $sc->getParameter('url', $sc->getBbCode()) ?: $sc->getContent();
+            $ratio  = $sc->getParameter('ratio', '16:9');
 
-            $pdfurl= $sc->getParameter('url', $sc->getBbCode());
+            // Map ratio parameter to CSS modifier class; default is 16:9
+            if ($ratio === '4:3') {
+                $ratioClass = ' responsive-container--4x3';
+            } elseif ($ratio === 'portrait') {
+                $ratioClass = ' responsive-container--portrait';
+            } else {
+                $ratioClass = '';
+            }
 
             if ($pdfurl) {
-                $output = '<p><div class="responsive-container"><iframe src="https://docs.google.com/gview?url='.$pdfurl.'&embedded=true" width="640" height="480"></iframe></div></p>';
+                $output = '<div class="responsive-container' . $ratioClass . '"><iframe src="https://docs.google.com/gview?url=' . $pdfurl . '&embedded=true"></iframe></div>';
 
                 return $output;
-
-              } else {
-
-                if ($str) {
-
-                    return '<p><div class="responsive-container"><iframe src="https://docs.google.com/gview?url='.$str.'&embedded=true" width="640" height="480"></iframe></div></p>';
-
-                }
-
             }
 
         });

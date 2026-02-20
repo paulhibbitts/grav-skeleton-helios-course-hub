@@ -91,6 +91,10 @@
     aspect-ratio: 4 / 3;
 }
 
+.responsive-container--portrait {
+    aspect-ratio: 8.5 / 11;
+}
+
 .responsive-container iframe {
     position: absolute;
     top: 0;
