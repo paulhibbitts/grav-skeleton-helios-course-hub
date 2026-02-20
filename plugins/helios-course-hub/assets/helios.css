@@ -87,6 +87,10 @@
     overflow: hidden
 }
 
+.responsive-container--4x3 {
+    aspect-ratio: 4 / 3;
+}
+
 .responsive-container iframe {
     position: absolute;
     top: 0;

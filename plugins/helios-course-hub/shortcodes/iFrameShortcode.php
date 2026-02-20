@@ -1,7 +1,6 @@
 <?php
 namespace Grav\Plugin\Shortcodes;
 
-use Grav\Common\Utils;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 class iFrameShortcode extends Shortcode
@@ -11,18 +10,14 @@ class iFrameShortcode extends Shortcode
         $this->shortcode->getHandlers()->add('iframe', function(ShortcodeInterface $sc) {
 
             // Get shortcode content and parameters
-            $str = $sc->getContent();
+            $iframeurl = $sc->getParameter('url', $sc->getBbCode());
+            $ratio     = $sc->getParameter('ratio', '16:9');
 
-            $iframeurl= $sc->getParameter('url', $sc->getBbCode());
-
-            $iframeratio= $sc->getParameter('aspectratio', $sc->getBbCode());
-
-            if (empty($iframeaspectratio)) {
-              $iframeaspectratio = "4by3";
-            }
+            // Map ratio parameter to CSS modifier class; default is 16:9
+            $ratioClass = ($ratio === '4:3') ? ' responsive-container--4x3' : '';
 
             if ($iframeurl) {
-                $output = '<p><div class="responsive-container"'.$iframeaspectratio.'"><iframe src="'.$iframeurl.'" width="640" height="480"></iframe></div></p>';
+                $output = '<div class="responsive-container' . $ratioClass . '"><iframe src="' . $iframeurl . '" allowfullscreen></iframe></div>';
 
                 return $output;
             }

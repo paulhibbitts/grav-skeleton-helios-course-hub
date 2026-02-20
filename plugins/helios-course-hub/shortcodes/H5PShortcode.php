@@ -2,7 +2,6 @@
 namespace Grav\Plugin\Shortcodes;
 
 use Grav\Common\Grav;
-use Grav\Common\Utils;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 class H5PShortcode extends Shortcode
@@ -18,7 +17,7 @@ class H5PShortcode extends Shortcode
 
             if ($h5pid) {
                 $config = Grav::instance()['config'];
-                $h5proot = $config->get('themes.' . $config->get('system.pages.theme') . '.h5pembedrootpath');
+                $h5proot = $config->get('plugins.helios-course-hub.h5pembedrootpath');
 
                 if (strpos($h5proot, 'h5p.com') !== false) {
                     $output = '<p><iframe src="'.$h5proot.''.$h5pid.'/embed" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script></p>';

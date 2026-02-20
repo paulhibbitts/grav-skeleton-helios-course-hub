@@ -8,10 +8,15 @@ Figure 1. Example Grav Helios Course Hub website, with a single course.
 ![](screenshot-2.png)
 Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
+## Installation
+
+1. Copy the `helios-course-hub` folder into `user/plugins/`
+2. The plugin is enabled by default via `helios-course-hub.yaml`
+
 ## Features
 
 - Course List page template with auto-generated course cards
-- Built-in shortcodes for embedding content (Google Slides, PDFs, H5P, Embedly)
+- Built-in shortcodes for embedding content (iFrames, Google Slides, PDFs, H5P, Embedly)
 - Embedly card support with automatic dark/light theme detection
 - Enhanced Admin Panel readability (increased font sizes, Editor Pro toolbar scaling)
 - Automatic theme detection with fallback to Quark if Helios is not installed
@@ -19,9 +24,12 @@ Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
 ## Shortcodes
 
+- `[iframe url="..."]` — Responsive iframe embed, 16:9 by default
+- `[iframe url="..." ratio="4:3"]` — Responsive iframe embed at 4:3 ratio
 - `[googleslides url="..."]` — Responsive Google Slides embed
 - `[pdf url="..."]` — PDF viewer via Google Docs
-- `[h5p url="..."]` or `[h5p id="..."]` — H5P interactive content
+- `[h5p url="..."]` — H5P interactive content via full embed URL
+- `[h5p id="..."]` — H5P interactive content via Content ID (requires H5P Content Embed Source URL to be set in plugin settings)
 - `[embedly url="..."]` — Embedly card with dark mode support
 
 ## Course List Page
