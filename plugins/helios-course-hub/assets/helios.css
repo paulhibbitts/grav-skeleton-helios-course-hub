@@ -1,9 +1,11 @@
 /* Helios CSS customizations */
 
 /* Left-align content area without altering margins */
+/*
 #main-content > div {
     min-width: 90%;
 }
+*/
 
 .prose blockquote.announcement {
     font-style: normal
