@@ -11,9 +11,7 @@ navigation:
 Some Name  
 [safe-email autolink="true"]somename@somewhere.edu[/safe-email]  
 
-Online office hours:  
-Mondays 12:00-1:30pm  
-Fridays 12:00-1:00pm  
+Online office hours are held on Mondays from 12:00–1:30pm and Fridays from 12:00–1:00pm via Zoom. Additional appointment times are available on request.
 
 Suggestion, concern or complaint?  
 [Anonymous Course Feedback](#)
