@@ -1,12 +1,51 @@
 # Grav Helios Course Hub Plugin
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Designed for use with the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Designed for use with the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
 
 ![](screenshot-1.png)
 Figure 1. Example Grav Helios Course Hub website, with a single course.
 
 ![](screenshot-2.png)
 Figure 2. Example Grav Helios Course Hub website, with multiple courses.
+
+## Demo Content
+
+The `_demo` folder contains a default Helios Course Hub site that can be used as a starting point. It includes two layouts:
+
+**Single-course site** (`_demo/pages/`):
+- `10.home/` — Course home page with weekly content cards
+- `20.essentials/` — Essential course links and resources
+- `30.modules/` — Weekly modules (Welcome + Modules 01–13), each with a header image
+- `40.schedule/` — Course schedule
+- `50.topics/` — Topics index
+- `60.resources/` — Resource list
+- `70.ux-techniques-guide/` — UX techniques reference guide
+- `80.syllabus/` — Course syllabus
+- `contact/` — Contact page
+- `copyright/` — Copyright notice
+
+**Multi-course site** (`_demo/pages/`):
+- `00.home-multicourse/` — Course list home page using the `courselist` template
+- `cpt-363-1/` — First course with the same section structure as the single-course layout
+- `cpt-363-2/` — Second course with the same section structure as the single-course layout
+- `cpt-363-3/` — Third course with the same section structure as the single-course layout
+
+To use the demo content, copy the contents of `_demo/pages/` into your Grav `user/pages/` folder.
+
+## Helios Theme Configuration
+
+If you are not using the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), add the following to `user/config/themes/helios.yaml` to configure course versioning and search:
+
+```yaml
+versioning:
+  version_pattern: '/^[a-zA-Z]+-?\d+([.-]\d+)*$/i'
+  labels:
+    cpt-363-1: CPT-363-1
+    cpt-363-2: CPT-363-2
+    cpt-363-3: CPT-363-3
+search:
+  placeholder: 'Search course...'
+```
 
 ## Installation
 
@@ -34,10 +73,44 @@ Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 - `[h5p url="..."]` — H5P interactive content via full embed URL
 - `[h5p id="..."]` — H5P interactive content via Content ID (requires H5P Content Embed Source URL to be set in plugin settings)
 - `[embedly url="..."]` — Embedly card with dark mode support
+- `[topics]...[/topics]` — Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
+
+### Topics Shortcode
+
+The `[topics]` shortcode wraps alphabetically organised content and auto-generates a full A–Z index at the top of the page. Letters with entries are rendered as anchor links; letters without entries are shown as dimmed plain text.
+
+```markdown
+# Topics
+
+[topics]
+## A
+[Agile UX](../modules/module-02)
+## D
+[Design Ethics](../modules/module-02)
+[Design Thinking](../modules/module-01)
+[/topics]
+```
 
 ## Course List Page
 
-The `courselist` page template automatically generates course cards from detected version folders. Each card displays a title, icon and description sourced from the course root folder's markdown file (e.g. `cpt-363/default.md`).
+The `courselist` page template automatically generates course cards from detected version folders. Each card displays a title, icon and description sourced from the course root folder's markdown file (e.g. `cpt-363-1/default.md`):
+
+```yaml
+---
+title: CPT-363
+icon: tabler/bulb.svg
+description: A basic introduction to UI/UX design.
+---
+```
+
+The number of cards per row can be set via `cards_per_row` (1–4) in the course list page frontmatter.
+
+## Multi-Course Folder Naming
+
+Course folders must start with one or more letters followed by a number. An optional hyphen can separate letters from the number, and additional version segments (separated by dots or hyphens) are supported.
+
+**Valid:** `cpt-363-1`, `course-1`, `course-section-2`  
+**Invalid:** `01.course` (starts with a digit), `course` (no number), `1course` (starts with a digit)
 
 ## Requirements
 
