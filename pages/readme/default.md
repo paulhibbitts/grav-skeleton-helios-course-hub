@@ -5,7 +5,7 @@ published: true
 
 # Grav Helios Course Hub Skeleton
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with Markdown-based content you fully own and control. Grav is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with content you fully own and control. Grav is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
 
 ## Who This Is For
 
@@ -14,7 +14,7 @@ The Helios Course Hub is a **course companion site** – a place to organise and
 It is well suited for tech-curious or tech-savvy educators and teams, including:
 - Individual educators wanting a clean, open companion site for one or more courses
 - Teams hosting shared course content, reference guides, or topic indexes
-- Anyone who prefers editing content in Markdown with full control over structure and hosting
+- Anyone who wants full control over their content, structure, and hosting
 
 ## Quick Start
 
@@ -22,7 +22,7 @@ The skeleton defaults to a **single-course setup** – the top-level folders in 
 
 1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub/releases/latest) package
 2. **Edit your pages** in `user/pages/` – start with `10.home/` and work through the pre-built single-course sections
-3. **Publish** – deploy to any PHP host or run locally; no database required
+3. **Publish** – deploy to any standard web host or run locally; no database required
 
 For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) section below.
 
@@ -30,15 +30,14 @@ For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) sect
 
 - Ready-to-use course companion website with the clean Helios theme
 - Support for single or multiple courses from one site
-- Customizable CSS and JavaScript via the bundled Helios Course Hub plugin
 - Built-in shortcodes for embedding content (iFrames, Google Slides, PDFs, H5P, Embedly)
-- Alphabetical topics index with auto-generated A–Z navigation
 - Responsive iframe/video containers with 16:9 aspect ratio
 - Embedly card support with automatic dark/light theme detection
-- Admin panel styling customizations (increased font sizes, Editor Pro toolbar scaling)
-- Announcement-style blockquotes with refined heading typography
+- Alphabetical topics index with auto-generated A–Z navigation
 - Git Sync plugin included for syncing site content with a GitHub or GitLab repository
 - Automatic "Edit this Page" link option provided by the Helios Theme
+- Customizable CSS and JavaScript via the bundled Helios Course Hub plugin
+- Admin panel styling customizations (increased font sizes, Editor Pro toolbar scaling)
 
 If you prefer not to write Markdown directly, the optional [Grav Premium Editor Pro](https://getgrav.org/premium/editor-pro) provides a visual block editor for editing pages.
 

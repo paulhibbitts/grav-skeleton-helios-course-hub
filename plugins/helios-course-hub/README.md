@@ -15,7 +15,7 @@ The Helios Course Hub is a **course companion site** – a place to organise and
 It is well suited for tech-curious or tech-savvy educators and teams, including:
 - Individual educators wanting a clean, open companion site for one or more courses
 - Teams hosting shared course content, reference guides, or topic indexes
-- Anyone who prefers editing content in Markdown with full control over structure and hosting
+- Anyone who wants full control over their content, structure, and hosting
 
 ## Quick Start
 
