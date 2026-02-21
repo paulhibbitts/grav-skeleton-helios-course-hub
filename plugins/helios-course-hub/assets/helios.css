@@ -137,3 +137,8 @@
     display: none;
 }
 */
+
+/* Increase body font size by 10% */
+:root {
+    font-size: 102%;
+}
