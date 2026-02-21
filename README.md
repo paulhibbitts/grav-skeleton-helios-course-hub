@@ -1,6 +1,6 @@
 # Grav Helios Course Hub Skeleton
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with Markdown-based content you fully own and control. [Grav](https://getgrav.org) is an open-source, flat-file CMS – no database required, with a built-in browser-based admin panel.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with Markdown-based content you fully own and control. [Grav](https://getgrav.org) is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
 
 ![](screenshot-1.png)
 Figure 1. Example Grav Helios Course Hub website, with a single course.
