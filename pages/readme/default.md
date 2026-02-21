@@ -107,6 +107,7 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 - [raw]`[pdf url="..."]`[/raw] — PDF viewer via Google Docs
 - [raw]`[h5p url="..."]`[/raw] or [raw]`[h5p id="..."]`[/raw] — H5P interactive content
 - [raw]`[embedly url="..."]`[/raw] — Embedly card with dark mode support
+- [raw]`[topics]...[/topics]`[/raw] — Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
 
 ### Theme Detection
 
