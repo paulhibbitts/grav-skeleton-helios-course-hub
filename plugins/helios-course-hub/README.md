@@ -80,6 +80,8 @@ search:
 - Git Sync plugin included in the skeleton for syncing site content with a GitHub or GitLab repository
 - Automatic "Edit this Page" link option provided by the Helios Theme
 
+If you prefer not to write Markdown directly, the optional [Grav Premium Editor Pro](https://getgrav.org/premium/editor-pro) provides a visual block editor for editing pages.
+
 ## Shortcodes
 
 - `[iframe url="..."]` – Responsive iframe embed, 16:9 by default

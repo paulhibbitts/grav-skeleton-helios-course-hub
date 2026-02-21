@@ -41,6 +41,8 @@ For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) sect
 - Git Sync plugin included for syncing site content with a GitHub or GitLab repository
 - Automatic "Edit this Page" link option provided by the Helios Theme
 
+If you prefer not to write Markdown directly, the optional [Grav Premium Editor Pro](https://getgrav.org/premium/editor-pro) provides a visual block editor for editing pages.
+
 ## Git Sync & Open Editing
 
 The skeleton includes the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync), which keeps your site content automatically in sync with a GitHub or GitLab repository. This enables a full open-authoring workflow:
