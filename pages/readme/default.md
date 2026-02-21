@@ -11,7 +11,7 @@ Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Th
 
 The Helios Course Hub is a **course companion site** — a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
 
-It is well suited for:
+It is well suited for tech-curious or tech-savvy educators and teams, including:
 - Individual educators wanting a clean, open companion site for one or more courses
 - Teams hosting shared course content, reference guides, or topic indexes
 - Anyone who prefers editing content in Markdown with full control over structure and hosting
@@ -37,6 +37,15 @@ For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) sect
 - Embedly card support with automatic dark/light theme detection
 - Admin panel styling customizations (increased font sizes, Editor Pro toolbar scaling)
 - Announcement-style blockquotes with refined heading typography
+- Git Sync plugin included for syncing site content with a GitHub or GitLab repository
+- Automatic "Edit this Page" link option provided by the Helios Theme
+
+## Git Sync & Open Editing
+
+The skeleton includes the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync), which keeps your site content automatically in sync with a GitHub or GitLab repository. This enables a full open-authoring workflow:
+
+- Content editors can work directly in the Grav Admin or commit changes via Git
+- The Helios Theme's **"Edit this Page"** option adds a link on each page that takes readers directly to the corresponding source file in your repository for quick edits or contributions
 
 ## Single Course Setup (Default)
 
