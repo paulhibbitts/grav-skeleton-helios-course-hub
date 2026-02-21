@@ -5,7 +5,7 @@ published: true
 
 # Grav Helios Course Hub Skeleton
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with content you fully own and control. Grav is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
+Give your course a clean, open home on the web – without building from scratch. This ready-to-run package provides a companion site for one or more courses, with content you fully own and control. It includes [Grav CMS](https://getgrav.org) – an open-source, flat-file CMS with no database required and a built-in browser-based Admin panel.
 
 ## Who This Is For
 
@@ -18,7 +18,7 @@ It is well suited for tech-curious or tech-savvy educators and teams, including:
 
 ## Quick Start
 
-The skeleton defaults to a **single-course setup** – the top-level folders in `user/pages/` are pre-configured and ready to use.
+The skeleton is a **complete, ready-to-run package** – Grav CMS, the Helios Course Hub plugin, and demo content are all included. It defaults to a **single-course setup** with the top-level folders in `user/pages/` pre-configured and ready to use.
 
 1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub/releases/latest) package
 2. **Enter your licenses** – enter your Helios and complimentary SVG Icons license keys (or import an existing license file), then install and activate the theme
