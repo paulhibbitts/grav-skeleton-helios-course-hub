@@ -37,7 +37,7 @@ For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) sect
 - Git Sync plugin included for syncing site content with a GitHub or GitLab repository
 - Automatic "Edit this Page" link option provided by the Helios Theme
 - Customizable CSS and JavaScript via the bundled Helios Course Hub plugin
-- Admin panel styling customizations (increased font sizes, Editor Pro toolbar scaling)
+- Admin panel styling customizations (increased font sizes and toolbar icon scaling)
 
 If you prefer not to write Markdown directly, the optional [Grav Premium Editor Pro](https://getgrav.org/premium/editor-pro) provides a visual block editor for editing pages.
 
@@ -131,7 +131,7 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 - **helios.js** – Embedly dark/light theme support with automatic CDN loading
 
 ### Admin Assets
-- **admin.css** – Increased Admin panel font sizes, Editor Pro toolbar icon scaling
+- **admin.css** – Increased Admin panel font sizes and toolbar icon scaling
 - **admin.js** – Admin panel JavaScript customizations
 
 ### Shortcodes

@@ -74,7 +74,7 @@ search:
 - Course List page template with auto-generated course cards
 - Built-in shortcodes for embedding content (iFrames, Google Slides, PDFs, H5P, Embedly)
 - Embedly card support with automatic dark/light theme detection
-- Enhanced Admin Panel readability (increased font sizes, Editor Pro toolbar scaling)
+- Enhanced Admin Panel readability (increased font sizes and toolbar icon scaling)
 - Automatic theme detection with fallback to Quark if Helios is not installed
 - Overrides the Helios "Version" label to "Course" for multi-course setups
 - Git Sync plugin included in the skeleton for syncing site content with a GitHub or GitLab repository
