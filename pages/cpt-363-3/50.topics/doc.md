@@ -8,40 +8,39 @@ navigation:
 
 # Topics
 
-##### [A](#a) | B | C | [D](#d) | E | [F](#f) | G | [H](#h) | I | [J](#j) | [K](#k) | [L](#l) | [M](#m) | N | O | [P](#p) | Q | R | [S](#s) | [T](#t) | [U](#u) | [V](#v) | W | X | Y | Z  
-
-### A
+[topics]
+## A
 [Agile UX](../modules/module-02)  
 
-### D
+## D
 [Design Ethics](../modules/module-02)  
 [Design Thinking](../modules/module-01)  
 
-### F
+## F
 [5-Second Test](../modules/module-04)   
 [Five Whys](../modules/module-01)  
 
-### H
+## H
 [Hypothesis](../modules/module-02)  
 
-### J
+## J
 [Journey Maps](../modules/module-03)  
 
-### K
+## K
 [Kano Model](../modules/module-03)  
 
-### L
+## L
 [Lean UX](../modules/module-02)  
 
-### M
+## M
 [Microsoft Product Reaction Cards](../modules/module-02)  
 
-### P
+## P
 [Problem Statement](../modules/module-03)  
 [Product Design Principles](../modules/module-03)  
 [Prototyping](../modules/module-04)   
 
-### S
+## S
 [Scenario-based Design (and Task-Centered Design)](../modules/module-04)  
 [Scenarios (and Design Scenarios)](../modules/module-04)  
 [Sketching](../modules/module-04)
@@ -49,10 +48,10 @@ navigation:
 [Software Design Processes](../modules/module-02)  
 [Storyboards](../modules/module-04)  
 
-### T
+## T
 [Task Analysis](../modules/module-02)  
 
-### U
+## U
 [Usability](../modules/module-01)  
 [Usability Goals](../modules/module-02)  
 [Usability Testing](../modules/module-05)   
@@ -61,5 +60,6 @@ navigation:
 [UX Goals](../modules/module-02)  
 [UX Strategy](../modules/module-03)  
 
-### V
+## V
 [Value Proposition](../modules/module-03)  
+[/topics]

@@ -130,6 +130,39 @@
     color: var(--color-primary-text);
 }
 
+/* Topics shortcode - alphabetical index */
+.topics-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.topics-index a {
+    color: var(--color-primary);
+    padding: 0 2px;
+}
+
+.topics-index-inactive {
+    opacity: 0.35;
+    padding: 0 2px;
+}
+
+/* Topics shortcode - letter section labels */
+.topics-letter {
+    display: block;
+    width: 2em;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    padding: 0.1em 0.25em;
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    scroll-margin-top: 4rem;
+}
+
 /* Hide logo icon container - uncomment to use */
 /*
 .flex.items-center.justify-center.w-8.h-8.rounded-lg.bg-primary,
