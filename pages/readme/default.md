@@ -28,7 +28,7 @@ For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) sect
 
 ## Features
 
-- Ready-to-use course companion website with the modern Helios theme
+- Ready-to-use course companion website with the clean Helios theme
 - Support for single or multiple courses from one site
 - Customizable CSS and JavaScript via the bundled Helios Course Hub plugin
 - Built-in shortcodes for embedding content (iFrames, Google Slides, PDFs, H5P, Embedly)
