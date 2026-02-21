@@ -8,12 +8,30 @@ Figure 1. Example Grav Helios Course Hub website, with a single course.
 ![](screenshot-2.png)
 Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
+## Who This Is For
+
+The Helios Course Hub is a **course companion site** — a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
+
+It is well suited for:
+- Individual educators wanting a clean, open companion site for one or more courses
+- Teams hosting shared course content, reference guides, or topic indexes
+- Anyone who prefers editing content in Markdown with full control over structure and hosting
+
+## Quick Start
+
+1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub) package
+2. **Edit your pages** in `user/pages/` — start with `10.home/` and work through the pre-built sections
+3. **Publish** — deploy to any PHP host or run locally; no database required
+
+For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) section below.
+
 ## Features
 
 - Ready-to-use course companion website with the modern Helios theme
 - Support for single or multiple courses from one site
-- Customizable CSS and JavaScript via the bundled Helios Course Hub Support plugin
-- Built-in shortcodes for embedding content (Google Slides, PDFs, H5P, Embedly)
+- Customizable CSS and JavaScript via the bundled Helios Course Hub plugin
+- Built-in shortcodes for embedding content (iFrames, Google Slides, PDFs, H5P, Embedly)
+- Alphabetical topics index with auto-generated A–Z navigation
 - Responsive iframe/video containers with 16:9 aspect ratio
 - Embedly card support with automatic dark/light theme detection
 - Admin panel styling customizations (increased font sizes, Editor Pro toolbar scaling)
@@ -25,16 +43,20 @@ This skeleton is pre-configured for a single-course setup — no changes needed.
 
 ```
 user/pages/
-├── 01.home/
-├── 02.getting-started/
-├── 03.schedule/
-├── 04.topics/
-├── 05.resources/
-└── 06.contact/
+├── 10.home/
+├── 20.essentials/
+├── 30.modules/
+├── 40.schedule/
+├── 50.topics/
+├── 60.resources/
+├── 70.ux-techniques-guide/
+├── 80.syllabus/
+├── contact/
+└── copyright/
 ```
 
 If switching back from a multi-course setup, make the following changes:
-1. Set the site home page to `01.home`
+1. Set the site home page to `10.home`
 2. For the page `00.home-multicourse` set **Published** to `false`
 3. Disable **Versioning** in Helios Theme settings
 
@@ -48,27 +70,22 @@ To host multiple courses from one Grav installation, make the following changes:
 
 ```
 user/pages/
-├── cpt-263/          # Course 1
-│   ├── 01.home/
-│   ├── 02.modules/
-│   ├── 03.schedule/
+├── cpt-363-1/          # Course 1
+│   ├── 10.home/
+│   ├── 20.essentials/
+│   ├── 30.modules/
 │   └── ...
-├── cpt-363/          # Course 2
-│   ├── 01.home/
-│   ├── 02.getting-started/
-│   ├── 03.schedule/
+├── cpt-363-2/          # Course 2
 │   └── ...
-└── cpt-463/          # Course 3
+└── cpt-363-3/          # Course 3
     └── ...
 ```
-
-The site home page is set to `00.home-multicourse`, and confirm that **published** of `00.home-multicourse` to `true`. The Helios Theme setting for **Versioning** must be enabled.
 
 ## Multi-Course Folder Naming
 
 Course version folders must start with one or more letters, followed by a number. An optional hyphen can separate the letters from the number. Additional version segments (separated by dots or hyphens) are supported.
 
-**Valid names:** `course-1`, `course-2`, `course-section-1`, `course-section-2`
+**Valid names:** `cpt-363-1`, `course-1`, `course-section-1`, `course-section-2`
 
 **Invalid names:** `01.course` (starts with a digit), `course` (no number), `1course` (starts with a digit)
 
@@ -84,9 +101,9 @@ Multi-course setups include a **Course List** page template (`courselist`) that 
 
 To customize a course card, add `icon` and `description` to the frontmatter of the course root folder's markdown file (e.g. `cpt-363-1/default.md`):
 
-```
+```yaml
 ---
-title: Home
+title: CPT-363
 icon: tabler/bulb.svg
 description: A basic introduction to UI/UX design.
 ---
@@ -94,7 +111,7 @@ description: A basic introduction to UI/UX design.
 
 The number of cards per row can be set via `cards_per_row` (1–4) in the course list page frontmatter.
 
-## Included Plugin: Helios Course Hub Support
+## Included Plugin: Helios Course Hub
 
 Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admin panel styling.
 
@@ -107,10 +124,14 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 - **admin.js** — Admin panel JavaScript customizations
 
 ### Shortcodes
+- `[iframe url="..."]` — Responsive iframe embed, 16:9 by default
+- `[iframe url="..." ratio="4:3"]` — Responsive iframe embed at 4:3 ratio
 - `[googleslides url="..."]` — Responsive Google Slides embed
 - `[pdf url="..."]` — PDF viewer via Google Docs
+- `[pdf url="..." ratio="portrait"]` — PDF viewer at portrait ratio (letter/A4)
 - `[h5p url="..."]` or `[h5p id="..."]` — H5P interactive content
 - `[embedly url="..."]` — Embedly card with dark mode support
+- `[topics]...[/topics]` — Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
 
 ### Theme Detection
 
@@ -128,5 +149,5 @@ MIT — Hibbitts Design
 
 <hr>
 
-Want to no longer display this page on your site?  
+Want to no longer display this page on your site?
 Go to **Helios Theme Settings > Appearance**, scroll down to the bottom of the page and delete the **Header Menu** item **ReadMe**.
