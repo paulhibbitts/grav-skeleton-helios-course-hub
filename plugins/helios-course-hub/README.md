@@ -8,6 +8,21 @@ Figure 1. Example Grav Helios Course Hub website, with a single course.
 ![](screenshot-2.png)
 Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
+## Who This Is For
+
+The Helios Course Hub is a **course companion site** — a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
+
+It is well suited for:
+- Individual educators wanting a clean, open companion site for one or more courses
+- Teams hosting shared course content, reference guides, or topic indexes
+- Anyone who prefers editing content in Markdown with full control over structure and hosting
+
+## Quick Start
+
+The recommended starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), which includes this plugin, demo content, and all required configuration out of the box.
+
+To install the plugin manually, see the [Installation](#installation) and [Demo Content](#demo-content) sections below.
+
 ## Demo Content
 
 The `_demo` folder contains a default Helios Course Hub site that can be used as a starting point. It includes two layouts:
