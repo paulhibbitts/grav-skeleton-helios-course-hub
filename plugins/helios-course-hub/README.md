@@ -19,7 +19,7 @@ It is well suited for tech-curious or tech-savvy educators and teams, including:
 
 ## Quick Start
 
-The recommended starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), which includes this plugin, demo content, and all required configuration out of the box.
+The recommended starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub/releases/latest), which includes this plugin, demo content, and all required configuration out of the box.
 
 The skeleton defaults to a **single-course setup** – the top-level folders in `user/pages/` are pre-configured and ready to use.
 
