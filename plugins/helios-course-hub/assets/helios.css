@@ -140,5 +140,11 @@
 
 /* Increase body font size by 10% */
 :root {
-    font-size: 102%;
+    font-size: 102%!important;
+}
+
+/* Increase body font size by 10% */
+.doc-card p,
+.doc-card span {
+    font-size: 102%!important;
 }
