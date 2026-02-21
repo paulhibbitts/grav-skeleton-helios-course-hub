@@ -1,6 +1,6 @@
 # Grav Helios Course Hub Plugin
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. Designed for use with the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability. [Grav](https://getgrav.org) is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. Designed for use with the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability. Grav is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
 
 ![](screenshot-1.png)
 Figure 1. Example Grav Helios Course Hub website, with a single course.

@@ -5,7 +5,7 @@ published: true
 
 # Grav Helios Course Hub Skeleton
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with Markdown-based content you fully own and control. [Grav](https://getgrav.org) is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with Markdown-based content you fully own and control. Grav is an open-source, flat-file CMS – no database required, with a built-in browser-based Admin panel.
 
 ## Who This Is For
 
@@ -113,8 +113,9 @@ Multi-course setups include a **Course List** page template (`courselist`) that 
 
 To customize a course card, add `icon` and `description` to the frontmatter of the course root folder's markdown file (e.g. `cpt-363-1/default.md`):
 
-```
+```yaml
 ---
+title: CPT-363
 icon: tabler/bulb.svg
 description: A basic introduction to UI/UX design.
 ---
