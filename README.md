@@ -1,6 +1,6 @@
 # Grav Helios Course Hub Skeleton
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web — without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with Markdown-based content you fully own and control.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. This [Grav CMS](https://getgrav.org) skeleton is a ready-to-use companion site for one or more courses, with Markdown-based content you fully own and control.
 
 ![](screenshot-1.png)
 Figure 1. Example Grav Helios Course Hub website, with a single course.
@@ -10,7 +10,7 @@ Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
 ## Who This Is For
 
-The Helios Course Hub is a **course companion site** — a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
+The Helios Course Hub is a **course companion site** – a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
 
 It is well suited for tech-curious or tech-savvy educators and teams, including:
 - Individual educators wanting a clean, open companion site for one or more courses
@@ -19,11 +19,11 @@ It is well suited for tech-curious or tech-savvy educators and teams, including:
 
 ## Quick Start
 
-The skeleton defaults to a **single-course setup** — the top-level folders in `user/pages/` are pre-configured and ready to use.
+The skeleton defaults to a **single-course setup** – the top-level folders in `user/pages/` are pre-configured and ready to use.
 
 1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub) package
-2. **Edit your pages** in `user/pages/` — start with `10.home/` and work through the pre-built single-course sections
-3. **Publish** — deploy to any PHP host or run locally; no database required
+2. **Edit your pages** in `user/pages/` – start with `10.home/` and work through the pre-built single-course sections
+3. **Publish** – deploy to any PHP host or run locally; no database required
 
 For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) section below.
 
@@ -50,7 +50,7 @@ The skeleton includes the [Git Sync plugin](https://github.com/trilbymedia/grav-
 
 ## Single Course Setup (Default)
 
-This skeleton is pre-configured for a single-course setup — no changes needed. Just start editing your pages:
+This skeleton is pre-configured for a single-course setup – no changes needed. Just start editing your pages:
 
 ```
 user/pages/
@@ -127,22 +127,22 @@ The number of cards per row can be set via `cards_per_row` (1–4) in the course
 Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admin panel styling.
 
 ### Frontend Assets
-- **helios.css** — Theme styling (announcement blockquotes, heading typography, Font Awesome spacing, responsive containers)
-- **helios.js** — Embedly dark/light theme support with automatic CDN loading
+- **helios.css** – Theme styling (announcement blockquotes, heading typography, Font Awesome spacing, responsive containers)
+- **helios.js** – Embedly dark/light theme support with automatic CDN loading
 
 ### Admin Assets
-- **admin.css** — Increased Admin panel font sizes, Editor Pro toolbar icon scaling
-- **admin.js** — Admin panel JavaScript customizations
+- **admin.css** – Increased Admin panel font sizes, Editor Pro toolbar icon scaling
+- **admin.js** – Admin panel JavaScript customizations
 
 ### Shortcodes
-- `[iframe url="..."]` — Responsive iframe embed, 16:9 by default
-- `[iframe url="..." ratio="4:3"]` — Responsive iframe embed at 4:3 ratio
-- `[googleslides url="..."]` — Responsive Google Slides embed
-- `[pdf url="..."]` — PDF viewer via Google Docs
-- `[pdf url="..." ratio="portrait"]` — PDF viewer at portrait ratio (letter/A4)
-- `[h5p url="..."]` or `[h5p id="..."]` — H5P interactive content
-- `[embedly url="..."]` — Embedly card with dark mode support
-- `[topics]...[/topics]` — Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
+- `[iframe url="..."]` – Responsive iframe embed, 16:9 by default
+- `[iframe url="..." ratio="4:3"]` – Responsive iframe embed at 4:3 ratio
+- `[googleslides url="..."]` – Responsive Google Slides embed
+- `[pdf url="..."]` – PDF viewer via Google Docs
+- `[pdf url="..." ratio="portrait"]` – PDF viewer at portrait ratio (letter/A4)
+- `[h5p url="..."]` or `[h5p id="..."]` – H5P interactive content
+- `[embedly url="..."]` – Embedly card with dark mode support
+- `[topics]...[/topics]` – Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
 
 ### Theme Detection
 
@@ -156,7 +156,7 @@ If the Helios theme is not installed, the plugin automatically falls back to the
 
 ## License
 
-MIT — Hibbitts Design
+MIT – Hibbitts Design
 
 <hr>
 

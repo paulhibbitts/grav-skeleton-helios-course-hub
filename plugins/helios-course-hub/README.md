@@ -1,6 +1,6 @@
 # Grav Helios Course Hub Plugin
 
-Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web — without building from scratch. Designed for use with the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
+Requires the [Grav Premium Helios theme](https://getgrav.org/premium/helios). Give your course a clean, open home on the web – without building from scratch. Designed for use with the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
 
 ![](screenshot-1.png)
 Figure 1. Example Grav Helios Course Hub website, with a single course.
@@ -10,7 +10,7 @@ Figure 2. Example Grav Helios Course Hub website, with multiple courses.
 
 ## Who This Is For
 
-The Helios Course Hub is a **course companion site** — a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
+The Helios Course Hub is a **course companion site** – a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
 
 It is well suited for tech-curious or tech-savvy educators and teams, including:
 - Individual educators wanting a clean, open companion site for one or more courses
@@ -21,7 +21,7 @@ It is well suited for tech-curious or tech-savvy educators and teams, including:
 
 The recommended starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub), which includes this plugin, demo content, and all required configuration out of the box.
 
-The skeleton defaults to a **single-course setup** — the top-level folders in `user/pages/` are pre-configured and ready to use.
+The skeleton defaults to a **single-course setup** – the top-level folders in `user/pages/` are pre-configured and ready to use.
 
 To install the plugin manually, see the [Installation](#installation) and [Demo Content](#demo-content) sections below.
 
@@ -30,22 +30,22 @@ To install the plugin manually, see the [Installation](#installation) and [Demo 
 The `_demo` folder contains a default Helios Course Hub site that can be used as a starting point. It includes two layouts:
 
 **Single-course site** (`_demo/pages/`):
-- `10.home/` — Course home page with weekly content cards
-- `20.essentials/` — Essential course links and resources
-- `30.modules/` — Weekly modules (Welcome + Modules 01–13), each with a header image
-- `40.schedule/` — Course schedule
-- `50.topics/` — Topics index
-- `60.resources/` — Resource list
-- `70.ux-techniques-guide/` — UX techniques reference guide
-- `80.syllabus/` — Course syllabus
-- `contact/` — Contact page
-- `copyright/` — Copyright notice
+- `10.home/` – Course home page with weekly content cards
+- `20.essentials/` – Essential course links and resources
+- `30.modules/` – Weekly modules (Welcome + Modules 01–13), each with a header image
+- `40.schedule/` – Course schedule
+- `50.topics/` – Topics index
+- `60.resources/` – Resource list
+- `70.ux-techniques-guide/` – UX techniques reference guide
+- `80.syllabus/` – Course syllabus
+- `contact/` – Contact page
+- `copyright/` – Copyright notice
 
 **Multi-course site** (`_demo/pages/`):
-- `00.home-multicourse/` — Course list home page using the `courselist` template
-- `cpt-363-1/` — First course with the same section structure as the single-course layout
-- `cpt-363-2/` — Second course with the same section structure as the single-course layout
-- `cpt-363-3/` — Third course with the same section structure as the single-course layout
+- `00.home-multicourse/` – Course list home page using the `courselist` template
+- `cpt-363-1/` – First course with the same section structure as the single-course layout
+- `cpt-363-2/` – Second course with the same section structure as the single-course layout
+- `cpt-363-3/` – Third course with the same section structure as the single-course layout
 
 To use the demo content, copy the contents of `_demo/pages/` into your Grav `user/pages/` folder.
 
@@ -82,17 +82,17 @@ search:
 
 ## Shortcodes
 
-- `[iframe url="..."]` — Responsive iframe embed, 16:9 by default
-- `[iframe url="..." ratio="4:3"]` — Responsive iframe embed at 4:3 ratio
-- `[googleslides url="..."]` — Responsive Google Slides embed, 16:9 by default
-- `[googleslides url="..." ratio="4:3"]` — Responsive Google Slides embed at 4:3 ratio
-- `[pdf url="..."]` — PDF viewer via Google Docs, 16:9 by default
-- `[pdf url="..." ratio="4:3"]` — PDF viewer at 4:3 ratio
-- `[pdf url="..." ratio="portrait"]` — PDF viewer at portrait ratio (letter/A4)
-- `[h5p url="..."]` — H5P interactive content via full embed URL
-- `[h5p id="..."]` — H5P interactive content via Content ID (requires H5P Content Embed Source URL to be set in plugin settings)
-- `[embedly url="..."]` — Embedly card with dark mode support
-- `[topics]...[/topics]` — Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
+- `[iframe url="..."]` – Responsive iframe embed, 16:9 by default
+- `[iframe url="..." ratio="4:3"]` – Responsive iframe embed at 4:3 ratio
+- `[googleslides url="..."]` – Responsive Google Slides embed, 16:9 by default
+- `[googleslides url="..." ratio="4:3"]` – Responsive Google Slides embed at 4:3 ratio
+- `[pdf url="..."]` – PDF viewer via Google Docs, 16:9 by default
+- `[pdf url="..." ratio="4:3"]` – PDF viewer at 4:3 ratio
+- `[pdf url="..." ratio="portrait"]` – PDF viewer at portrait ratio (letter/A4)
+- `[h5p url="..."]` – H5P interactive content via full embed URL
+- `[h5p id="..."]` – H5P interactive content via Content ID (requires H5P Content Embed Source URL to be set in plugin settings)
+- `[embedly url="..."]` – Embedly card with dark mode support
+- `[topics]...[/topics]` – Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
 
 ### Topics Shortcode
 
@@ -139,4 +139,4 @@ Course folders must start with one or more letters followed by a number. An opti
 
 ## License
 
-MIT — Hibbitts Design
+MIT – Hibbitts Design
