@@ -21,6 +21,9 @@ It is well suited for tech-curious or tech-savvy educators and teams, including:
 
 The recommended starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub/releases/latest), which includes this plugin, demo content, and all required configuration out of the box.
 
+1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub/releases/latest) package
+2. **Enter your licenses** – in the Grav Admin, enter your Helios and SVG Icons license keys or import an existing license file, then install and activate the Helios theme
+
 The skeleton defaults to a **single-course setup** – the top-level folders in `user/pages/` are pre-configured and ready to use.
 
 To install the plugin manually, see the [Installation](#installation) and [Demo Content](#demo-content) sections below.

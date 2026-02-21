@@ -21,8 +21,9 @@ It is well suited for tech-curious or tech-savvy educators and teams, including:
 The skeleton defaults to a **single-course setup** – the top-level folders in `user/pages/` are pre-configured and ready to use.
 
 1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub/releases/latest) package
-2. **Edit your pages** in `user/pages/` – start with `10.home/` and work through the pre-built single-course sections
-3. **Publish** – deploy to any standard web host or run locally; no database required
+2. **Enter your licenses** – in the Grav Admin, enter your Helios and SVG Icons license keys or import an existing license file, then install and activate the Helios theme
+3. **Edit your pages** in `user/pages/` – start with `10.home/` and work through the pre-built single-course sections
+4. **Publish** – deploy to any standard web host or run locally; no database required
 
 For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) section below.
 
