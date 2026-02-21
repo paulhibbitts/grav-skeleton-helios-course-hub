@@ -18,8 +18,10 @@ It is well suited for:
 
 ## Quick Start
 
+The skeleton defaults to a **single-course setup** — the top-level folders in `user/pages/` are pre-configured and ready to use.
+
 1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub) package
-2. **Edit your pages** in `user/pages/` — start with `10.home/` and work through the pre-built sections
+2. **Edit your pages** in `user/pages/` — start with `10.home/` and work through the pre-built single-course sections
 3. **Publish** — deploy to any PHP host or run locally; no database required
 
 For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) section below.
