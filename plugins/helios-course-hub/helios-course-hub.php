@@ -82,12 +82,19 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onThemeInitialized()
     {
-        // Override version switcher labels for course hub context
+        // Override version switcher labels for course hub context,
+        // using the active language's translated values so additional
+        // languages are supported simply by adding a languages/[code].yaml file
+        $lang       = $this->grav['language'];
+        $activeLang = $lang->getLanguage() ?: 'en';
+        $courseLabel = $lang->translate('PLUGIN_HELIOS_COURSE_HUB.COURSE_LABEL');
+        $latestLabel = $lang->translate('PLUGIN_HELIOS_COURSE_HUB.COURSE_LATEST_LABEL');
+
         $this->grav['languages']->mergeRecursive([
-            'en' => [
+            $activeLang => [
                 'THEME_HELIOS' => [
-                    'VERSION' => 'Course',
-                    'VERSION_LATEST' => 'default',
+                    'VERSION'        => $courseLabel,
+                    'VERSION_LATEST' => $latestLabel,
                 ],
             ],
         ]);
