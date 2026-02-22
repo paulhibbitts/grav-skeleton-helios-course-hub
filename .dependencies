@@ -26,7 +26,7 @@ git:
     git-sync:
         url: https://github.com/trilbymedia/grav-plugin-git-sync
         path: user/plugins/git-sync
-        branch: master
+        branch: main
     license-manager:
         url: https://github.com/getgrav/grav-plugin-license-manager
         path: user/plugins/license-manager
