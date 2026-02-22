@@ -84,7 +84,7 @@ class HeliosCourseHubPlugin extends Plugin
     {
         // Override version switcher labels for course hub context,
         // using the active language's translated values so additional
-        // languages are supported simply by adding a languages/[code].yaml file
+        // languages are supported by adding entries to languages.yaml
         $lang       = $this->grav['language'];
         $activeLang = $lang->getLanguage() ?: 'en';
         $courseLabel = $lang->translate('PLUGIN_HELIOS_COURSE_HUB.COURSE_LABEL');
