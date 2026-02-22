@@ -79,7 +79,7 @@ search:
 - Embedly card support with automatic dark/light theme detection
 - Enhanced Admin Panel readability (increased font sizes and toolbar icon scaling)
 - Automatic theme detection with fallback to Quark if Helios is not installed
-- Overrides the Helios "Version" label to "Course" for multi-course setups
+- Overrides the Helios "Version" label to "Course" for multi-course setups — customizable via `languages.yaml`
 - Git Sync plugin included in the skeleton for syncing site content with a GitHub or GitLab repository
 - Automatic "Edit this Page" link option provided by the Helios Theme
 
@@ -135,6 +135,24 @@ Course folders must start with one or more letters followed by a number. An opti
 
 **Valid:** `cpt-363-1`, `course-1`, `course-section-2`  
 **Invalid:** `01.course` (starts with a digit), `course` (no number), `1course` (starts with a digit)
+
+## Course Label Customization
+
+The Course dropdown label and its default fallback can be customized in `languages.yaml`. English and French are included:
+
+```yaml
+en:
+  PLUGIN_HELIOS_COURSE_HUB:
+    COURSE_LABEL: Course
+    COURSE_LATEST_LABEL: default
+
+fr:
+  PLUGIN_HELIOS_COURSE_HUB:
+    COURSE_LABEL: Cours
+    COURSE_LATEST_LABEL: défaut
+```
+
+To customize the label or add a language, update the relevant block in `languages.yaml`.
 
 ## Requirements
 

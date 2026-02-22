@@ -150,6 +150,10 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 
 If the Helios theme is not installed, the plugin automatically falls back to the Quark theme, redirects visitors to the Admin Themes page, and displays a warning banner prompting you to install Helios.
 
+### Course Label Customization
+
+The Course dropdown label can be customized in the plugin's `languages.yaml` — English and French are included by default.
+
 ## Requirements
 
 - PHP >= 7.3.6
