@@ -24,7 +24,7 @@ The skeleton is a **complete, ready-to-run package** – Grav CMS, the Helios Co
 1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/paulhibbitts/grav-skeleton-helios-course-hub/releases/latest) package
 2. **Enter your licenses** – enter your Helios and complimentary SVG Icons license keys (or import an existing license file), then install and activate the theme
 3. **Edit your pages** in `user/pages/` – start with `10.home/` and work through the pre-built single-course sections
-4. **Publish** – deploy to any standard web host or run locally; no database required
+4. **Publish** – works on almost any web server (PHP 7.3.6+) or run locally; no database required
 
 For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) section below.
 
@@ -152,6 +152,7 @@ If the Helios theme is not installed, the plugin automatically falls back to the
 
 ## Requirements
 
+- PHP >= 7.3.6
 - Grav CMS >= 1.7.0
 - [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – your purchase directly supports ongoing development of the open-source Grav CMS
 - Shortcode Core plugin >= 5.0.0

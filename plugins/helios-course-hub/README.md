@@ -138,6 +138,7 @@ Course folders must start with one or more letters followed by a number. An opti
 
 ## Requirements
 
+- PHP >= 7.3.6
 - Grav CMS >= 1.7.0
 - [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – your purchase directly supports ongoing development of the open-source Grav CMS
 - Shortcode Core plugin >= 5.0.0
