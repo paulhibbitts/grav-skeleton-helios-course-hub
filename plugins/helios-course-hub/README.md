@@ -140,8 +140,7 @@ Course folders must start with one or more letters followed by a number. An opti
 
 - PHP >= 7.3.6
 - Grav CMS >= 1.7.0
-- [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – one license per site; your purchase directly supports ongoing development of the open-source Grav CMS
-- [Grav Premium License](https://getgrav.org/premium/license) – Standard or Team license; covers personal sites and client projects
+- [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – one license per site ([Standard or Team](https://getgrav.org/premium/license)); your purchase directly supports ongoing development of the open-source Grav CMS
 - Shortcode Core plugin >= 5.0.0
 
 ## License
